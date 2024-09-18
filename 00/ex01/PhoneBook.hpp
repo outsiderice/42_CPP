@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 08:52:31 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/18 09:13:30 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/18 09:26:09 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,3 +20,5 @@ class PhoneBook
 		PhoneBook(void);
 		~PhoneBook(void);
 };
+
+#endif
