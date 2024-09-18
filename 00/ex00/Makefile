@@ -14,7 +14,7 @@ DIR_DUP = mkdir -p $(@D)
 
 all: $(NAME)
 
-$(BUILD_DIR)/%.o: %.cpp
+$(BUILD_DIR)/%.o: %.cpp Makefile
 	$(DIR_DUP)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 	@echo "Created $@"
@@ -31,9 +31,7 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re:
-	$(MAKE) fclean
-	$(MAKE) all
+re: fclean all
 
 .PHONY: all clean fclean re
 .SILENT:
