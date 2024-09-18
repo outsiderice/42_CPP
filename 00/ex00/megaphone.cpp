@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:38:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/17 15:26:34 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/18 08:43:00 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 			str = static_cast<std::string>(argv[i]);
 			std::cout << str_toupper(str);	
 		}
+		std::cout << std::endl;
 	}
 	return (0);
 }

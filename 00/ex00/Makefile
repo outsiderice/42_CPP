@@ -1,54 +1,37 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/17 10:14:01 by amagnell          #+#    #+#              #
-#    Updated: 2024/09/17 11:36:40 by amagnell         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME = megaphone
 
-#~~~~~~~~~~~~~~~TARGETS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-NAME =		megaphone
+SRC = megaphone.cpp
 
-#~~~~~~~~~~~~~~~FILES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-SRC =		megaphone.cpp
+BUILD_DIR = .build
+OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
+DEP = $(OBJ:%.o=%.d)
 
-#~~~~~~~~~~~~~~~OBJS & DEPS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-BUILD_DIR =	.build
-OBJ =		$(SRC:%.c=$(BUILD_DIR)/%.o)
-DEP =		$(OBJ:%.o=%.d)
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-#~~~~~~~~~~~~~~~CC~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-CC =		c++
-CFLAGS =	-std=c++98 -Wall -Wextra -Werror -MDD -fsanitize=address
+RM = rm -rf
+DIR_DUP = mkdir -p $(@D)
 
-#~~~~~~~~~~~~~~~COMMANDS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-RM =		rm -rf
-DIR_DUP =	mkdir -p $(@D)
+all: $(NAME)
 
-#~~~~~~~~~~~~~~~RULES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-all : $(NAME)
-
-$(BUILD_DIR)/%.o:
+$(BUILD_DIR)/%.o: %.cpp
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) -c -o $@
-	$(info Created $@)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+	@echo "Created $@"
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -c -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "Created $(NAME)"
 
 -include $(DEP)
 
-clean :
+clean:
 	$(RM) $(BUILD_DIR)
 
-fclean : clean
+fclean: clean
 	$(RM) $(NAME)
 
-re :
+re:
 	$(MAKE) fclean
 	$(MAKE) all
 
