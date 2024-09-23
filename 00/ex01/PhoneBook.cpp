@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/23 18:25:52 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:13:38 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,25 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-void	PhoneBook::add(void)
+void	PhoneBook::add(int	_index)
 {
-	std::array<std::string, 5>	contact_fields;
-	std::array::iterator		it;
+	std::string	contact_fields[5];
+	int			i;
+	(void)_index;
 
-	it = contact_fields.begin();
-	while(it != contact_fields.end())
+	i = 0;
+	while(i < 5)
 	{
 		std::cout << "Enter field info >" << std::endl;
-		getline(std::cin, contact_fields[it]);
-		if ( contact_fields[it].empty())
+		getline(std::cin, contact_fields[i]);
+		if ( contact_fields[i].empty())
 			std::cout << "Contact field can't be left empty. Try again.\n";
 		else
-			it++;	
+			i++;
 	}
-	Contact();
+	//Phonebook._contacts[index] = ;
+	//Phonebook.index++;
+	return ;
 }
 
 void	PhoneBook::exit(void)

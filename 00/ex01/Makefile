@@ -2,7 +2,7 @@ NAME = phonebook
 
 INC = PhoneBook.hpp
 
-SRC = PhoneBook.cpp main.cpp
+SRC = PhoneBook.cpp main.cpp Contact.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)

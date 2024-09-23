@@ -6,12 +6,14 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 08:33:51 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/23 12:47:50 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:24:28 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
+
+#include <iostream>
 
 class	Contact
 {
@@ -23,7 +25,11 @@ class	Contact
 		std::string	_darkest_secret;
 
 	public:
-		setContact();
-}
+		Contact(void);
+		~Contact(void);
+
+	//	int		get_contactinfo(void) const;
+	//	void	set_contactinfo(std::string str);
+};
 
 #endif
