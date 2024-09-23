@@ -7,7 +7,7 @@ OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
 DEP = $(OBJ:%.o=%.d)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 
 RM = rm -rf
 DIR_DUP = mkdir -p $(@D)
