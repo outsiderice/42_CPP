@@ -6,12 +6,10 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/23 12:16:54 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:25:52 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <stdlib.h>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void)
@@ -24,6 +22,24 @@ PhoneBook::~PhoneBook(void)
 {
 	std::cout << "PhoneBook destructor called" << std::endl;
 	return ;
+}
+
+void	PhoneBook::add(void)
+{
+	std::array<std::string, 5>	contact_fields;
+	std::array::iterator		it;
+
+	it = contact_fields.begin();
+	while(it != contact_fields.end())
+	{
+		std::cout << "Enter field info >" << std::endl;
+		getline(std::cin, contact_fields[it]);
+		if ( contact_fields[it].empty())
+			std::cout << "Contact field can't be left empty. Try again.\n";
+		else
+			it++;	
+	}
+	Contact();
 }
 
 void	PhoneBook::exit(void)
