@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:17:27 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/23 19:49:16 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:52:42 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main()
 	PhoneBook	my_phonebook;
 	std::string	str;
 
+	std::cout << "\nWelcome to your Phonebook\n";
 	my_phonebook.instructions();	
 	while (1)
 	{

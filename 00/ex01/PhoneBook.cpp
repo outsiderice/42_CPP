@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/23 19:13:38 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:53:29 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	PhoneBook::exit(void)
 void	PhoneBook::instructions(void) const
 {
 	std::cout << "Accepted commands are:\n";
-	std::cout << "	ADD		-> save a new contact\n";
+	std::cout << "	ADD	-> save a new contact\n";
 	std::cout << "	SEARCH	-> lookup contact details\n";
 	std::cout << "	EXIT	-> exit the program" << std::endl;
 	return ;
