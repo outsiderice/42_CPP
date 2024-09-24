@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 12:13:08 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:45:00 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	PhoneBook::add(void)
 		else
 			i++;
 	}
-	if (this->_index == 7)
+	if (this->_index == 8)
 		this->_index = 0;
 	this->_contacts[_index].set_info(contact_fields);
 	this->_index++;
@@ -60,12 +60,15 @@ void	PhoneBook::search(void)
 
 	i = 0;
 	field = 1;
-	if(!this->_contacts[i].get_info(field).empty())
+	while(!this->_contacts[i].get_info(field).empty() && i < 8)
 	{
-		std::cout << std::setw(field_width) << std::right << i;
-		std::cout << std::setw(field_width) << std::right << this->_contacts[i].get_info(field++);
-		std::cout << std::setw(field_width) << std::right << this->_contacts[i].get_info(field++);
-		std::cout << std::setw(field_width) << std::right << this->_contacts[i].get_info(field++);
+		std::cout << std::setw(field_width) << std::right << i << "|";
+		std::cout << std::setw(field_width) << std::right << this->_contacts[i].get_info(field++) << "|";
+		std::cout << std::setw(field_width) << std::right << this->_contacts[i].get_info(field++) << "|";
+		std::cout << std::setw(field_width) << std::right << this->_contacts[i].get_info(field++) << "|";
+		std::cout << std::endl;
+		field = 1;
+		i++;
 	}
 	return ;
 }
