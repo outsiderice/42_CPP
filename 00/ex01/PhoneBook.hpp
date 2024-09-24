@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 08:52:31 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 10:21:04 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 11:55:14 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <stdlib.h>
 # include "Contact.hpp"
 
@@ -28,7 +29,7 @@ class	PhoneBook
 		~PhoneBook(void);
 
 		void	add(void);
-		//search();
+		void	search(void);
 		void	exit(void);
 		void	instructions(void) const;
 	//	int		get_index(void) const;
