@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 10:24:06 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 10:37:06 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,15 @@ void	PhoneBook::add(void)
 {
 	std::string	contact_fields[5];
 	int			i;
+	std::string	field_name[5] = {"first name", "last name", "nickname", "phone number", "darkest secret"};
 
 	i = 0;
 	while(i < 5)
 	{
-		std::cout << "Enter field info >" << std::endl;
+		std::cout << "Enter " << field_name[i] << ">" << std::endl;
 		getline(std::cin, contact_fields[i]);
+		if (!std::cin)
+			std::exit(EXIT_SUCCESS);
 		if ( contact_fields[i].empty())
 			std::cout << "Contact field can't be left empty. Try again.\n";
 		else
