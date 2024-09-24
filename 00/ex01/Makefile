@@ -29,9 +29,11 @@ $(NAME): $(OBJ)
 
 clean:
 	$(RM) $(BUILD_DIR)
+	@echo "Cleaned up"
 
 fclean: clean
 	$(RM) $(NAME)
+	@echo "Target deleted"
 
 re: fclean all
 
