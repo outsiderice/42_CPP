@@ -6,13 +6,13 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/23 19:53:29 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 09:47:05 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void)
+PhoneBook::PhoneBook(int p) : _index(p)
 {
 	std::cout << "PhoneBook constructor called" << std::endl;
 	return ;
@@ -40,8 +40,8 @@ void	PhoneBook::add(int	_index)
 		else
 			i++;
 	}
-	//Phonebook._contacts[index] = ;
-	//Phonebook.index++;
+	this->_contacts[_index].set_info(contact_fields);
+	this->_index++;
 	return ;
 }
 
