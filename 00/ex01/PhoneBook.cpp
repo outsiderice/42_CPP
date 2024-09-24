@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 12:45:00 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 13:06:32 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,21 @@ void	PhoneBook::search(void)
 	while(!this->_contacts[i].get_info(field).empty() && i < 8)
 	{
 		std::cout << std::setw(field_width) << std::right << i << "|";
-		std::cout << std::setw(field_width) << std::right << this->_contacts[i].get_info(field++) << "|";
-		std::cout << std::setw(field_width) << std::right << this->_contacts[i].get_info(field++) << "|";
-		std::cout << std::setw(field_width) << std::right << this->_contacts[i].get_info(field++) << "|";
+		while (field < 4)
+		{
+			if (this->_contacts[i].get_info(field).length() <= field_width)
+			{
+				std::cout << std::setw(field_width) << std::right
+					<< this->_contacts[i].get_info(field) << "|";
+			}
+			else
+			{
+				std::cout << std::setw(field_width) << std::right
+					<< this->_contacts[i].get_info(field) << "|";
+			}
+				//PhoneBook::truncate();
+			field++;
+		}
 		std::cout << std::endl;
 		field = 1;
 		i++;
