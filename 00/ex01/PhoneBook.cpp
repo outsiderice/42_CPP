@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 09:47:05 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 10:24:06 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-void	PhoneBook::add(int	_index)
+void	PhoneBook::add(void)
 {
 	std::string	contact_fields[5];
 	int			i;
-	(void)_index;
 
 	i = 0;
 	while(i < 5)
@@ -40,6 +39,8 @@ void	PhoneBook::add(int	_index)
 		else
 			i++;
 	}
+	if (this->_index == 7)
+		this->_index = 0;
 	this->_contacts[_index].set_info(contact_fields);
 	this->_index++;
 	return ;

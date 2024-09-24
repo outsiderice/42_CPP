@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:17:27 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 09:48:11 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 10:20:31 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main()
 			return (0);
 		else if (str == "EXIT")
 			my_phonebook.exit();
-		//else if (str == "ADD")
+		else if (str == "ADD")
+			my_phonebook.add();
 		//else if (str == "SEARCH")
 		else if (str.empty())
 			my_phonebook.instructions();

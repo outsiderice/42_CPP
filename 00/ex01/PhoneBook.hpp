@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 08:52:31 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 09:31:50 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 10:21:04 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,18 @@ class	PhoneBook
 {
 	private:
 		int			_index;
-		Contact	_contacts[8];
+		Contact		_contacts[8];
 
 	public:
 		PhoneBook(int p);
 		~PhoneBook(void);
 
-		void	add(int index);
+		void	add(void);
 		//search();
 		void	exit(void);
 		void	instructions(void) const;
+	//	int		get_index(void) const;
+	//	void	set_index();
 };
 
 #endif
