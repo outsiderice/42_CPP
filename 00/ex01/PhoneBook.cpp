@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 13:06:32 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 19:01:40 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,7 @@ void	PhoneBook::search(void)
 					<< this->_contacts[i].get_info(field) << "|";
 			}
 			else
-			{
-				std::cout << std::setw(field_width) << std::right
-					<< this->_contacts[i].get_info(field) << "|";
-			}
-				//PhoneBook::truncate();
+				PhoneBook::_truncate(i, field);
 			field++;
 		}
 		std::cout << std::endl;
@@ -98,5 +94,16 @@ void	PhoneBook::instructions(void) const
 	std::cout << "	ADD	-> save a new contact\n";
 	std::cout << "	SEARCH	-> lookup contact details\n";
 	std::cout << "	EXIT	-> exit the program" << std::endl;
+	return ;
+}
+
+void	PhoneBook::_truncate(int i, int field)
+{
+	std::string		aux;
+
+	aux = this->_contacts[i].get_info(field);
+	for(std::string::size_type c = 0; c < 9; c++)
+		std::cout << aux[c];
+	std::cout << ".|";
 	return ;
 }
