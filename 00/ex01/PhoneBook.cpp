@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 10:37:06 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/24 10:45:36 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ PhoneBook::~PhoneBook(void)
 
 void	PhoneBook::add(void)
 {
-	std::string	contact_fields[5];
 	int			i;
-	std::string	field_name[5] = {"first name", "last name", "nickname", "phone number", "darkest secret"};
+	std::string	contact_fields[5];
+	std::string	field_name[5] = 
+	{
+		"first name", "last name", "nickname", "phone number", "darkest secret"
+	};
 
 	i = 0;
 	while(i < 5)
