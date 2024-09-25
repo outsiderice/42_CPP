@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 15:06:45 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:38:35 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,10 +134,26 @@ void	PhoneBook::_display_contact(void)
 	}
 	aux << input;
 	aux >> target;
-	for(unsigned int i = 0; i < 6; i++)
+	if (this->_contacts[target].get_info(1).empty())
+	{
+		std::cout << "No contact found at location." << std::endl;
+		return ;
+	}
+	for(unsigned int i = 0; i < 5; i++)
 	{
 		std::cout << this->_field_name[i] << " : ";
 		std::cout << this->_contacts[target].get_info(i + 1) << std::endl;
 	}
 	return ;
+}
+
+bool	PhoneBook::_is_index(std::string input)
+{
+	if (input.empty())
+		return (false);
+	if (input.length() > 1)
+		return (false);
+	if (input[0] >= '0' && input[0] < '8')
+		return (true);
+	return (false);
 }
