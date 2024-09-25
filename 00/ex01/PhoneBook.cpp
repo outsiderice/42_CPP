@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 09:59:46 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:11:17 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,35 +54,12 @@ void	PhoneBook::add(void)
 
 void	PhoneBook::search(void)
 {
-	const int	field_width = 10;
-	int			i;
-	int			field;
-
-	i = 0;
-	field = 1;
-	if (this->_contacts[i].get_info(field).empty())
+	if (this->_contacts[0].get_info(1).empty())
 	{
 		std::cout << "Phonebook empty" << std::endl;
 		return ;
 	}
-	while(!this->_contacts[i].get_info(field).empty() && i < 8)
-	{
-		std::cout << std::setw(field_width) << std::right << i << "|";
-		while (field < 4)
-		{
-			if (this->_contacts[i].get_info(field).length() <= field_width)
-			{
-				std::cout << std::setw(field_width) << std::right
-					<< this->_contacts[i].get_info(field) << "|";
-			}
-			else
-				PhoneBook::_truncate(i, field);
-			field++;
-		}
-		std::cout << std::endl;
-		field = 1;
-		i++;
-	}
+	PhoneBook::_print_stored();
 	return ;
 }
 
@@ -110,4 +87,33 @@ void	PhoneBook::_truncate(int i, int field)
 		std::cout << aux[c];
 	std::cout << ".|";
 	return ;
+}
+
+void	PhoneBook::_print_stored(void)
+{
+	const int	field_width = 10;
+	int			i;
+	int			field;
+
+	i = 0;
+	field = 1;
+	while(!this->_contacts[i].get_info(field).empty() && i < 8)
+	{
+		std::cout << std::setw(field_width) << std::right << i << "|";
+		while (field < 4)
+		{
+			if (this->_contacts[i].get_info(field).length() <= field_width)
+			{
+				std::cout << std::setw(field_width) << std::right
+					<< this->_contacts[i].get_info(field) << "|";
+			}
+			else
+				PhoneBook::_truncate(i, field);
+			field++;
+		}
+		std::cout << std::endl;
+		field = 1;
+		i++;
+	}
+	return ;	
 }
