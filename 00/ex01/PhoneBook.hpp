@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 08:52:31 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 12:22:03 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 13:08:01 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <sstream>
 # include <stdlib.h>
 # include "Contact.hpp"
 

@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 12:23:09 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:06:45 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,25 @@ void	PhoneBook::_display_stored(void)
 
 void	PhoneBook::_display_contact(void)
 {
+	std::string			input;
+	std::stringstream	aux;
+	unsigned int		target;
+
 	std::cout << "Enter index of contact to display > ";
+	getline(std::cin, input);
+	if (!std::cin)
+		PhoneBook::exit();
+	if(_is_index(input) == false)
+	{
+		std::cout << "Invalid index. Returning to start." << std::endl;
+		return ;
+	}
+	aux << input;
+	aux >> target;
+	for(unsigned int i = 0; i < 6; i++)
+	{
+		std::cout << this->_field_name[i] << " : ";
+		std::cout << this->_contacts[target].get_info(i + 1) << std::endl;
+	}
+	return ;
 }
