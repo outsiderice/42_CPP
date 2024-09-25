@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 15:38:35 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:54:09 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	PhoneBook::search(void)
 void	PhoneBook::exit(void)
 {
 	std::cout << "Closing Phonebook. All contacts will be lost." << std::endl;
+	for(unsigned int i = 0; i < 8; i++)
+		this->_contacts[i].~Contact();
 	std::exit(EXIT_SUCCESS);
 }
 
