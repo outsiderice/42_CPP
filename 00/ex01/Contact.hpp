@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 08:33:51 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 11:59:23 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 09:48:38 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	Contact
 		~Contact(void);
 
 		std::string		get_info(int field) const;
-		void			set_info(std::string str[5]);
+		void			set_info(std::string (&str)[5]);
 };
 
 #endif

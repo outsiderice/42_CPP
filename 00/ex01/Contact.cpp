@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:14:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 12:30:51 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 09:49:07 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ std::string	Contact::get_info(int field) const
 	}
 }
 
-void	Contact::set_info(std::string str[5])
+void	Contact::set_info(std::string (&str)[5])
 {
 	this->_first_name = str[0];
 	this->_last_name = str[1];

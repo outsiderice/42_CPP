@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/24 19:01:40 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 09:59:46 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ void	PhoneBook::search(void)
 
 	i = 0;
 	field = 1;
+	if (this->_contacts[i].get_info(field).empty())
+	{
+		std::cout << "Phonebook empty" << std::endl;
+		return ;
+	}
 	while(!this->_contacts[i].get_info(field).empty() && i < 8)
 	{
 		std::cout << std::setw(field_width) << std::right << i << "|";
@@ -84,7 +89,6 @@ void	PhoneBook::search(void)
 void	PhoneBook::exit(void)
 {
 	std::cout << "Closing Phonebook. All contacts will be lost." << std::endl;
-	//~Phonebook();
 	std::exit(EXIT_SUCCESS);
 }
 
