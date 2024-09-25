@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 08:52:31 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 10:09:41 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:14:26 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class	PhoneBook
 		int			_index;
 		Contact		_contacts[8];
 		void		_truncate(int i, int field);
-		void		_print_stored();
+		void		_display_stored();
+		void		_display_contact();
 
 	public:
 		PhoneBook(int p);

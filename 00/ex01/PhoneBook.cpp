@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 10:11:17 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:23:45 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	PhoneBook::add(void)
 	i = 0;
 	while(i < 5)
 	{
-		std::cout << "Enter " << field_name[i] << ">" << std::endl;
+		std::cout << "Enter " << field_name[i] << " > ";
 		getline(std::cin, contact_fields[i]);
 		if (!std::cin)
 			std::exit(EXIT_SUCCESS);
@@ -59,7 +59,8 @@ void	PhoneBook::search(void)
 		std::cout << "Phonebook empty" << std::endl;
 		return ;
 	}
-	PhoneBook::_print_stored();
+	PhoneBook::_display_stored();
+	PhoneBook::_display_contact();
 	return ;
 }
 
@@ -89,7 +90,7 @@ void	PhoneBook::_truncate(int i, int field)
 	return ;
 }
 
-void	PhoneBook::_print_stored(void)
+void	PhoneBook::_display_stored(void)
 {
 	const int	field_width = 10;
 	int			i;
@@ -116,4 +117,9 @@ void	PhoneBook::_print_stored(void)
 		i++;
 	}
 	return ;	
+}
+
+void	PhoneBook::_display_contact(void)
+{
+	std::cout << "Enter index of contact to display > ";
 }
