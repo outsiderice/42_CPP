@@ -6,15 +6,17 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 10:23:45 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:23:09 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(int p) : _index(p)
+PhoneBook::PhoneBook(int p1, const std::string (&p2)[5]) : _index(p1), _field_name()
 {
 	std::cout << "PhoneBook constructor called" << std::endl;
+	for (int i = 0; i < 5; i++)
+		_field_name[i] = p2[i];
 	return ;
 }
 
@@ -28,15 +30,11 @@ void	PhoneBook::add(void)
 {
 	int			i;
 	std::string	contact_fields[5];
-	std::string	field_name[5] = 
-	{
-		"first name", "last name", "nickname", "phone number", "darkest secret"
-	};
 
 	i = 0;
 	while(i < 5)
 	{
-		std::cout << "Enter " << field_name[i] << " > ";
+		std::cout << "Enter " << PhoneBook::_field_name[i] << " > ";
 		getline(std::cin, contact_fields[i]);
 		if (!std::cin)
 			std::exit(EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 08:52:31 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 10:14:26 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:22:03 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ class	PhoneBook
 	private:
 		int			_index;
 		Contact		_contacts[8];
+		std::string	_field_name[5];
+
 		void		_truncate(int i, int field);
 		void		_display_stored();
 		void		_display_contact();
+		bool		_is_index(std::string input);
 
 	public:
-		PhoneBook(int p);
+		PhoneBook(int p1, const std::string (&p2)[5]);
 		~PhoneBook(void);
 
 		void	add(void);
