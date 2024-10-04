@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = zombies
 
 INC = Zombie.hpp
 
