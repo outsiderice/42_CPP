@@ -29,9 +29,14 @@ static void	Account::displayAccountsInfos(void)
 	return ;
 }
 
-//[x]
+//[x] ?
 Account::Account(int initial_deposit) : _totalAmount(initial_deposit)
 {
+	_nbAccounts += 1;
+	_totalNbDeposits = 1;
+	_totalNbWithdrawals = 0;
+	_nbDeposits = 1;
+	_nbWithdrawals = 0;
     return ;
 }
 
@@ -43,12 +48,22 @@ Account::~Account(void)
 
 void	Account::makeDeposit(int deposit)
 {
+	_totalAmount += deposit;
+	_totalNbDeposits += 1;
+	_amount += deposit;
+	_nbDeposits += 1;
 	return ;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
-	return ;
+	if (withdrawal > _amount)
+		return (false);
+	_totalAmount -= withdrawal;
+	_totalNbWithdrawals += 1;
+	_amount -= withdrawal;
+	_nbWithdrawals += 1;
+	return (true);
 }
 
 int		Account::checkAmount(void) const
@@ -66,8 +81,14 @@ static void	_displayTimestamp(void)
 	return ;
 }
 
-//[x]
+//[x] ?
 Account::Account(void)
 {
+	_nbAccounts += 1;
+	_totalAmount = 0;
+	_totalNbDeposits = 0;
+	_totalNbWithdrawals = 0;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
 	return ;
 }
