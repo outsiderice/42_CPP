@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 17:43:24 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/04 18:30:49 by amagnell         ###   ########.fr       */
+/*   Created: 2024/10/04 18:26:45 by amagnell          #+#    #+#             */
+/*   Updated: 2024/10/04 18:30:37 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-class	Zombie
+Zombie::Zombie(void)
 {
-	private :
-		std::string	_name;
+	std::cout << "Zombie constructor called" << std::endl;
+	return ;
+}
 
-	public :
-		Zombie(void);
-		~Zombie(void);
+Zombie::~Zombie(void)
+{
+	std::cout << "Zombie destructor called" << std::endl;
+	return ;
+}
 
-		void	announce(void);
-};
-
-#endif
+void	Zombie::announce(void)
+{
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	return ;
+}
