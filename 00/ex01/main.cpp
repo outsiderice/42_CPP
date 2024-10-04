@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:17:27 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 12:09:23 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/04 15:15:41 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main()
 {
 	const std::string	field_name[5] =
 	{
-		"first name", "last name", "nickname", "phone number", "darkest secret"
+		"first name", "last name", "nickname", "phone num", "secret"
 	};
 	PhoneBook	my_phonebook(0, field_name);
 	std::string	str;

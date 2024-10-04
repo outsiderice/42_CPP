@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:11:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/09/25 15:54:09 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/04 15:12:59 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,10 @@ void	PhoneBook::_display_stored(void)
 	int			i;
 	int			field;
 
+	for (i = 0; i < 5; i++)
+		std::cout << std::setw(field_width) << std::right
+			<< this->_field_name[i] << "|";
+	std::cout << std::endl;
 	i = 0;
 	field = 1;
 	while(!this->_contacts[i].get_info(field).empty() && i < 8)
