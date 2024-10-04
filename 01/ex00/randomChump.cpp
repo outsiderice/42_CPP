@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 19:02:54 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/04 19:05:30 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/04 19:29:24 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	randomChump(std::string name)
 {
-	Zombie	name;
+	Zombie	two(name);
 
-	name.announce();
+	two.announce();
 	return ;
 }
