@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:26:45 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/04 18:30:37 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/04 18:53:07 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Zombie::Zombie(void)
 
 Zombie::~Zombie(void)
 {
-	std::cout << "Zombie destructor called" << std::endl;
+	std::cout << this->_name;
+	std::cout << " Zombie destructor called" << std::endl;
 	return ;
 }
 
