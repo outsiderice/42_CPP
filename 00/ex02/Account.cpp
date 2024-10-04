@@ -1,6 +1,31 @@
 #include "Account.hpp"
 
-Account::Account(int initial_deposit)
+static int	Account::getNbAccounts(void)
+{
+	return (_nbAccounts);
+}
+
+static int	Account::getTotalAmount(void)
+{
+	return (_totalAmount);
+}
+
+static int	Account::getNbDeposits(void)
+{
+	return (_nbDeposits);
+}
+
+static int	Account::getNbWithdrawals(void)
+{
+	return (_nbWithdrawals);
+}
+
+static void	Account::displayAccountsInfos(void)
+{
+	return ;
+}
+
+Account::Account(int initial_deposit) : _totalAmount(initial_deposit)
 {
     return ;
 }
@@ -10,3 +35,27 @@ Account::~Account(void)
     return ;
 }
 
+void	Account::makeDeposit(int deposit)
+{
+	return ;
+}
+
+bool	Account::makeWithdrawal(int withdrawal)
+{
+	return ;
+}
+
+int		Account::checkAmount(void) const
+{
+	return ;
+}
+
+void	Account::dislpayStatus(void) const
+{
+	return ;
+}
+
+static void	_displayTimestamp(void)
+{
+	return ;
+}
