@@ -6,12 +6,14 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:43:24 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/04 19:00:22 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/04 19:07:11 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
+
+#include <iostream>
 
 class	Zombie
 {
