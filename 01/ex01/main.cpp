@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:13:35 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/05 13:42:59 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/05 16:03:48 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int	main(void)
 	horde = zombieHorde(N, "Bob");
 	for(int	i = 0; i < N; i++)
 		horde[i].announce();
+	delete[] horde;
 	return (0);
 }

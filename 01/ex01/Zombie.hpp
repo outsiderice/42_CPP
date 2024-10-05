@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:43:24 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/04 19:54:20 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/05 15:58:52 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ class	Zombie
 
 	public :
 		Zombie(std::string name);
+		Zombie(void);
 		~Zombie(void);
 
 		void	announce(void);
+		void	set_name(std::string name);
 };
 
 Zombie*	newZombie(std::string name);

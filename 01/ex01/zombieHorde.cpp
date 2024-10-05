@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 19:43:56 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/05 13:43:02 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/05 16:03:06 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ Zombie*	zombieHorde(int N, std::string name)
 	
 	horde = new Zombie[N];
 	for (int i = 0; i < N; i++)
-		horde[i] = Zombie(name);
+		horde[i].set_name(name);
 	return (horde);
 }
