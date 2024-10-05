@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 16:51:55 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/05 17:12:04 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/05 17:20:59 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	std::cout << "stringREF address is: " << &stringREF << "\n";
 	std::cout << std::endl;
 	std::cout << "var value is: " << var << "\n";
-	std::cout << "value pointed by stringPTR is: " << stringPTR << "\n";
+	std::cout << "value pointed by stringPTR is: " << *stringPTR << "\n";
 	std::cout << "value pointed by stringREF is: " << stringREF << "\n";
 	return (0);
 }
