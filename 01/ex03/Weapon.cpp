@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:52:07 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/07 16:06:05 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/07 17:09:35 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ std::string	Weapon::getType(void) const
 
 void	Weapon::setType(std::string type)
 {
-	this->_type = arg;
+	this->_type = type;
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:16:25 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/07 16:22:10 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/07 17:16:34 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HUMANA_HPP
 
 # include <iostream>
+# include "Weapon.hpp"
 
 class	HumanA
 {

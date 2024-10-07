@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:54:48 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/07 16:23:34 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/07 17:18:15 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	HumanA::attack(void) const
 {
 	std::cout << this->_name 
 		<< " attacks with their "
-		<< this->_weapon << std::endl;
+		<< this->_weapon.getType() << std::endl;
 	return ;
 }
