@@ -1,8 +1,8 @@
 NAME = violence
 
-INC = Weapon.hpp HumanA.hpp HumanB.hpp
+INC = inc/
 
-SRC = main.cpp Weapon.cpp HumanA.cpp HumannB.cpp
+SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
