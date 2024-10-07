@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 14:48:30 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/07 17:01:48 by amagnell         ###   ########.fr       */
+/*   Created: 2024/10/07 15:54:48 by amagnell          #+#    #+#             */
+/*   Updated: 2024/10/07 16:23:22 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#include "HumanB.hpp"
 
-#include <iostream>
-
-class	Weapon
+HumanB::HumanB(std::string name) : _name(name)
 {
-	private:
-		std::string	_type;
-	public:
-		Weapon(std::string type);
-		~Weapon(void);
+	return ;
+}
 
-		std::string	getType(void) const;
-		void		setType(std::string type);
-};
+HumanB::~HumanB(void)
+{
+	return ;
+}
 
-#endif
+void	HumanB::attack(void) const
+{
+	std::cout << this->_name 
+		<< " attacks with their "
+		<< this->_weapon << std::endl;
+	return ;
+}
