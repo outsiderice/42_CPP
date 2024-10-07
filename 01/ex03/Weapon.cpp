@@ -6,11 +6,16 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:52:07 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/07 17:09:35 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/07 17:43:04 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+
+Weapon::Weapon(void)
+{
+	return ;
+}
 
 Weapon::Weapon(std::string type) : _type(type)
 {
