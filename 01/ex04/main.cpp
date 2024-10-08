@@ -6,16 +6,17 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:50:41 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/08 09:49:27 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/08 09:52:00 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <fstream>
 
 int	main(int argc, char **argv)
 {
-	ifstream	src;
-	ofstream	dst;
+	std::ifstream	src;
+	std::ofstream	dst;
 
 	if (argc != 4)
 	{

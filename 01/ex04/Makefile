@@ -2,7 +2,7 @@ NAME = winner
 
 INC = inc/
 
-SRC = main.cp
+SRC = main.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
