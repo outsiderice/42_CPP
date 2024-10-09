@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:50:41 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/08 11:32:53 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:10:06 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,37 @@ void	cpy_to_dst(std::ifstream src, char *s1, char *s2)
 	}
 }
 
-int	main(int argc, char **argv)
+void	check_arguments(int argc, char **argv)
 {
-	std::ifstream	src;
-
 	if (argc != 4)
 	{
-		std::cout << "Wrong number of arguments. To use correctly pass:\n";
+		std::cout << "Wrong number of arguments. Correct usages is:\n";
 		std::cout << "./winner <filename> <s1> <s2>" << std::endl;
-		return (2);
-	}	
-	src.open(argv[1]);
+		std::exit(2);
+	}
+	if (!argv[1] || !argv[2] || !argv[3])
+	{
+		std::cout << "Empty arguments. Please enter valid arguments." << std::endl;
+		std::exit(2);
+	}
+	return ;
+}
+
+int	main(int argc, char **argv)
+{
+	check_arguments(argc, argv);
+	std::ifstream	src(argv[1]);
+	std::string		src_name = argv[1];
+	std::string		s1 = argv[2];
+	std::string		s2 = argv[3];
+
 	if (src.is_open())
 	{
 		cpy_to_dst(src, argv[2], argv[3]);
 	}
 	else
 	{
-		std::cout << "Problem with src file." << std::endl;
+		std::cerr << "Problem with src file." << std::endl;
 		return (1);
 	}
 	src.close();
