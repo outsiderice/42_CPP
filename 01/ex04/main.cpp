@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:50:41 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/09 19:08:07 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:23:27 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,6 @@ void	cpy_to_dst(std::ifstream &src, std::string &src_name, std::string &s1, std:
 	}
 }
 
-void	check_arguments(int argc, char **argv)
-{
-	if (argc != 4)
-	{
-		std::cerr << "Wrong number of arguments. Correct usages is:\n";
-		std::cerr << "./winner <filename> <s1> <s2>" << std::endl;
-		std::exit(1);
-	}
-	if (!argv[1] || !argv[2] || !argv[3])
-	{
-		std::cerr << "Empty arguments. Please enter valid arguments." << std::endl;
-		std::exit(1);
-	}
-	return ;
-}
-
 int	main(int argc, char **argv)
 {
 	std::ifstream	src;
@@ -62,7 +46,12 @@ int	main(int argc, char **argv)
 	std::string		s1;
 	std::string		s2;
 
-	check_arguments(argc, argv);
+	if (argc != 4)
+	{
+		std::cerr << "Wrong number of arguments. Correct usages is:\n";
+		std::cerr << "./winner <filename> <s1> <s2>" << std::endl;
+		return (1);
+	}
 	src.open(argv[1]);
 	src_name = argv[1];
 	s1 = argv[2];
