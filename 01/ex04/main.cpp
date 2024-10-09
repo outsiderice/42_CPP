@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:50:41 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/09 19:23:27 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:26:50 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ int	main(int argc, char **argv)
 	src_name = argv[1];
 	s1 = argv[2];
 	s2 = argv[3];
+	if (s1.empty())
+	{
+		std::cerr << "Nothing to replace, nothing to be done." << std::endl;
+		return (1);
+	}
 	if (src.is_open() )
 	{
 		cpy_to_dst(src, src_name, s1, s2);
