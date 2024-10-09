@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:50:41 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/09 18:04:29 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/09 18:26:16 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,23 @@
 
 void	cpy_to_dst(std::ifstream src, std::string src_name, std::string *s1, std::string *s2)
 {
-	std::fstream	dst(src_name.append(".replace"));
+	std::ofstream	dst(src_name.append(".replace"));
 	std::string		line;
 	size_t			found;
 	
 	if(!dst.is_open())
 	{
-		std::cerr << "File error" << std::endl;
+		std::cerr << "Error in new file" << std::endl;
 		std::exit (1);
 	}
 	while (!src.eof())
 	{
 		getline(src, line);
-		found = line.find(s1)
-		if(found != string::npos)
+		found = line.find(s1);
+		if(found != std::string::npos)
 		{
-			//replace
+			line.erase(found, s1.length());
+			line.insert(found, s2);	
 		}
 	}
 }
@@ -69,7 +70,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		std::cerr << "Problem with source file." << std::endl;
+		std::cerr << "Problem in source file." << std::endl;
 		return (1);
 	}
 	src.close();
