@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:50:41 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/09 19:26:50 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:56:04 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,19 @@ void	cpy_to_dst(std::ifstream &src, std::string &src_name, std::string &s1, std:
 	while (!src.eof())
 	{
 		getline(src, line);
+		std::cout << line << std::endl;
 		found = line.find(s1);
 		if(found != std::string::npos)
 		{
+			std::cout << line << std::endl;
 			line.erase(found, s1.length());
 			line.insert(found, s2);	
+			std::cout << line << std::endl;
 		}
+		if (!src.eof())
+			dst << line << std::endl;
 	}
+	return ;
 }
 
 int	main(int argc, char **argv)
@@ -64,6 +70,25 @@ int	main(int argc, char **argv)
 	if (src.is_open() )
 	{
 		cpy_to_dst(src, src_name, s1, s2);
+		/*std::ofstream	dst;
+		std::string		line;
+		size_t			found;
+
+		src_name.append(".replace");	
+		dst.open(src_name.c_str());
+		if(!dst.is_open())
+		{
+			std::cerr << "Error in new file" << std::endl;
+			std::exit (1);
+		}
+		getline(src, line);
+		found = line.find(s1);
+		if(found != std::string::npos)
+		{
+			line.erase(found, s1.length());
+			line.insert(found, s2);	
+		}
+		*/
 	}
 	else
 	{
