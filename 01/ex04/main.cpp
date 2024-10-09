@@ -6,19 +6,22 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:50:41 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/09 18:26:16 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:08:07 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 
-void	cpy_to_dst(std::ifstream src, std::string src_name, std::string *s1, std::string *s2)
+void	cpy_to_dst(std::ifstream &src, std::string &src_name, std::string &s1, std::string &s2)
 {
-	std::ofstream	dst(src_name.append(".replace"));
+	std::ofstream	dst;
 	std::string		line;
 	size_t			found;
-	
+
+	src_name.append(".replace");	
+	dst.open(src_name.c_str());
 	if(!dst.is_open())
 	{
 		std::cerr << "Error in new file" << std::endl;
