@@ -6,16 +6,22 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:24:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/10 18:48:02 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/10 19:45:17 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl(void)
-	:	_ptr(&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error),
-		_lvls("DEBUG", "INFO", "WARNING", "ERROR")
+Harl::Harl(void)	
 {
+	_ptr[0] = &Harl::_debug;
+	_ptr[1] = &Harl::_info;
+	_ptr[2] = &Harl::_warning;
+	_ptr[3] = &Harl::_error;
+	_lvls[0] = "DEBUG";
+	_lvls[1] = "INFO";
+	_lvls[2] = "WARNING";
+	_lvls[3] = "ERROR";
 	return ;
 }
 
@@ -24,7 +30,7 @@ Harl::~Harl(void)
 	return ;
 }
 
-void	Harl::debug(void)
+void	Harl::_debug(void)
 {
 	std::cerr << "[DEBUG]:\n"
 		<< "Contextual information.\n"
@@ -33,16 +39,16 @@ void	Harl::debug(void)
 	return ;
 }
 
-void	Harl::info(void)
+void	Harl::_info(void)
 {
 	std::cerr << "[INFO]:\n"
-		<< "Contains extensive information. \n"
+		<< "Contains extensive information.\n"
 		<< "They are helpful for tracing program execution in a production environment" 
 		<< std::endl;
 	return ;
 }
 
-void	Harl::warning(void)
+void	Harl::_warning(void)
 {
 	std::cerr << "[WARNING]:\n" 
 		<< "Warning messages indicate a potential issue in the system.\n"
@@ -50,10 +56,10 @@ void	Harl::warning(void)
 	return ;
 }
 
-void	Harl::error(void)
+void	Harl::_error(void)
 {
 	std::cerr << "[ERROR]:\n" 
-		<< "An unrecoverable error has occurred.\n" 
+		<< "An unrecoverable error has occurred.\n"
 		<< "Usually a critical issue which requires manual intervention"
 		<< std::endl;
 	return ;
@@ -61,6 +67,11 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-		
+	int	i = 0;
+
+	while (i < 4 && level != this->_lvls[i])
+		i++;
+	if (i < 4)
+		(this->*_ptr[i])();
 	return ;
 }

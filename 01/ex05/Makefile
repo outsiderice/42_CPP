@@ -2,7 +2,7 @@ NAME = harl
 
 INC = inc/
 
-SRC = main.cpp Harl.hpp Harl.cpp
+SRC = main.cpp Harl.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
