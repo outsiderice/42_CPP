@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:21:51 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/10 15:56:16 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/10 18:25:30 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,18 @@
 class	Harl
 {
 	private:
-		void	debug(void);
-		void	info(void);
-		void	warning(void);
-		void	error(void);
+		void		(Harl::_*ptr[4])(void);
+		std::string	_lvls[4];
+
+		void		_debug(void);
+		void		_info(void);
+		void		_warning(void);
+		void		_error(void);
+
 	public:
+		Harl(void);
+		~Harl(void);		
+
 		void	complain(std::string level);
 };
 
