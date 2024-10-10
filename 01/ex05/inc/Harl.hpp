@@ -6,12 +6,14 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:21:51 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/10 15:23:50 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:56:16 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HARL_HPP
 # define HARL_HPP
+
+#include <iostream>
 
 class	Harl
 {

@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:24:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/10 16:06:58 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/10 16:17:19 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	Harl::warning(void)
 		<< "Can be handled or ignored." << std::endl;
 	return ;
 }
+
 void	Harl::error(void)
 {
 	std::cerr << "An unrecoverable error has occurred.\n" 
@@ -40,7 +41,9 @@ void	Harl::error(void)
 		<< std::endl;
 	return ;
 }
+
 void	Harl::complain(std::string level)
 {
+	
 	return ;
 }
