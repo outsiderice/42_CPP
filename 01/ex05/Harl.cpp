@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:24:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/10 19:45:17 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/10 19:48:02 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ Harl::~Harl(void)
 void	Harl::_debug(void)
 {
 	std::cerr << "[DEBUG]:\n"
-		<< "Contextual information.\n"
-		<< "Mostly used for problem diagnosis." 
+		<< "	Contextual information.\n"
+		<< "	Mostly used for problem diagnosis." 
 		<< std::endl;
 	return ;
 }
@@ -42,8 +42,8 @@ void	Harl::_debug(void)
 void	Harl::_info(void)
 {
 	std::cerr << "[INFO]:\n"
-		<< "Contains extensive information.\n"
-		<< "They are helpful for tracing program execution in a production environment" 
+		<< "	Contains extensive information.\n"
+		<< "	They are helpful for tracing program execution in a production environment." 
 		<< std::endl;
 	return ;
 }
@@ -51,16 +51,16 @@ void	Harl::_info(void)
 void	Harl::_warning(void)
 {
 	std::cerr << "[WARNING]:\n" 
-		<< "Warning messages indicate a potential issue in the system.\n"
-		<< "Can be handled or ignored." << std::endl;
+		<< "	Warning messages indicate a potential issue in the system.\n"
+		<< "	Can be handled or ignored." << std::endl;
 	return ;
 }
 
 void	Harl::_error(void)
 {
 	std::cerr << "[ERROR]:\n" 
-		<< "An unrecoverable error has occurred.\n"
-		<< "Usually a critical issue which requires manual intervention"
+		<< "	An unrecoverable error has occurred.\n"
+		<< "	Usually a critical issue which requires manual intervention."
 		<< std::endl;
 	return ;
 }
