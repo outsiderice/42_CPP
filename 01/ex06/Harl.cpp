@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:24:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/11 17:15:09 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:33:28 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,14 @@ void	Harl::filter(int index)
 	switch (index)
 	{
 		case 0:
-			this->_debug;
+			this->_debug();
 		case 1:
-			this->_info;
+			this->_info();
 		case 2:
-			this->_warning;
+			this->_warning();
 		case 3:
-			this->_error;
+			this->_error();
+		default:
 			break ;
 	}
 }
