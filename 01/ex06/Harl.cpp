@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:24:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/11 17:33:28 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:40:34 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,7 @@ void	Harl::complain(std::string level)
 
 	while (i < 4 && level != this->_lvls[i])
 		i++;
-	if (i < 4)
-		Harl::filter(i);
+	Harl::filter(i);
 	return ;
 }
 
@@ -88,7 +87,9 @@ void	Harl::filter(int index)
 			this->_warning();
 		case 3:
 			this->_error();
-		default:
 			break ;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
+	return ;
 }
