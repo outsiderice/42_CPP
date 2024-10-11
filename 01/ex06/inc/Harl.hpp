@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:21:51 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/10 19:24:21 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:17:18 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class	Harl
 		~Harl(void);		
 
 		void	complain(std::string level);
+		void	filter(int index);
 };
 
 #endif
