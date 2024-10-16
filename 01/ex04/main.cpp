@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:50:41 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/11 17:52:11 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:24:50 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ void	cpy_to_dst(std::ifstream &src, std::string &src_name, std::string &s1, std:
 	{
 		getline(src, line);
 		found = line.find(s1);
-		if(found != std::string::npos)
+		while(found != std::string::npos)
 		{
 			line.erase(found, s1.length());
 			line.insert(found, s2);	
+			found = line.find(s1, found + s2.length());
 		}
 		if (!src.eof())
 			dst << line << std::endl;
