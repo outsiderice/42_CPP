@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:52:07 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/07 17:43:04 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:22:40 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Weapon::~Weapon(void)
 	return ;
 }
 
-std::string	Weapon::getType(void) const
+std::string const &Weapon::getType(void) const
 {
 	return (_type);
 }
