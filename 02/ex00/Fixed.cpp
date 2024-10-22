@@ -6,11 +6,11 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/22 19:35:09 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:52:34 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed_hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed(void) : _fixed_num(0)
 {
@@ -24,15 +24,15 @@ Fixed::Fixed(const Fixed &obj) : _fixed_num(obj._fixed_num)
 	return ;
 }
 
-Fixed::Fixed &operator=(const Fixed &obj)
+Fixed	&Fixed::operator=(const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != obj)
+	if (this != &obj)
 	{
 		_fixed_num = obj._fixed_num;
 		//_fract_bits = obj.fract_bits; is it necessary?
 	}	
-	return ;
+	return (*this);
 }
 
 Fixed::~Fixed(void)
