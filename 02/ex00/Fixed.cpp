@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/22 19:52:34 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:54:21 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ Fixed::~Fixed(void)
 
 int		Fixed::getRawBits(void) const
 {
+	std::cout << "getRawBits called" << std::endl;
 	return (this->_fixed_num);
 }
 
