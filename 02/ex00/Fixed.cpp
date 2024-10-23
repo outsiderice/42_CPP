@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/22 19:54:21 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/23 09:12:26 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ Fixed	&Fixed::operator=(const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &obj)
-	{
 		_fixed_num = obj._fixed_num;
-		//_fract_bits = obj.fract_bits; is it necessary?
-	}	
 	return (*this);
 }
 
