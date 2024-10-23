@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/22 19:54:21 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:39:16 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,24 @@ Fixed::Fixed(const Fixed &obj) : _fixed_num(obj._fixed_num)
 	return ;
 }
 
+Fixed::Fixed(const int num)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->_fixed_num = num << this->_fract_bits;
+	return ;
+}
+/*
+Fixed::Fixed(const float num)
+{
+	std::cout << "Float constructor called" << std::endl;
+	return ;
+}*/
+
 Fixed	&Fixed::operator=(const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &obj)
-	{
 		_fixed_num = obj._fixed_num;
-		//_fract_bits = obj.fract_bits; is it necessary?
-	}	
 	return (*this);
 }
 
@@ -44,11 +54,28 @@ Fixed::~Fixed(void)
 int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits called" << std::endl;
-	return (this->_fixed_num);
+	return (this->_fixed_num / (1 << this->_fract_bits));
 }
 
 void	Fixed::setRawBits(int const raw)
 {
 	this->_fixed_num = raw;
 	return ;
+}
+/*
+int	Fixed::toInt(void) const
+{
+	use roundf
+	return();
+}*/
+
+float	Fixed::toFloat(void) const
+{
+	return(static_cast<float> (this->_fixed_num) / (1 << this->_fract_bits));
+}
+
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
+{
+	os << fixed.toFloat();
+	return (os);
 }
