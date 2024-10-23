@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/23 11:39:16 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:00:36 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,17 @@ Fixed::Fixed(const Fixed &obj) : _fixed_num(obj._fixed_num)
 	return ;
 }
 
-Fixed::Fixed(const int num)
+Fixed::Fixed(const int num) : _fixed_num(num << _fract_bits)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixed_num = num << this->_fract_bits;
 	return ;
 }
-/*
-Fixed::Fixed(const float num)
+
+Fixed::Fixed(const float num) : _fixed_num(static_cast<int>(roundf(num * (1 << _fract_bits))))
 {
 	std::cout << "Float constructor called" << std::endl;
 	return ;
-}*/
+}
 
 Fixed	&Fixed::operator=(const Fixed &obj)
 {

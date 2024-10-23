@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:20:00 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/23 10:43:58 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:41:16 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	Fixed
 		Fixed(void);
 		Fixed(const Fixed &obj);
 		Fixed(const int num);
-		//Fixed(const float num);
+		Fixed(const float num);
 		Fixed &operator=(const Fixed &obj);
 		~Fixed(void);
 
