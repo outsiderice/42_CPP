@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/23 12:00:36 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:05:54 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,11 @@ void	Fixed::setRawBits(int const raw)
 	this->_fixed_num = raw;
 	return ;
 }
-/*
+
 int	Fixed::toInt(void) const
 {
-	use roundf
-	return();
-}*/
+	return(this->_fixed_num >> this->_fract_bits);
+}
 
 float	Fixed::toFloat(void) const
 {
