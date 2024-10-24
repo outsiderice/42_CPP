@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/24 18:40:52 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:55:40 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,34 @@ int	Fixed::toInt(void) const
 float	Fixed::toFloat(void) const
 {
 	return(static_cast<float> (this->_fixed_num) / (1 << this->_fract_bits));
+}
+
+static &Fixed	Fixed::min(Fixed &p1, Fixed &p2)
+{
+	if (p1 < p2)
+		return (&p1);
+	return (&p2);
+}
+
+static &Fixed	Fixed::min(const Fixed &p1, const Fixed &p2)
+{
+	if (p1 < p2)
+		return (&p1);
+	return (&p2);
+}
+
+static &Fixed	Fixed::max(Fixed &p1, Fixed &p2)
+{
+	if (p1 < p2)
+		return (&p2);
+	return (&p1);
+}
+
+static &Fixed	Fixed::max(const Fixed &p1, const Fixed &p2)
+{
+	if (p1 < p2)
+		return (&p2);
+	return (&p1);
 }
 
 std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
