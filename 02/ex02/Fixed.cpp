@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/24 18:30:31 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:40:52 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,69 +44,65 @@ Fixed	&Fixed::operator=(const Fixed &obj)
 	return (*this);
 }
 
-bool	&Fixed::operator>(const Fixed &obj1, const Fixed &obj2)
+bool	&Fixed::operator>(const Fixed &obj)
 {
-	if (obj1.GetRawBits() > obj2.GetRawBits())
-		return (true);
-	return (false);
+	return (> obj.getRawBits());
 }
 
-bool	&Fixed::operator<(const Fixed &obj1, const Fixed &obj2)
+bool	&Fixed::operator<(const Fixed &obj)
 {
-	if (obj1.GetRawBits() < obj2.GetRawBits())
-		return (true);
-	return (false);
+	return (< obj.getRawBits());
 }
 
-bool	&Fixed::operator>=(const Fixed &obj1, const Fixed &obj2)
+bool	&Fixed::operator>=(const Fixed &obj)
 {
-	if (obj1.GetRawBits() >= obj2.GetRawBits())
-		return (true);
-	return (false);
+	return (>= obj.getRawBits());
 }
 
-bool	&Fixed::operator<=(const Fixed &obj1, const Fixed &obj2)
+bool	&Fixed::operator<=(const Fixed &obj)
 {
-	if (obj1.GetRawBits() <= obj2.GetRawBits())
-		return (true);
-	return (false);
+	return (<= obj.getRawBits());
 }
 
-bool	&Fixed::operator==(const Fixed &obj1, const Fixed &obj2)
+bool	&Fixed::operator==(const Fixed &obj)
 {
-	if (obj1.GetRawBits() == obj2.GetRawBits())
-		return (true);
-	return (false);
+	return (== obj.getRawBits());
 }
 
-bool	&Fixed::operator!=(const Fixed &obj1, const Fixed &obj2)
+bool	&Fixed::operator!=(const Fixed &obj)
 {
-	if (obj1.GetRawBits() != obj2.GetRawBits())
-		return (true);
-	return (false);
+	return (!= obj.getRawBits());
 }
 
-Fixed	&Fixed::operator+(Fixed obj, const Fixed &ref)
+Fixed	&Fixed::operator+(const Fixed &ref)
 {
-	_fixed_num += ref.getRawBits();
+	Fixed	obj;
+
+	obj.setRawBits(_fixed_num += ref.getRawBits());
 	return (obj);
 }
 
-Fixed	&Fixed::operator-(Fixed obj, const Fixed &ref)
+Fixed	&Fixed::operator-(const Fixed &ref)
 {
-	_fixed_num -= ref.getRawBits();
+	Fixed	obj;
+
+	obj.setRawBits(_fixed_num -= ref.getRawBits());
 	return (obj);
 }
 
-Fixed	&Fixed::operator*(Fixed obj, const Fixed &ref)
+Fixed	&Fixed::operator*(const Fixed &ref)
 {
-	_fixed_num *= ref.getRawBits();
+	Fixed	obj;
+
+	obj.setRawBits(_fixed_num *= ref.getRawBits());
 	return (obj);
 }
 
-Fixed	&Fixed::operator/(Fixed obj, const Fixed &ref)
+Fixed	&Fixed::operator/(const Fixed &ref)
 {
-	_fixed_num /= ref.getRawBits();
+	Fixed	obj;
+
+	obj.setRawBits(_fixed_num /= ref.getRawBits());
 	return (obj);
 }
 
