@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:20:00 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/24 16:38:47 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:55:58 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ class	Fixed
 		bool &operator==(const Fixed &obj1, const Fixed &obj2);
 		bool &operator!=(const Fixed &obj1, const Fixed &obj2);
 
-		Fixed &operator+(const Fixed &obj);
-		Fixed &operator-(const Fixed &obj);
-		Fixed &operator*(const Fixed &obj);
-		Fixed &operator/(const Fixed &obj);
+		Fixed &operator+(Fixed obj, const Fixed &ref);
+		Fixed &operator-(Fixed obj, const Fixed &ref);
+		Fixed &operator*(Fixed obj, const Fixed &ref);
+		Fixed &operator/(Fixed obj, const Fixed &ref);
 
 		Fixed &operator++(void);
 		Fixed &operator--(void);

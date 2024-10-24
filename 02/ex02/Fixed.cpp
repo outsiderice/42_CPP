@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/24 16:49:36 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:14:15 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,24 +74,28 @@ bool	&Fixed::operator!=(const Fixed &obj)
 	return ();
 }
 
-Fixed	&Fixed::operator+(const Fixed &obj)
+Fixed	&Fixed::operator+(Fixed obj, const Fixed &ref)
 {
-	return ();
+	_fixed_num += ref.getRawBits();
+	return (obj);
 }
 
-Fixed	&Fixed::operator-(const Fixed &obj)
+Fixed	&Fixed::operator-(Fixed obj, const Fixed &ref)
 {
-	return ();
+	_fixed_num -= ref.getRawBits();
+	return (obj);
 }
 
-Fixed	&Fixed::operator*(const Fixed &obj)
+Fixed	&Fixed::operator*(Fixed obj, const Fixed &ref)
 {
-	return ();
+	_fixed_num *= ref.getRawBits();
+	return (obj);
 }
 
-Fixed	&Fixed::operator/(const Fixed &obj)
+Fixed	&Fixed::operator/(Fixed obj, const Fixed &ref)
 {
-	return ();
+	_fixed_num /= ref.getRawBits();
+	return (obj);
 }
 
 Fixed	&Fixed::operator++(void)
