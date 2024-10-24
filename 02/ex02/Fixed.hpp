@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:20:00 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/24 16:20:00 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:38:47 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ class	Fixed
 
 		Fixed &operator++(void);
 		Fixed &operator--(void);
-		Fixed operator++(int post);
-		Fixed operator--(int post);
+		Fixed operator++(int);
+		Fixed operator--(int);
 
 		~Fixed(void);
 
