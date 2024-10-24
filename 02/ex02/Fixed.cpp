@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/24 16:07:51 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:23:38 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,26 @@ bool	&Fixed::operator*(const Fixed &obj)
 }
 
 bool	&Fixed::operator/(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator++(void)
+{
+	return ();
+}
+
+bool	&Fixed::operator--(void)
+{
+	return ();
+}
+
+bool	Fixed::operator++(int)
+{
+	return ();
+}
+
+bool	Fixed::operator--(int)
 {
 	return ();
 }

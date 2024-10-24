@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:20:00 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/23 12:29:44 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:20:00 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	Fixed
 		Fixed(const float num);
 
 		Fixed &operator=(const Fixed &obj);
+
 		bool &operator>(const Fixed &obj1, const Fixed &obj2);
 		bool &operator<(const Fixed &obj1, const Fixed &obj2);
 		bool &operator>=(const Fixed &obj1, const Fixed &obj2);
@@ -36,15 +37,15 @@ class	Fixed
 		bool &operator==(const Fixed &obj1, const Fixed &obj2);
 		bool &operator!=(const Fixed &obj1, const Fixed &obj2);
 
-		Fixed &operator+(const Fixed &obj1, const Fixed &obj2);
-		Fixed &operator-(const Fixed &obj1, const Fixed &obj2);
-		Fixed &operator*(const Fixed &obj1, const Fixed &obj2);
-		Fixed &operator/(const Fixed &obj1, const Fixed &obj2);
+		Fixed &operator+(const Fixed &obj);
+		Fixed &operator-(const Fixed &obj);
+		Fixed &operator*(const Fixed &obj);
+		Fixed &operator/(const Fixed &obj);
 
 		Fixed &operator++(void);
 		Fixed &operator--(void);
-		Fixed &operator++(int post);
-		Fixed &operator--(int post);
+		Fixed operator++(int post);
+		Fixed operator--(int post);
 
 		~Fixed(void);
 
