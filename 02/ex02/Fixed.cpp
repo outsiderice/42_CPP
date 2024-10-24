@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/23 12:05:54 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:07:51 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,56 @@ Fixed	&Fixed::operator=(const Fixed &obj)
 	return (*this);
 }
 
+bool	&Fixed::operator>(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator<(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator>=(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator<=(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator==(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator!=(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator+(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator-(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator*(const Fixed &obj)
+{
+	return ();
+}
+
+bool	&Fixed::operator/(const Fixed &obj)
+{
+	return ();
+}
+
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
@@ -53,7 +103,7 @@ Fixed::~Fixed(void)
 int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits called" << std::endl;
-	return (this->_fixed_num / (1 << this->_fract_bits));
+	return (this->_fixed_num);
 }
 
 void	Fixed::setRawBits(int const raw)
