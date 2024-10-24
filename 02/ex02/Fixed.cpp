@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/24 18:14:15 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:30:31 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,34 +44,46 @@ Fixed	&Fixed::operator=(const Fixed &obj)
 	return (*this);
 }
 
-bool	&Fixed::operator>(const Fixed &obj)
+bool	&Fixed::operator>(const Fixed &obj1, const Fixed &obj2)
 {
-	return ();
+	if (obj1.GetRawBits() > obj2.GetRawBits())
+		return (true);
+	return (false);
 }
 
-bool	&Fixed::operator<(const Fixed &obj)
+bool	&Fixed::operator<(const Fixed &obj1, const Fixed &obj2)
 {
-	return ();
+	if (obj1.GetRawBits() < obj2.GetRawBits())
+		return (true);
+	return (false);
 }
 
-bool	&Fixed::operator>=(const Fixed &obj)
+bool	&Fixed::operator>=(const Fixed &obj1, const Fixed &obj2)
 {
-	return ();
+	if (obj1.GetRawBits() >= obj2.GetRawBits())
+		return (true);
+	return (false);
 }
 
-bool	&Fixed::operator<=(const Fixed &obj)
+bool	&Fixed::operator<=(const Fixed &obj1, const Fixed &obj2)
 {
-	return ();
+	if (obj1.GetRawBits() <= obj2.GetRawBits())
+		return (true);
+	return (false);
 }
 
-bool	&Fixed::operator==(const Fixed &obj)
+bool	&Fixed::operator==(const Fixed &obj1, const Fixed &obj2)
 {
-	return ();
+	if (obj1.GetRawBits() == obj2.GetRawBits())
+		return (true);
+	return (false);
 }
 
-bool	&Fixed::operator!=(const Fixed &obj)
+bool	&Fixed::operator!=(const Fixed &obj1, const Fixed &obj2)
 {
-	return ();
+	if (obj1.GetRawBits() != obj2.GetRawBits())
+		return (true);
+	return (false);
 }
 
 Fixed	&Fixed::operator+(Fixed obj, const Fixed &ref)
