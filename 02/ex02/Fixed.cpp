@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/25 13:21:49 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/25 18:17:07 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,13 @@ bool	Fixed::operator!=(const Fixed &obj)
 
 Fixed	Fixed::operator+(const Fixed &ref)
 {
-	Fixed	obj;
-
-	obj.setRawBits(this->getRawBits() + ref.getRawBits());
+	Fixed	obj(this->toFloat() + ref.toFloat());
 	return (obj);
 }
 
 Fixed	Fixed::operator-(const Fixed &ref)
 {
-	Fixed	obj;
-
-	obj.setRawBits(_fixed_num -= ref.getRawBits());
+	Fixed	obj(this->toFloat() - ref.toFloat());
 	return (obj);
 }
 
