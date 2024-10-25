@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/25 18:17:07 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/25 18:28:21 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,21 @@
 
 Fixed::Fixed(void) : _fixed_num(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed(const Fixed &obj) : _fixed_num(obj._fixed_num)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed(const int num) : _fixed_num(num << _fract_bits)
 {
-	std::cout << "Int constructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed(const float num) : _fixed_num(static_cast<int>(roundf(num * (1 << _fract_bits))))
 {
-	std::cout << "Float constructor called" << std::endl;
 	return ;
 }
 
@@ -134,7 +130,6 @@ Fixed	Fixed::operator--(int)
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
