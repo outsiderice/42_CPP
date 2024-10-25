@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/25 18:28:21 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/25 18:56:00 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,7 @@ Fixed	Fixed::operator*(const Fixed &ref)
 
 Fixed	Fixed::operator/(const Fixed &ref)
 {
-	Fixed	obj;
-	int64_t	tmp;
-
-	tmp = static_cast<int64_t>(_fixed_num) << Fixed::_fract_bits;
-	obj.setRawBits( static_cast<int>(tmp) / ref.getRawBits());
-	return (obj);
+	return (this->toFloat() / ref.toFloat());
 }
 
 Fixed	&Fixed::operator++(void)
