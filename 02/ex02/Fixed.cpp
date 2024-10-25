@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/24 18:55:40 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/25 11:47:34 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,37 +44,37 @@ Fixed	&Fixed::operator=(const Fixed &obj)
 	return (*this);
 }
 
-bool	&Fixed::operator>(const Fixed &obj)
+bool	Fixed::operator>(const Fixed &obj)
 {
-	return (> obj.getRawBits());
+	return (_fixed_num > obj.getRawBits());
 }
 
-bool	&Fixed::operator<(const Fixed &obj)
+bool	Fixed::operator<(const Fixed &obj)
 {
-	return (< obj.getRawBits());
+	return (_fixed_num < obj.getRawBits());
 }
 
-bool	&Fixed::operator>=(const Fixed &obj)
+bool	Fixed::operator>=(const Fixed &obj)
 {
-	return (>= obj.getRawBits());
+	return (_fixed_num >= obj.getRawBits());
 }
 
-bool	&Fixed::operator<=(const Fixed &obj)
+bool	Fixed::operator<=(const Fixed &obj)
 {
-	return (<= obj.getRawBits());
+	return (_fixed_num <= obj.getRawBits());
 }
 
-bool	&Fixed::operator==(const Fixed &obj)
+bool	Fixed::operator==(const Fixed &obj)
 {
-	return (== obj.getRawBits());
+	return (_fixed_num == obj.getRawBits());
 }
 
-bool	&Fixed::operator!=(const Fixed &obj)
+bool	Fixed::operator!=(const Fixed &obj)
 {
-	return (!= obj.getRawBits());
+	return (_fixed_num != obj.getRawBits());
 }
 
-Fixed	&Fixed::operator+(const Fixed &ref)
+Fixed	Fixed::operator+(const Fixed &ref)
 {
 	Fixed	obj;
 
@@ -82,7 +82,7 @@ Fixed	&Fixed::operator+(const Fixed &ref)
 	return (obj);
 }
 
-Fixed	&Fixed::operator-(const Fixed &ref)
+Fixed	Fixed::operator-(const Fixed &ref)
 {
 	Fixed	obj;
 
@@ -90,7 +90,7 @@ Fixed	&Fixed::operator-(const Fixed &ref)
 	return (obj);
 }
 
-Fixed	&Fixed::operator*(const Fixed &ref)
+Fixed	Fixed::operator*(const Fixed &ref)
 {
 	Fixed	obj;
 
@@ -98,7 +98,7 @@ Fixed	&Fixed::operator*(const Fixed &ref)
 	return (obj);
 }
 
-Fixed	&Fixed::operator/(const Fixed &ref)
+Fixed	Fixed::operator/(const Fixed &ref)
 {
 	Fixed	obj;
 
@@ -160,32 +160,32 @@ float	Fixed::toFloat(void) const
 	return(static_cast<float> (this->_fixed_num) / (1 << this->_fract_bits));
 }
 
-static &Fixed	Fixed::min(Fixed &p1, Fixed &p2)
+Fixed	&Fixed::min(Fixed &p1, Fixed &p2)
 {
 	if (p1 < p2)
-		return (&p1);
-	return (&p2);
+		return (p1);
+	return (p2);
 }
 
-static &Fixed	Fixed::min(const Fixed &p1, const Fixed &p2)
+const Fixed	&Fixed::min(const Fixed &p1, const Fixed &p2)
 {
 	if (p1 < p2)
-		return (&p1);
-	return (&p2);
+		return (p1);
+	return (p2);
 }
 
-static &Fixed	Fixed::max(Fixed &p1, Fixed &p2)
+Fixed	&Fixed::max(Fixed &p1, Fixed &p2)
 {
 	if (p1 < p2)
-		return (&p2);
-	return (&p1);
+		return (p2);
+	return (p1);
 }
 
-static &Fixed	Fixed::max(const Fixed &p1, const Fixed &p2)
+const Fixed	&Fixed::max(const Fixed &p1, const Fixed &p2)
 {
 	if (p1 < p2)
-		return (&p2);
-	return (&p1);
+		return (p2);
+	return (p1);
 }
 
 std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
