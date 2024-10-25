@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/25 12:03:44 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/25 12:55:35 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,17 +92,21 @@ Fixed	Fixed::operator-(const Fixed &ref)
 
 Fixed	Fixed::operator*(const Fixed &ref)
 {
-	Fixed	obj;
+	Fixed		obj;
+	int64_t		tmp;
 
-	obj.setRawBits(_fixed_num *= ref.getRawBits());
+	tmp = static_cast<int64_t>(_fixed_num) * static_cast<int64_t>(ref.getRawBits());
+	obj.setRawBits(static_cast<int>(tmp) >> Fixed::_fract_bits);
 	return (obj);
 }
 
 Fixed	Fixed::operator/(const Fixed &ref)
 {
 	Fixed	obj;
+	int64_t	tmp;
 
-	obj.setRawBits(_fixed_num /= ref.getRawBits());
+	tmp = static_cast<int64_t>(_fixed_num) << Fixed::_fract_bits;
+	obj.setRawBits( static_cast<int>(tmp) / ref.getRawBits());
 	return (obj);
 }
 
@@ -140,7 +144,6 @@ Fixed::~Fixed(void)
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits called" << std::endl;
 	return (this->_fixed_num);
 }
 
