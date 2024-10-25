@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/25 12:55:35 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/25 13:21:49 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ Fixed	Fixed::operator+(const Fixed &ref)
 {
 	Fixed	obj;
 
-	obj.setRawBits(_fixed_num += ref.getRawBits());
+	obj.setRawBits(this->getRawBits() + ref.getRawBits());
 	return (obj);
 }
 
@@ -160,7 +160,7 @@ int	Fixed::toInt(void) const
 
 float	Fixed::toFloat(void) const
 {
-	return(static_cast<float> (this->_fixed_num) / (1 << this->_fract_bits));
+	return(static_cast<float> (this->getRawBits()) / (1 << this->_fract_bits));
 }
 
 Fixed	&Fixed::min(Fixed &p1, Fixed &p2)

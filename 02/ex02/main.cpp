@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:35:23 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/25 12:39:03 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/25 12:57:47 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ int main( void )
 	std::cout << "c is " << c << std::endl;
 	std::cout << "c is " << c * 2 << std::endl;
 	std::cout << "c is " << c / 2 << std::endl;
+	std::cout << c + c << std::endl;
+	std::cout << c - c << std::endl;
+	std::cout << c + a << std::endl;
 	return 0;
 }
