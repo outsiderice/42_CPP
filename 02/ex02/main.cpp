@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:35:23 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/25 18:41:30 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/25 19:03:06 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int main( void )
 	std::cout << Fixed::max( a, b ) << std::endl;
 	std::cout << "---------original test end-----" << std::endl;
 	
+	std::cout << "---------arithmetic tests-----" << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "c * 2 is " << c * 2 << std::endl;
 	std::cout << "c / 2 is " << c / 2 << std::endl;
@@ -39,5 +40,15 @@ int main( void )
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c * b is " << c * b << std::endl;
 	std::cout << "c / b is " << c / b << std::endl;
+
+	std::cout << "---------logical tests-----" << std::endl;
+	if (c == c)
+		std::cout << "c is the same as c" << std::endl;
+	if (c != a)
+		std::cout << "c is different than a" << std::endl;
+	if (a < c)
+		std::cout << "a is smaller than c" << std::endl;
+	if (c > a)
+		std::cout << "c is bigger than a" << std::endl;
 	return 0;
 }
