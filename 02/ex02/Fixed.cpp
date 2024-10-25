@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:14:46 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/25 11:47:34 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/25 12:03:44 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ Fixed	&Fixed::min(Fixed &p1, Fixed &p2)
 
 const Fixed	&Fixed::min(const Fixed &p1, const Fixed &p2)
 {
-	if (p1 < p2)
+	if (p1.getRawBits() < p2.getRawBits())
 		return (p1);
 	return (p2);
 }
@@ -183,7 +183,7 @@ Fixed	&Fixed::max(Fixed &p1, Fixed &p2)
 
 const Fixed	&Fixed::max(const Fixed &p1, const Fixed &p2)
 {
-	if (p1 < p2)
+	if (p1.getRawBits() < p2.getRawBits())
 		return (p2);
 	return (p1);
 }
