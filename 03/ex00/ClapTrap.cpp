@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:45:43 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 16:09:11 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/26 16:28:24 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _ep(10), _dmg(0)
 	return ;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &obj) _name(obj._name), _hp(obj._hp), _ep(obj.ep), _dmg(obj.dmg)
+ClapTrap::ClapTrap(const ClapTrap &obj) : _name(obj._name), _hp(obj._hp), _ep(obj._ep), _dmg(obj._dmg)
 {
 	std::cout << "ClapTrap: copy constructor called" << std::endl;
 	return ;
@@ -45,7 +45,7 @@ ClapTrap::~ClapTrap(void)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	std::cout << "ClapTrap " << this->_name << " attacks " << target._name 
+	std::cout << "ClapTrap " << this->_name << " attacks " << target 
 		<< " causing " << this->_dmg << " points of damage!" << std::endl;
 	return ;
 }
@@ -59,7 +59,14 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	this->_hp = _hp + amount;
+	this->_ep--;
 	std::cout << "ClapTrap " << this->_name << " repairs " << amount
 		 << " points of damage!" << std::endl;
 	return ;
+}
+
+std::string	ClapTrap::getName(void)
+{
+	return (this->_name);
 }
