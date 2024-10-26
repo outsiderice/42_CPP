@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:45:43 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 16:48:34 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/26 17:01:15 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,19 @@ void	ClapTrap::beRepaired(unsigned int amount)
 std::string	ClapTrap::getName(void)
 {
 	return (this->_name);
+}
+
+unsigned int	ClapTrap::getDamage(void)
+{
+	return (this->_dmg);
+}
+
+unsigned int	ClapTrap::getHP(void)
+{
+	return (this->_hp);
+}
+
+unsigned int	ClapTrap::getEnergy(void)
+{
+	return (this->_ep);
 }

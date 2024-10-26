@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:34:23 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 16:26:54 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/26 17:00:48 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ class	ClapTrap
 		void	beRepaired(unsigned int amount);
 
 		std::string		getName(void);
+		unsigned int	getDamage(void);
+		unsigned int	getHP(void);
+		unsigned int	getEnergy(void);
 };
 #endif
