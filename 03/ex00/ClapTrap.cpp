@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:45:43 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 15:01:00 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/26 16:09:11 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,26 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &obj)
 ClapTrap::~ClapTrap(void)
 {
 	std::cout << "ClapTrap: default destructor called" << std::endl;
+	return ;
+}
+
+void	ClapTrap::attack(const std::string& target)
+{
+	std::cout << "ClapTrap " << this->_name << " attacks " << target._name 
+		<< " causing " << this->_dmg << " points of damage!" << std::endl;
+	return ;
+}
+
+void	ClapTrap::takeDamage(unsigned int amount)
+{
+	std::cout << "ClapTrap " << this->_name << " takes " << amount
+		 << " points of damage!" << std::endl;
+	return ;
+}
+
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	std::cout << "ClapTrap " << this->_name << " repairs " << amount
+		 << " points of damage!" << std::endl;
 	return ;
 }
