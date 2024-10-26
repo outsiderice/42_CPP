@@ -6,14 +6,14 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:12:39 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 19:30:47 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/26 19:37:56 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 
-SlavTrap::SlavTrap(std::string name) : _name(name), _hp(10), _ep(10), _dmg(0)
+SlavTrap::SlavTrap(std::string name) : _name(name), _hp(100), _ep(50), _dmg(20)
 {
 	std::cout << "SlavTrap: default constructor called" << std::endl;
 	return ;
