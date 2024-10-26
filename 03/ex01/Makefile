@@ -1,6 +1,6 @@
 NAME = claptrap
 
-INC = ClapTrap.hpp
+INC = ./inc
 
 SRC = main.cpp ClapTrap.cpp
 
