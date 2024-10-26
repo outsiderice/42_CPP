@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:45:43 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 16:28:24 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/26 16:48:34 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ ClapTrap::~ClapTrap(void)
 
 void	ClapTrap::attack(const std::string& target)
 {
+	if (this->_ep == 0 || this->_hp == 0)
+	{
+		std::cout << "ClapTrap " << this->_name 
+			<< " is unable to do anything anymore." << std::endl;
+		return ;
+	}
+	this->_ep--;
 	std::cout << "ClapTrap " << this->_name << " attacks " << target 
 		<< " causing " << this->_dmg << " points of damage!" << std::endl;
 	return ;
@@ -52,6 +59,12 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	if (this->_hp == 0)
+	{
+		std::cout << "ClapTrap " << this->_name << "is already KO." << std::endl;
+		return ;
+	}
+	this->_hp = _hp - amount;
 	std::cout << "ClapTrap " << this->_name << " takes " << amount
 		 << " points of damage!" << std::endl;
 	return ;
@@ -59,6 +72,12 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->_ep == 0 || this->_hp == 0)
+	{
+		std::cout << "ClapTrap " << this->_name 
+			<< " is unable to do anything anymore." << std::endl;
+		return ;
+	}
 	this->_hp = _hp + amount;
 	this->_ep--;
 	std::cout << "ClapTrap " << this->_name << " repairs " << amount
