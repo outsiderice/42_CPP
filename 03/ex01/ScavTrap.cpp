@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:12:39 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 19:37:56 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/26 19:44:43 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,10 @@ void	SlavTrap::beRepaired(unsigned int amount)
 	std::cout << "SlavTrap " << this->_name << " repairs " << amount
 		 << " points of damage!" << std::endl;
 	return;
+}
+
+void	SlavTrap::guardGate(void)
+{
+	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
+	return ;
 }
