@@ -6,13 +6,13 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:45:43 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 17:01:15 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/26 19:52:12 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _ep(10), _dmg(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hp(100), _ep(50), _dmg(20)
 {
 	std::cout << "ClapTrap: default constructor called" << std::endl;
 	return ;
