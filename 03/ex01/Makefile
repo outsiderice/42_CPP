@@ -1,8 +1,8 @@
-NAME = claptrap
+NAME = scavtrap
 
 INC = ./inc
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
