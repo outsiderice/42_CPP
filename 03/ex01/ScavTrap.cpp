@@ -6,20 +6,20 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:12:39 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 19:51:57 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:42:17 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap: default constructor called" << std::endl;
 	return ;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &obj) : _name(obj._name), _hp(obj._hp), _ep(obj._ep), _dmg(obj._dmg)
+ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap(obj)
 {
 	std::cout << "ScavTrap: copy constructor called" << std::endl;
 	return ;

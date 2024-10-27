@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:20:01 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/26 19:50:07 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:22:55 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class	ScavTrap : ClapTrap
+class	ScavTrap : private ClapTrap
 {
 	public:
 		ScavTrap(std::string name);
@@ -27,7 +27,7 @@ class	ScavTrap : ClapTrap
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-		void	guardGate(void);		
-}
+		void	guardGate(void);
+};
 
 #endif
