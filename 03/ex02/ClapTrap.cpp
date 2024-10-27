@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:45:43 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/27 15:31:38 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/27 16:24:40 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hp == 0)
 	{
-		std::cout << "ClapTrap " << this->_name << "is already KO." << std::endl;
+		std::cout << this->_name << " is already KO." << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_name << " takes " << amount
+	std::cout << this->_name << " takes " << amount
 		 << " points of damage!" << std::endl;
 	if (amount > this->_hp)
 		this->_hp = 0;
@@ -77,13 +77,13 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_ep == 0 || this->_hp == 0)
 	{
-		std::cout << "ClapTrap " << this->_name 
+		std::cout << this->_name 
 			<< " is unable to do anything anymore." << std::endl;
 		return ;
 	}
 	this->_hp = _hp + amount;
 	this->_ep--;
-	std::cout << "ClapTrap " << this->_name << " repairs " << amount
+	std::cout << this->_name << " repairs " << amount
 		 << " points of damage!" << std::endl;
 	return ;
 }

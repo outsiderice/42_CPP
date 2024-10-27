@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:20:01 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/27 15:35:00 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/27 16:23:02 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ class	FragTrap : public ClapTrap
 		~FragTrap(void);
 
 		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
 		void	highFivesGuys(void);
 };
 
