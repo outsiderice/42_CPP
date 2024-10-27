@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:12:39 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/27 14:42:17 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:05:24 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,15 @@ void	ScavTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hp == 0)
 	{
-		std::cout << "ScavTrap " << this->_name << "is already KO." << std::endl;
+		std::cout << "ScavTrap " << this->_name << " is already KO." << std::endl;
 		return ;
 	}
-	this->_hp = _hp - amount;
 	std::cout << "ScavTrap " << this->_name << " takes " << amount
 		 << " points of damage!" << std::endl;
+	if (amount > this->_hp)
+		this->_hp = 0;
+	else
+		this->_hp = _hp - amount;
 	return ;
 }
 

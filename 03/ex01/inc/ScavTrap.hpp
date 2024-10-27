@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:20:01 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/27 14:22:55 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:57:07 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class	ScavTrap : private ClapTrap
+class	ScavTrap : public ClapTrap
 {
 	public:
 		ScavTrap(std::string name);
