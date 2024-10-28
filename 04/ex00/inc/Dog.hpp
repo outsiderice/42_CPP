@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:06:32 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 11:20:27 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/28 12:32:46 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class	Dog : public Animal
 {
 	public:
-		Dog(std::string type);
-		Dog(const Animal &obj);
+		Dog(void);
+		Dog(const Dog &obj);
 		Dog &operator=(const Dog &obj);
 		~Dog(void);
 

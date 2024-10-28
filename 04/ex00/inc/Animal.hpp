@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:04:09 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 11:41:13 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/28 12:28:16 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class	Animal
 {
 	public:
+		Animal(void);
 		Animal(std::string type);
 		Animal(const Animal &obj);
 		Animal &operator=(const Animal &obj);

@@ -6,13 +6,13 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:19:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 11:36:50 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/28 12:18:32 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(std::string type) : Animal(type)
+Cat::Cat(void) : Animal("Cat")
 {
 	std::cout << "Cat: default constructor called" << std::endl;
 	return ;
