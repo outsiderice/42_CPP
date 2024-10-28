@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:30:32 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 12:31:43 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/28 13:06:57 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,17 @@
 
 int	main(void)
 {
-	Cat		Nugget;
-	Dog		Trol;
-	Animal	monster;
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
-	Nugget.makeSound();
-	std::cout << Nugget.getType() << std::endl;
-	Trol.makeSound();
-	std::cout << Trol.getType() << std::endl;
-	monster.makeSound();
-	std::cout << monster.getType() << std::endl;
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+/*	delete (meta);
+	delete (j);
+	delete (i);*/
 	return (0);
 }
