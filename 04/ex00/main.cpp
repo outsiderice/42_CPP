@@ -6,13 +6,15 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:30:32 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 14:00:33 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:21:11 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int	main(void)
 {
@@ -28,5 +30,14 @@ int	main(void)
 	delete (meta);
 	delete (j);
 	delete (i);
+	std::cout << "\n-----WrongAnimals test-----" << std::endl;
+	const WrongAnimal* beta = new WrongAnimal();
+	const WrongAnimal* k = new WrongCat();
+
+	std::cout << k->getType() << " " << std::endl;
+	k->makeSound(); //cause we didnt use virtual will output wronganimal sound
+	beta->makeSound();
+	delete (beta);
+	delete (k);
 	return (0);
 }

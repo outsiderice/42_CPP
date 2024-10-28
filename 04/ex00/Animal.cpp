@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:19:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 12:27:58 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:22:49 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ Animal::~Animal(void)
 
 void	Animal::makeSound(void) const
 {
+	std::cout << "shhh... random animals are not supposed to make sound" << std::endl;
 	return ;
 }
 
