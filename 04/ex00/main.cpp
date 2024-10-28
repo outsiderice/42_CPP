@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:30:32 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 13:06:57 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:00:33 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	main(void)
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
-/*	delete (meta);
+	delete (meta);
 	delete (j);
-	delete (i);*/
+	delete (i);
 	return (0);
 }
