@@ -6,13 +6,13 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:19:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/27 17:28:20 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/28 11:21:01 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal_hpp"
 
-Animal::Animal(void) : _type("default")
+Animal::Animal(void) : _type()
 {
 	std::cout << "Animal: default constructor called" << std::endl;
 	return ;
