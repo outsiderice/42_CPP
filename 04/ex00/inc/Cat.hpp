@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:06:32 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 11:20:41 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/28 11:35:55 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Cat : public Animal
 {
 	public:
 		Cat(std::string type);
-		Cat(const Animal &obj);
+		Cat(const Cat &obj);
 		Cat &operator=(const Cat &obj);
 		~Cat(void);
 

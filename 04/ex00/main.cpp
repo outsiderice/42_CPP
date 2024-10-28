@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 17:04:09 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 11:41:13 by amagnell         ###   ########.fr       */
+/*   Created: 2024/10/28 11:30:32 by amagnell          #+#    #+#             */
+/*   Updated: 2024/10/28 11:44:43 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Animal.hpp"
+#include "Cat.hpp"
 
-#include <iostream>
-
-class	Animal
+int	main(void)
 {
-	public:
-		Animal(std::string type);
-		Animal(const Animal &obj);
-		Animal &operator=(const Animal &obj);
-		~Animal(void);
+	Cat		Nugget("cat");
+	Animal	monster("default");
 
-		virtual void	makeSound(void) const;
-		std::string	getType(void) const;
-
-	protected:
-		std::string	_type;
-};
-
-#endif
+	Nugget.makeSound();
+	std::cout << Nugget.getType() << std::endl;
+	monster.makeSound();
+	std::cout << monster.getType() << std::endl;
+	return (0);
+}
