@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:04:09 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 14:38:32 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/29 11:07:56 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class	Brain
 		Brain(const Brain &obj);
 		Brain &operator=(const Brain &obj);
 		virtual ~Brain(void);
+
+		std::string	getIdea(void) const;
 
 	protected:
 		std::string	_ideas[100];
