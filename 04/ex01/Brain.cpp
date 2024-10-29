@@ -1,47 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:19:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/29 08:32:44 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/29 08:36:17 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat(void) : Animal("Cat")
+Brain::Brain(void) :
 {
-	std::cout << "Cat: default constructor called" << std::endl;
-	this->_brain = new brain;
+	std::cout << "Brain: default constructor called" << std::endl;
 	return ;
 }
 
-Cat::Cat(const Cat &obj) : Animal(obj)
+Brain::Brain(const Brain &obj) : _ideas(obj._ideas)
 {
-	std::cout << "Cat: copy constructor called" << std::endl;
+	std::cout << "Brain: copy constructor called" << std::endl;
 	return ;
 }
 
-Cat	&Cat::operator=(const Cat &obj)
+Brain	&Brain::operator=(const Brain &obj)
 {
-	std::cout << "Cat: copy assignment oprator called" << std::endl;
+	std::cout << "Brain: copy assignment oprator called" << std::endl;
 	if (this != &obj)
-		_type = obj._type;
+		_ideas = obj._ideas;
 	return (*this);
 }
 
-Cat::~Cat(void)
+Brain::~Brain(void)
 {
-	std::cout << "Cat: destructor called" << std::endl;
-	delete (this->_brain);
-	return ;
-}
-
-void	Cat::makeSound(void) const
-{
-	std::cout << "MeeoOOow" << std::endl;
+	std::cout << "Brain: destructor called" << std::endl;
 	return ;
 }

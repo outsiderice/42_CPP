@@ -2,7 +2,7 @@ NAME = animals
 
 INC = ./inc
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
