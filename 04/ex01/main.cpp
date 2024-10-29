@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:30:32 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/29 13:10:18 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/29 15:21:22 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,17 @@
 
 int	main(void)
 {
-	Animal	jungle;
+	Animal	*jungle[6];
 
-	jungle = new Animal[6];	
 	for (int i = 0; i < 3; i++)
 	{
-		jungle = Dog();
+		jungle[i] = new Dog();
 	}
 	for (int i = 3; i < 6; i++)
 	{
-		jungle[i] = Cat();
+		jungle[i] = new Cat();
 	}
-	std::cout << "\n All animals have been created." << std::endl;
+	std::cout << "\nAll animals have been created.\n" << std::endl;
 	for (int i = 0; i < 6; i++)
 	{
 		delete jungle[i];
