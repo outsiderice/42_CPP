@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:19:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/29 16:13:29 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:10:08 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,6 @@ Animal	&Animal::operator=(const Animal &obj)
 Animal::~Animal(void)
 {
 	std::cout << "Animal: destructor called" << std::endl;
-	return ;
-}
-
-void	Animal::makeSound(void) const
-{
-	std::cout << "shhh... random animals are not supposed to make sound" << std::endl;
 	return ;
 }
 

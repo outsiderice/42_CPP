@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:04:09 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/29 16:13:38 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:05:09 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Animal
 		Animal &operator=(const Animal &obj);
 		virtual ~Animal(void);
 
-		virtual void	makeSound(void) const;
+		virtual void	makeSound(void) const = 0;
 		std::string	getType(void) const;
 
 	protected:
