@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:30:32 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 14:21:11 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:38:22 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,7 @@
 
 int	main(void)
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete (meta);
-	delete (j);
-	delete (i);
-	std::cout << "\n-----WrongAnimals test-----" << std::endl;
-	const WrongAnimal* beta = new WrongAnimal();
-	const WrongAnimal* k = new WrongCat();
-
-	std::cout << k->getType() << " " << std::endl;
-	k->makeSound(); //cause we didnt use virtual will output wronganimal sound
-	beta->makeSound();
-	delete (beta);
-	delete (k);
+	Cat				basic;
+	Cat				tmp = basic;
 	return (0);
 }
