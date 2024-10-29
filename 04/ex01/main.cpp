@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:30:32 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/29 12:38:22 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:55:49 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 
 int	main(void)
 {
-	Cat				basic;
-	Cat				tmp = basic;
+	Cat	basic;
+	Cat	tmp = basic;
+	Dog	b;
+	Dog a = b;
 	return (0);
 }
