@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 18:00:01 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/29 19:02:59 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/29 19:05:41 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ AMateria::AMateria(std:: string const &type) : _type(type)
 	return ;
 }
 
-AMateria::AMateria(const AMateria &obj) : _type(obj._type)
+AMateria::AMateria(const AMateria &obj)
 {
 	std::cout << "AMateria: copy constructor" << std::endl;
 	return ;
@@ -28,8 +28,6 @@ AMateria::AMateria(const AMateria &obj) : _type(obj._type)
 AMateria &AMateria::operator=(const AMateria &obj)
 {
 	std::cout << "AMateria: copy assignment operator" << std::endl;
-	if (this !=obj)
-		__type = obj._type;
 	return (*this);
 }
 
