@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 17:33:02 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/29 17:40:43 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/29 18:54:20 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 class	AMateria
 {
 	protected:
+		std::string	_type;
+
 	public:
 		AMateria(std::string const &type);
-		AMateria(const) AMateria &obj;
+		AMateria(const AMateria &obj);
 		AMateria &operator=(const AMateria &obj);
 		virtual ~AMateria(void);
 		
