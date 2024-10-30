@@ -6,15 +6,21 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:19:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/29 18:56:30 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:29:12 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(std::string type) : _type(type)
+Animal::Animal(void)
 {
 	std::cout << "Animal: default constructor called" << std::endl;
+	return ;
+}
+
+Animal::Animal(std::string type) : _type(type)
+{
+	std::cout << "Animal: string constructor called" << std::endl;
 	return ;
 }
 
