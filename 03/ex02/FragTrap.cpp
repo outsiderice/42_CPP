@@ -6,16 +6,21 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:12:39 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/27 16:23:24 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:25:13 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap(void) : ClapTrap()
+{
+	std::cout << "FragTrap: default constructor called" << std::endl;
+	return ;
+}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FragTrap: default constructor called" << std::endl;
+	std::cout << "FragTrap: string constructor called" << std::endl;
 	return ;
 }
 
