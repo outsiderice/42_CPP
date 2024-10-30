@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:45:43 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/30 17:16:54 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:21:48 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap(void) : _name("default"), _hp(100), _ep(50), _dmg(20)
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hp(100), _ep(50), _dmg(20)
 {
-	std::cout << "ClapTrap: default constructor called" << std::endl;
+	std::cout << "ClapTrap: string constructor called" << std::endl;
 	return ;
 }
 
