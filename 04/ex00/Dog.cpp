@@ -6,7 +6,7 @@
 /*   By: amagnell <amagnell@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:19:11 by amagnell          #+#    #+#             */
-/*   Updated: 2024/10/28 12:33:24 by amagnell         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:01:00 by amagnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ Dog::Dog(void) : Animal("Dog")
 	return ;
 }
 
-Dog::Dog(const Dog &obj) : Animal(obj)
+Dog::Dog(const Dog &obj) : Animal("Dog")
 {
 	std::cout << "Dog: copy constructor called" << std::endl;
+	*this = obj;
 	return ;
 }
 
