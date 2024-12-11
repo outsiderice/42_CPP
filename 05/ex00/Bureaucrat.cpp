@@ -31,3 +31,23 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << "Bureaucrat: destructor called" << std::endl;
 	return ;
 }
+
+void	Bureaucrat::GradeTooHighException(void) const
+{
+	return ;
+}
+
+void	Bureaucrat::GradeTooLowException(void) const
+{
+	return ;
+}
+
+std::string	Bureaucrat::getName(void) const
+{
+	return (this->_name);
+}
+
+unsigned int	Bureaucrat::getGrade(void) const
+{
+	return (this->_grade);
+}
