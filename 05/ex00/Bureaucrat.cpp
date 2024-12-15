@@ -32,16 +32,6 @@ Bureaucrat::~Bureaucrat(void)
 	return ;
 }
 
-void	Bureaucrat::GradeTooHighException(void) const
-{
-	return ;
-}
-
-void	Bureaucrat::GradeTooLowException(void) const
-{
-	return ;
-}
-
 std::string	Bureaucrat::getName(void) const
 {
 	return (this->_name);

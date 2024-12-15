@@ -17,8 +17,16 @@ class Bureaucrat
         Bureaucrat &operator=(const Bureaucrat &obj);
         ~Bureaucrat(void);
 
-        void    GradeTooHighException() const;
-        void    GradeTooLowException() const;
+        class    GradeTooHighException : public std::exception
+        {
+            public:
+                const char *what() const throw(){return ("Grade too high.");}
+        };
+        class    GradeTooLowException : public std::exception
+        {
+            public:
+                const char *what() const throw(){return ("Grade too high.");}
+        };
 
         std::string     getName(void) const;
         unsigned int    getGrade(void) const;
