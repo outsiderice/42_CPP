@@ -1,6 +1,6 @@
-NAME = bureaucrat
+NAME = bureaucracy
 
-INC = Bureaucrat.hpp
+INC = inc/
 
 SRC = main.cpp Bureaucrat.cpp
 
