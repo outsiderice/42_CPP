@@ -3,6 +3,6 @@
 
 int	main(void)
 {
-	std::cout << "bureaucracy happens here" << std::endl;
+	Bureaucrat	a;
 	return (0);
 }
