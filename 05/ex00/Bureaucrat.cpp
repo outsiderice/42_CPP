@@ -13,7 +13,10 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
 		this->_grade = grade;
 	else
 	{
-		//use exceptions how? just a throw?
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else
+			throw Bureaucrat::GradeTooLowException();
 	}
 	return ;
 }
@@ -39,6 +42,16 @@ Bureaucrat::~Bureaucrat(void)
 {
 	std::cout << "Bureaucrat: destructor called" << std::endl;
 	return ;
+}
+
+const char	*Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade too high.");
+}
+
+const char	*Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade too low.");
 }
 
 std::string	Bureaucrat::getName(void) const
