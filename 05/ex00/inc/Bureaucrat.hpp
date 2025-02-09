@@ -34,4 +34,6 @@ class Bureaucrat
         void            decrementGrade(unsigned int decrement);
 };
 
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
+
 #endif

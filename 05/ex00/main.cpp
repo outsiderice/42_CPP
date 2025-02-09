@@ -23,5 +23,7 @@ int	main(void)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
+	Bureaucrat	c;
+	std::cout << c << std::endl;
 	return (0);	
 }
