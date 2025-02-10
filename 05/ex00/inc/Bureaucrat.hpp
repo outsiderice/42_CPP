@@ -8,7 +8,7 @@ class Bureaucrat
 {
     private:
         std::string     _name;
-        unsigned int	_grade;
+        int	            _grade;
 
     public:
         Bureaucrat(void);
@@ -30,8 +30,8 @@ class Bureaucrat
 
         std::string     getName(void) const;
         unsigned int    getGrade(void) const;
-        void            incrementGrade(unsigned int increment);
-        void            decrementGrade(unsigned int decrement);
+        void            incrementGrade(int increment);
+        void            decrementGrade(int decrement);
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
