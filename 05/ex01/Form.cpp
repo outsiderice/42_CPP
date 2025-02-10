@@ -6,22 +6,17 @@ Form::Form(void) : _name("default"), _signed(false), _sign_grade(1), _exec_grade
 	return ;
 }
 
-Form::Form(std::string name, int sign_grade, int exec_grade) : _name(name), _signed(false)
+Form::Form(std::string name, int sign_grade, int exec_grade) : _name(name), _signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
 {
-	std::cout << "Form: string constructor called" << std::endl;
-	if (sign_grade > 0 && sign_grade < 151)
-		this->_sign_grade = sign_grade;
-	else
-	{
-		if (grade < 1)
-			throw Form::GradeTooHighException();
-		else
-			throw Form::GradeTooLowException();
-	}
+	std::cout << "Form: constructor called" << std::endl;
+	if (_sign_grade < 1 || _exec_grade < 1)
+		throw Form::GradeTooHighException();
+	if (_sign_grade > 150 || _exec_grade > 150)
+		throw Form::GradeTooLowException();
 	return ;
 }
 
-Form::Form(const Form &obj) : _name(obj._name), _grade(obj._grade)
+Form::Form(const Form &obj) : _name(obj._name), _signed(obj._signed), _sign_grade(obj._sign_grade), _exec_grade(obj._exec_grade)
 {
 	std::cout << "Form: copy constructor called" << std::endl;
 	return ;
@@ -33,7 +28,7 @@ Form	&Form::operator=(const Form &obj)
 	if (this != &obj)
 	{
 		_name = obj._name;
-		_grade = obj._grade;
+		_sign_grade = obj._sign_grade;
 	}
 	return (*this);
 }
