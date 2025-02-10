@@ -47,5 +47,6 @@ int	main(void)
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << c << std::endl;
+	std::cout << "------Bureacrat ex00 testing done------\n" << std::endl;
 	return (0);
 }
