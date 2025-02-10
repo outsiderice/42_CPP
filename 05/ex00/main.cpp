@@ -11,7 +11,7 @@ int	main(void)
 	} 
 	catch (Bureaucrat::GradeTooHighException &e)
 	{
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	//Trying to instantiate a Bureaucrat with too low a grade
 	try 
@@ -21,9 +21,31 @@ int	main(void)
 	} 
 	catch (Bureaucrat::GradeTooLowException &e)
 	{
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	Bureaucrat	c;
 	std::cout << c << std::endl;
-	return (0);	
+	c.incrementGrade(2);
+	std::cout << c << std::endl;
+	try
+	{
+		c.decrementGrade(3);
+	}
+	catch(Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+	std::cout << c << std::endl;
+	c.decrementGrade(1);
+	std::cout << c << std::endl;
+	try
+	{
+		c.incrementGrade(150);
+	}
+	catch(Bureaucrat::GradeTooHighException &e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+	std::cout << c << std::endl;
+	return (0);
 }
