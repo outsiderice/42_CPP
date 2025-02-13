@@ -70,6 +70,7 @@ void	Bureaucrat::incrementGrade(int increment)
 		throw Bureaucrat::GradeTooHighException();
 	else
 		this->_grade -= increment;
+	std::cout << "Bureaucrat promoted!" << std::endl;
 	return ;
 }
 
@@ -79,6 +80,7 @@ void	Bureaucrat::decrementGrade(int decrement)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade += decrement;
+	std::cout << "Bureaucrat demoted u_u" << std::endl;
 	return ;
 }
 

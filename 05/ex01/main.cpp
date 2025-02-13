@@ -3,7 +3,7 @@
 
 int	main(void)
 {
-	//Trying to instantiate a Bureaucrat with too high a grade
+	std::cout << "---Trying to instantiate a Bureaucrat with too high a grade---" << std::endl;
 	try 
 	{
 		Bureaucrat	a("Bill", 0);
@@ -13,7 +13,7 @@ int	main(void)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	//Trying to instantiate a Bureaucrat with too low a grade
+	std::cout << "\n---Trying to instantiate a Bureaucrat with too low a grade---" << std::endl;
 	try 
 	{
 		Bureaucrat	b("Bob", 151);
@@ -23,6 +23,7 @@ int	main(void)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+	std::cout << "\n---Testing Grade incrementation and decrementation---" << std::endl;
 	Bureaucrat	c;
 	std::cout << c << std::endl;
 	c.incrementGrade(2);
@@ -48,5 +49,8 @@ int	main(void)
 	}
 	std::cout << c << std::endl;
 	std::cout << "------Bureaucrat ex00 testing done------\n" << std::endl;
+
+	//Ex01 testing
+
 	return (0);
 }
