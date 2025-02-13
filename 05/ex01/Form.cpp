@@ -60,7 +60,7 @@ int	Form::getExecGrade(void) const
 
 std::ostream &operator<<(std::ostream &os, const Form &Form)
 {
-	os << Form.getName() << ", Form sign grade " << Form.getSignGrade() \
-		<< "Form execution grade " << Form.getExecGrade() << ", Signed = " << Form.getSigned();
+	os << Form.getName() << ", form sign grade " << Form.getSignGrade() \
+		<< ", form execution grade " << Form.getExecGrade() << ", form signed " << Form.getSigned();
 	return (os);
 }

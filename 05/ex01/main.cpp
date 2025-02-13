@@ -52,7 +52,6 @@ int	main(void)
 	std::cout << "------Bureaucrat ex00 testing done------\n" << std::endl;
 
 	//Ex01 testing
-	
 	std::cout << "---Trying to instantiate a Form with too high a grade---" << std::endl;
 	try 
 	{
@@ -63,7 +62,6 @@ int	main(void)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	
 	std::cout << "\n---Trying to instantiate a Form with too low a grade---" << std::endl;
 	try 
 	{
@@ -74,5 +72,7 @@ int	main(void)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+	Form	d;
+	std::cout << d << std::endl;
 	return (0);
 }
