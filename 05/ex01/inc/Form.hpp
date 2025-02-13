@@ -35,7 +35,7 @@ class Form
         int    			getSignGrade(void) const;
 		int    			getExecGrade(void) const;
 
-        void    beSigned(Bureaucrat signee);
+        void    beSigned(Bureaucrat &signee);
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &Form);

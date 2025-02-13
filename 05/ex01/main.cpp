@@ -72,7 +72,23 @@ int	main(void)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+	std::cout << "\n---Testing Form signing---" << std::endl;
 	Form	d;
 	std::cout << d << std::endl;
+	try
+	{
+		d.beSigned(c);
+		std::cerr << "Error: no exception thrown" << std::endl;
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+	c.incrementGrade(148);
+	std::cout << c << std::endl;
+	d.beSigned(c);
+	std::cout << d << std::endl;
+	std::cout << "\n---Trying to sign the same form again---" << std::endl;
+	d.beSigned(c);
 	return (0);
 }
