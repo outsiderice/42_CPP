@@ -8,7 +8,7 @@ Form::Form(void) : _name("default"), _signed(false), _sign_grade(1), _exec_grade
 
 Form::Form(std::string name, int sign_grade, int exec_grade) : _name(name), _signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
 {
-	std::cout << "Form: constructor called" << std::endl;
+	std::cout << "Form: parametrized constructor called" << std::endl;
 	if (_sign_grade < 1 || _exec_grade < 1)
 		throw Form::GradeTooHighException();
 	if (_sign_grade > 150 || _exec_grade > 150)
@@ -20,17 +20,6 @@ Form::Form(const Form &obj) : _name(obj._name), _signed(obj._signed), _sign_grad
 {
 	std::cout << "Form: copy constructor called" << std::endl;
 	return ;
-}
-
-Form	&Form::operator=(const Form &obj)
-{
-	std::cout << "Form: copy assignment oprator called" << std::endl;
-	if (this != &obj)
-	{
-		_name = obj._name;
-		_sign_grade = obj._sign_grade;
-	}
-	return (*this);
 }
 
 Form::~Form(void)
