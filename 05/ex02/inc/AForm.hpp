@@ -1,5 +1,5 @@
 #ifndef AFORM_HPP
-# define AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <exception>
@@ -8,35 +8,38 @@ class Bureaucrat;
 
 class AForm
 {
-    private:
-        const std::string	_name;
-        bool		        _signed;
-        const int	        _sign_grade;
-		const int	        _exec_grade;
+private:
+	const std::string _name;
+	bool _signed;
+	const int _sign_grade;
+	const int _exec_grade;
 
-        AForm &operator=(const AForm &obj);
-    public:
-        AForm(void);
-        AForm(std::string name, int sign_grade, int exec_grade);
-        AForm(const AForm &obj);
-        ~AForm(void);
-        class    GradeTooHighException : public std::exception
-        {
-            public:
-                const char *what() const throw();
-        };
-        class    GradeTooLowException : public std::exception
-        {
-            public:
-                const char *what() const throw();
-        };
+	AForm &operator=(const AForm &obj);
 
-        std::string     getName(void) const;
-		bool			getSigned(void) const;
-        int    			getSignGrade(void) const;
-		int    			getExecGrade(void) const;
+public:
+	AForm(std::string name, int sign_grade, int exec_grade);
+	AForm(const AForm &obj);
+	~AForm(void);
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			const char *what() const throw();
+	};
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			const char *what() const throw();
+	};
 
-        void            beSigned(Bureaucrat &signee);
+	std::string getName(void) const;
+	bool getSigned(void) const;
+	int getSignGrade(void) const;
+	int getExecGrade(void) const;
+
+	virtual void beSigned(Bureaucrat &signee) const = 0;
+
+private:
+	AForm(void);
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm);
