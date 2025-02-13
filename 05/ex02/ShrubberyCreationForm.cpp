@@ -13,7 +13,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("shrub 
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : AForm("shrub request", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : AForm("shrubbery request", 145, 137)
 {
 	std::cout << "ShrubberyCreationForm: copy constructor called" << std::endl;
 	_target = obj._target;
@@ -55,7 +55,7 @@ void	ShrubberyCreationForm::beSigned(Bureaucrat &signee)
 		throw ShrubberyCreationForm::GradeTooLowException();
 	else
 	{
-		if (_signed == false)
+		if (this->AForm._signed == false)
 		{
 			_signed = true;
 			std::cout << signee.getName() << " signed " << _name << std::endl;
