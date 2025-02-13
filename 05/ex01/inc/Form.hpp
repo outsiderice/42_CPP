@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -33,6 +34,8 @@ class Form
 		bool			getSigned(void) const;
         int    			getSignGrade(void) const;
 		int    			getExecGrade(void) const;
+
+        void    beSigned(Bureaucrat signee);
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &Form);

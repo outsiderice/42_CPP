@@ -58,6 +58,20 @@ int	Form::getExecGrade(void) const
 	return (this->_exec_grade);
 }
 
+void	Form::beSigned(Bureaucrat signee)
+{
+	if (signee.getGrade() >= _sign_grade)
+		throw Form::GradeTooLowException();
+	else
+	{
+		if (_signed == false)
+			_signed = true;
+		else
+			std::cout << "This form is already signed" << std::endl;
+	}
+	return ;
+}
+
 std::ostream &operator<<(std::ostream &os, const Form &Form)
 {
 	os << Form.getName() << ", form sign grade " << Form.getSignGrade() \
