@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(void) : _name("default"), _signed(false), _sign_grade(1), _exec_grade(1)
 {
@@ -65,9 +66,13 @@ void	Form::beSigned(Bureaucrat &signee)
 	else
 	{
 		if (_signed == false)
+		{
 			_signed = true;
+			std::cout << signee.getName() << " signed " << _name << std::endl;
+		}
 		else
-			std::cout << "This form is already signed" << std::endl;
+			std::cout << signee.getName() << " couldn't sign " << _name \
+				<< " because it's already signed" << std::endl;
 	}
 	return ;
 }

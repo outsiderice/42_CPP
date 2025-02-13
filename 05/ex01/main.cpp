@@ -84,6 +84,7 @@ int	main(void)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+	c.signForm(d);
 	c.incrementGrade(148);
 	std::cout << c << std::endl;
 	d.beSigned(c);
