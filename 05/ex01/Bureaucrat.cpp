@@ -29,7 +29,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj) : _name(obj._name), _grade(obj._gr
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &obj)
 {
-	std::cout << "Bureaucrat: copy assignment oprator called" << std::endl;
+	std::cout << "Bureaucrat: copy assignment operator called" << std::endl;
 	if (this != &obj)
 	{
 		_name = obj._name;
@@ -46,12 +46,12 @@ Bureaucrat::~Bureaucrat(void)
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high");
+	return ("Bureaucrat Grade too high");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low");
+	return ("Bureaucrat Grade too low");
 }
 
 std::string	Bureaucrat::getName(void) const

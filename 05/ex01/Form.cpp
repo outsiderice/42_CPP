@@ -30,12 +30,12 @@ Form::~Form(void)
 
 const char	*Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high");
+	return ("Form Grade too high");
 }
 
 const char	*Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low");
+	return ("Form Grade too low");
 }
 
 std::string	Form::getName(void) const
