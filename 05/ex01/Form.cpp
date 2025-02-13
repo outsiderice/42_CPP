@@ -43,31 +43,24 @@ std::string	Form::getName(void) const
 	return (this->_name);
 }
 
-unsigned int	Form::getGrade(void) const
+bool	Form::getSigned(void) const
 {
-	return (this->_grade);
+	return (this->_signed);
 }
 
-void	Form::incrementGrade(int increment)
+int	Form::getSignGrade(void) const
 {
-	if (this->_grade - increment < 1)
-		throw Form::GradeTooHighException();
-	else
-		this->_grade -= increment;
-	return ;
+	return (this->_sign_grade);
 }
 
-void	Form::decrementGrade(int decrement)
+int	Form::getExecGrade(void) const
 {
-	if (this->_grade + decrement > 150)
-		throw Form::GradeTooLowException();
-	else
-		this->_grade += decrement;
-	return ;
+	return (this->_exec_grade);
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &Form)
 {
-	os << Form.getName() << ", Form grade " << Form.getGrade();
+	os << Form.getName() << ", Form sign grade " << Form.getSignGrade() \
+		<< "Form execution grade " << Form.getExecGrade() << ", Signed = " << Form.getSigned();
 	return (os);
 }
