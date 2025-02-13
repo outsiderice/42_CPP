@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
 int	main(void)
@@ -52,44 +52,44 @@ int	main(void)
 	std::cout << "------Bureaucrat ex00 testing done------\n" << std::endl;
 
 	//Ex01 testing
-	std::cout << "---Trying to instantiate a Form with too high a grade---" << std::endl;
+	std::cout << "---Trying to instantiate a AForm with too high a grade---" << std::endl;
 	try 
 	{
-		Form	a("bill", 42, 0);
+		AForm	a("bill", 42, 0);
 		std::cerr << "Error: no exception thrown" << std::endl;
 	} 
-	catch (Form::GradeTooHighException &e)
+	catch (AForm::GradeTooHighException &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	std::cout << "\n---Trying to instantiate a Form with too low a grade---" << std::endl;
+	std::cout << "\n---Trying to instantiate a AForm with too low a grade---" << std::endl;
 	try 
 	{
-		Form	b("quizz", 42, 151);
+		AForm	b("quizz", 42, 151);
 		std::cerr << "Error: no exception thrown" << std::endl;
 	} 
-	catch (Form::GradeTooLowException &e)
+	catch (AForm::GradeTooLowException &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	std::cout << "\n---Testing Form signing---" << std::endl;
-	Form	d;
+	std::cout << "\n---Testing AForm signing---" << std::endl;
+	AForm	d;
 	std::cout << d << std::endl;
 	try
 	{
 		d.beSigned(c);
 		std::cerr << "Error: no exception thrown" << std::endl;
 	}
-	catch (Form::GradeTooLowException &e)
+	catch (AForm::GradeTooLowException &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	c.signForm(d);
+	c.signAForm(d);
 	c.incrementGrade(148);
 	std::cout << c << std::endl;
 	d.beSigned(c);
 	std::cout << d << std::endl;
-	std::cout << "\n---Trying to sign the same form again---" << std::endl;
+	std::cout << "\n---Trying to sign the same AForm again---" << std::endl;
 	d.beSigned(c);
 	std::cout << "------ Ex01 testing done------\n" << std::endl;
 	return (0);
