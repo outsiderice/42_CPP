@@ -1,26 +1,31 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : _name("default"), _signed(false), _sign_grade(1), _exec_grade(1)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("default", 145, 137)
 {
 	std::cout << "ShrubberyCreationForm: default constructor called" << std::endl;
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int sign_grade, int exec_grade) : _name(name), _signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("shrub request", 145, 137), _target(target)
 {
 	std::cout << "ShrubberyCreationForm: parametrized constructor called" << std::endl;
-	if (_sign_grade < 1 || _exec_grade < 1)
-		throw ShrubberyCreationForm::GradeTooHighException();
-	if (_sign_grade > 150 || _exec_grade > 150)
-		throw ShrubberyCreationForm::GradeTooLowException();
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : _name(obj._name), _signed(obj._signed), _sign_grade(obj._sign_grade), _exec_grade(obj._exec_grade)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : AForm("shrub request", 145, 137)
 {
 	std::cout << "ShrubberyCreationForm: copy constructor called" << std::endl;
+	_target = obj._target;
 	return ;
+}
+
+ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)
+{
+	std::cout << "ShrubberyCreationForm: copy assignment oprator called" << std::endl;
+	if (this != &obj)
+		_target = obj._target;
+	return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
@@ -39,24 +44,9 @@ const char	*ShrubberyCreationForm::GradeTooLowException::what() const throw()
 	return ("ShrubberyCreationForm Grade too low");
 }
 
-std::string	ShrubberyCreationForm::getName(void) const
+std::string	ShrubberyCreationForm::getTarget(void) const
 {
-	return (this->_name);
-}
-
-bool	ShrubberyCreationForm::getSigned(void) const
-{
-	return (this->_signed);
-}
-
-int	ShrubberyCreationForm::getSignGrade(void) const
-{
-	return (this->_sign_grade);
-}
-
-int	ShrubberyCreationForm::getExecGrade(void) const
-{
-	return (this->_exec_grade);
+	return (this->_target);
 }
 
 void	ShrubberyCreationForm::beSigned(Bureaucrat &signee)
