@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int	main(void)
@@ -51,6 +52,27 @@ int	main(void)
 	std::cout << "------Bureaucrat ex00 testing done------\n" << std::endl;
 
 	//Ex01 testing
-
+	
+	std::cout << "---Trying to instantiate a Form with too high a grade---" << std::endl;
+	try 
+	{
+		Form	a("bill", 42, 0);
+		std::cerr << "Error: no exception thrown" << std::endl;
+	} 
+	catch (Form::GradeTooHighException &e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+	
+	std::cout << "\n---Trying to instantiate a Form with too low a grade---" << std::endl;
+	try 
+	{
+		Form	b("quizz", 42, 151);
+		std::cerr << "Error: no exception thrown" << std::endl;
+	} 
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
 	return (0);
 }
