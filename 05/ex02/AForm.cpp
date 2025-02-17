@@ -39,6 +39,11 @@ const char	*AForm::GradeTooLowException::what() const throw()
 	return ("AForm Grade too low");
 }
 
+const char	*AForm::FormNotSigned::what() const throw()
+{
+	return ("AForm is not signed");
+}
+
 std::string	AForm::getName(void) const
 {
 	return (this->_name);
@@ -74,6 +79,13 @@ void	AForm::beSigned(Bureaucrat &signee)
 			std::cout << signee.getName() << " couldn't sign " << _name \
 				<< " because it's already signed" << std::endl;
 	}
+	return ;
+}
+
+void	AForm::check_requirements(Bureaucrat const &executor)
+{
+	if (executor.getGrade() > _exec_grade)
+		throw AForm::FormNotSigned();
 	return ;
 }
 

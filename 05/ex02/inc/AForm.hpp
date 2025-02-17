@@ -22,13 +22,18 @@ public:
 	~AForm(void);
 	class GradeTooHighException : public std::exception
 	{
-	public:
-		const char *what() const throw();
+		public:
+			const char *what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
-	public:
-		const char *what() const throw();
+		public:
+			const char *what() const throw();
+	};
+	class FormNotSigned : public std::exception
+	{
+		public:
+			const char *what() const throw();
 	};
 
 	std::string getName(void) const;
@@ -37,7 +42,9 @@ public:
 	int			getExecGrade(void) const;
 
 	void			beSigned(Bureaucrat &signee);
+	void			check_requirements(Bureaucrat const &executor);
 	virtual void	execute(Bureaucrat const &executor) const = 0;
+	
 
 	private : AForm(void);
 };
