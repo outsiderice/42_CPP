@@ -84,8 +84,10 @@ void	AForm::beSigned(Bureaucrat &signee)
 
 void	AForm::check_requirements(Bureaucrat const &executor)
 {
-	if (executor.getGrade() > _exec_grade)
+	if (_signed == false)
 		throw AForm::FormNotSigned();
+	else if (executor.getGrade() < _exec_grade)
+		throw AForm::GradeTooLowException();
 	return ;
 }
 
