@@ -7,13 +7,13 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("default", 145, 137)
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("shrub request", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("shrubbery creation", 145, 137), _target(target)
 {
 	std::cout << "ShrubberyCreationForm: parametrized constructor called" << std::endl;
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : AForm("shrubbery request", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : AForm("shrubbery creation", 145, 137)
 {
 	std::cout << "ShrubberyCreationForm: copy constructor called" << std::endl;
 	_target = obj._target;
