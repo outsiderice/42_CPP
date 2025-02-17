@@ -52,6 +52,12 @@ std::string	RobotomyRequestForm::getTarget(void) const
 void	RobotomyRequestForm::execute(Bureaucrat const &executor)
 {
 	check_requirements(executor);
-	
+	std::cout << "Whiiiiirrrrrrr\n";
+
+	bool	robotomy = (std::rand() % 2) != 0;
+	if (robotomy == true)
+		std::cout << _target << " has been successfully robotomized." << std::endl;
+	else
+		std::cout << "The robotomy has failed." << std::endl;
 	return ;
 }
