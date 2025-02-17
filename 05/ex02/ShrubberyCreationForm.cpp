@@ -52,6 +52,24 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
 	check_requirements(executor);
-	
+
+	std::ofstream	file;
+	std::string		file_name;
+
+	file_name = _target;
+	file_name.append("_shrubbery");
+	file.open(file_name);
+	if (!file.is_open())
+	{
+		std::cerr << "Error: couldn't create new file" << std::endl;
+		return ;
+	}
+	file << "    _A_A_          _A_A_         _A_A_\n";
+	file << "   <     >        <     >       <     >\n";
+	file << "  <       >      <       >     <       >\n";
+	file << " <  <   >  >    <  <  >   >   <  <  >   >\n";
+	file << "<_         _>  <_         _> <_         _>\n";
+	file << " <__   v __>    <__   v __>   <__   v __>\n";
+	file << "----|   |----------|   |---------|   |----" << std::endl;
 	return ;
 }
