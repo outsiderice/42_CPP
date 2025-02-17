@@ -22,24 +22,24 @@ public:
 	~AForm(void);
 	class GradeTooHighException : public std::exception
 	{
-		public:
-			const char *what() const throw();
+	public:
+		const char *what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
-		public:
-			const char *what() const throw();
+	public:
+		const char *what() const throw();
 	};
 
 	std::string getName(void) const;
-	bool getSigned(void) const;
-	int getSignGrade(void) const;
-	int getExecGrade(void) const;
+	bool		getSigned(void) const;
+	int			getSignGrade(void) const;
+	int			getExecGrade(void) const;
 
-	void beSigned(Bureaucrat &signee);
+	void			beSigned(Bureaucrat &signee);
+	virtual void	execute(Bureaucrat const &executor) const = 0;
 
-private:
-	AForm(void);
+	private : AForm(void);
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm);

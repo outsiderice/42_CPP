@@ -21,7 +21,6 @@ class ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm(void);
 
 		std::string	getTarget(void) const;
-		void beSigned(Bureaucrat &signee);
 };
 
 #endif
