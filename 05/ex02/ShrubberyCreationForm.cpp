@@ -51,5 +51,7 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
-
+	check_requirements(executor);
+	
+	return ;
 }
