@@ -21,9 +21,7 @@ class ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm(void);
 
 		std::string	getTarget(void) const;
-		virtual void beSigned(Bureaucrat &signee);
+		void beSigned(Bureaucrat &signee);
 };
-
-std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &ShrubberyCreationForm);
 
 #endif

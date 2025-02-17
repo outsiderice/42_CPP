@@ -48,28 +48,3 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 {
 	return (this->_target);
 }
-
-void	ShrubberyCreationForm::beSigned(Bureaucrat &signee)
-{
-	if (signee.getGrade() > _sign_grade)
-		throw ShrubberyCreationForm::GradeTooLowException();
-	else
-	{
-		if (this->AForm._signed == false)
-		{
-			_signed = true;
-			std::cout << signee.getName() << " signed " << _name << std::endl;
-		}
-		else
-			std::cout << signee.getName() << " couldn't sign " << _name \
-				<< " because it's already signed" << std::endl;
-	}
-	return ;
-}
-
-std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &ShrubberyCreationForm)
-{
-	os << ShrubberyCreationForm.getName() << ", ShrubberyCreationForm sign grade " << ShrubberyCreationForm.getSignGrade() \
-		<< ", ShrubberyCreationForm execution grade " << ShrubberyCreationForm.getExecGrade() << ", ShrubberyCreationForm signed " << ShrubberyCreationForm.getSigned();
-	return (os);
-}

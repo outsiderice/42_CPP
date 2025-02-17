@@ -36,7 +36,7 @@ public:
 	int getSignGrade(void) const;
 	int getExecGrade(void) const;
 
-	virtual void beSigned(Bureaucrat &signee) const = 0;
+	void beSigned(Bureaucrat &signee);
 
 private:
 	AForm(void);
