@@ -43,9 +43,10 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	check_requirements(executor);
 	std::cout << "Whiiiiirrrrrrr\n";
-
-	bool	robotomy = (std::rand() % 2) != 0;
-	if (robotomy == true)
+	srand(time(NULL));
+	int	random = std::rand();
+	std::cout << random << std::endl;
+	if (random % 2 != 0)
 		std::cout << _target << " has been successfully robotomized." << std::endl;
 	else
 		std::cout << "The robotomy has failed." << std::endl;

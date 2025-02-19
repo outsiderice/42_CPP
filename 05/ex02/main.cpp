@@ -66,9 +66,17 @@ void testBureaucrat_gradechange(void)
 void testRobotomy()
 {
 	//145, 137
+	std::cout << "\n---Testing RobotomyRequestForm---" << std::endl;
 	RobotomyRequestForm	a("John");
 	Bureaucrat			b("Wannabe robotomizer", 146);
 	b.signForm(a);
+	b.executeForm(a);
+	b.incrementGrade(2);
+	b.signForm(a);
+	b.signForm(a);
+	b.executeForm(a);
+	b.incrementGrade(10);
+	b.executeForm(a);
 }
 
 int main(void)

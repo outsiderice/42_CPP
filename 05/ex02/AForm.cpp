@@ -31,17 +31,17 @@ AForm::~AForm(void)
 
 const char	*AForm::GradeTooHighException::what() const throw()
 {
-	return ("AForm Grade too high");
+	return ("Grade too high");
 }
 
 const char	*AForm::GradeTooLowException::what() const throw()
 {
-	return ("AForm Grade too low");
+	return ("Grade too low");
 }
 
 const char	*AForm::FormNotSigned::what() const throw()
 {
-	return ("AForm is not signed");
+	return ("Form is not signed");
 }
 
 std::string	AForm::getName(void) const
@@ -86,7 +86,7 @@ void	AForm::check_requirements(Bureaucrat const &executor) const
 {
 	if (_signed == false)
 		throw AForm::FormNotSigned();
-	else if (executor.getGrade() < _exec_grade)
+	else if (executor.getGrade() > _exec_grade)
 		throw AForm::GradeTooLowException();
 	return ;
 }
