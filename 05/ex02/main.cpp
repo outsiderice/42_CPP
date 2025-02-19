@@ -65,7 +65,19 @@ void testBureaucrat_gradechange(void)
 
 void	testPresidentialPardon()
 {
-
+	//25, 5
+	std::cout << "\n---Testing PresidentialForm---" << std::endl;
+	PresidentialPardonForm	a("criminal");
+	Bureaucrat				b("Presidential lackey", 24);
+	b.signForm(a);
+	b.executeForm(a);
+	b.incrementGrade(2);
+	b.signForm(a);
+	b.signForm(a);
+	b.executeForm(a);
+	b.incrementGrade(20);
+	b.executeForm(a);
+	std::cout << "\n---Finished testing PresidentialPardonForm---" << std::endl;
 }
 
 void	testRobotomy()
@@ -83,8 +95,11 @@ void	testRobotomy()
 	b.executeForm(a);
 	b.incrementGrade(40);
 	b.executeForm(a);
-	std::cout << "\n---Testing PresidentialPardonForm---" << std::endl;
+	std::cout << "\n---Finished testing RobotomyRequestForm---"<< std::endl;
 }
+
+void	testShrubbery()
+{}
 
 int main(void)
 {
@@ -92,6 +107,6 @@ int main(void)
 	testBureaucrat_gradechange();
 	testPresidentialPardon();
 	testRobotomy();
-	//testShrubbery();
+	testShrubbery();
 	return (0);
 }
