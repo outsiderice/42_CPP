@@ -1,36 +1,41 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+
 #include <iostream>
 
-void	testBureaucrat_creation(void)
+void testBureaucrat_creation(void)
 {
 	std::cout << "---Trying to instantiate a Bureaucrat with too high a grade---" << std::endl;
-	try 
+	try
 	{
-		Bureaucrat	a("Bill", 0);
+		Bureaucrat a("Bill", 0);
 		std::cerr << "Error: no exception thrown" << std::endl;
-	} 
-	catch (const std::exception& e)
+	}
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << "\n---Trying to instantiate a Bureaucrat with too low a grade---" << std::endl;
-	try 
+	try
 	{
-		Bureaucrat	b("Bob", 151);
+		Bureaucrat b("Bob", 151);
 		std::cerr << "Error: no exception thrown" << std::endl;
-	} 
-	catch (const std::exception& e)
+	}
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	std::cout << "------Bureaucrat creation testing done------\n" << std::endl;	
+	std::cout << "------Bureaucrat creation testing done------\n"
+			  << std::endl;
 }
 
-void	testBureaucrat_gradechange(void)
+void testBureaucrat_gradechange(void)
 {
 	std::cout << "\n---Testing Grade incrementation and decrementation---" << std::endl;
-	Bureaucrat	c;
+	Bureaucrat c;
 	std::cout << c << std::endl;
 	c.incrementGrade(2);
 	std::cout << c << std::endl;
@@ -38,7 +43,7 @@ void	testBureaucrat_gradechange(void)
 	{
 		c.decrementGrade(3);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
@@ -49,17 +54,26 @@ void	testBureaucrat_gradechange(void)
 	{
 		c.incrementGrade(150);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << c << std::endl;
-	std::cout << "------Bureaucrat grade change testing done------\n" << std::endl;
+	std::cout << "------Bureaucrat grade change testing done------\n"
+			  << std::endl;
 }
 
-int	main(void)
+void testRobotomy()
+{
+	RobotomyRequestForm	a("John");
+}
+
+int main(void)
 {
 	testBureaucrat_creation();
 	testBureaucrat_gradechange();
+	testRobotomy();
+	testPresidentialPardon();
+	testShrubbery();
 	return (0);
 }

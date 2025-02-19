@@ -42,7 +42,7 @@ public:
 	int			getExecGrade(void) const;
 
 	void			beSigned(Bureaucrat &signee);
-	void			check_requirements(Bureaucrat const &executor);
+	void			check_requirements(Bureaucrat const &executor) const;
 	virtual void	execute(Bureaucrat const &executor) const = 0;
 	
 

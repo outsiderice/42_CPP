@@ -82,7 +82,7 @@ void	AForm::beSigned(Bureaucrat &signee)
 	return ;
 }
 
-void	AForm::check_requirements(Bureaucrat const &executor)
+void	AForm::check_requirements(Bureaucrat const &executor) const
 {
 	if (_signed == false)
 		throw AForm::FormNotSigned();

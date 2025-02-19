@@ -49,7 +49,7 @@ std::string	RobotomyRequestForm::getTarget(void) const
 	return (this->_target);
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const &executor)
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	check_requirements(executor);
 	std::cout << "Whiiiiirrrrrrr\n";

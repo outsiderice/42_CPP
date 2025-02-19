@@ -49,7 +49,7 @@ std::string	PresidentialPardonForm::getTarget(void) const
 	return (this->_target);
 }
 
-void	PresidentialPardonForm::execute(Bureaucrat const &executor)
+void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	check_requirements(executor);
 	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;

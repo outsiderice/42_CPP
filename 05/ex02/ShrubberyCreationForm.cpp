@@ -49,7 +49,7 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 	return (this->_target);
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	check_requirements(executor);
 
