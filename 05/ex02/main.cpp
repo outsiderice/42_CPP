@@ -99,7 +99,22 @@ void	testRobotomy()
 }
 
 void	testShrubbery()
-{}
+{
+	//145, 137
+	std::cout << "\n---Testing ShrubberyCreationForm---" << std::endl;
+	ShrubberyCreationForm	a("House");
+	Bureaucrat				b("Person with taste", 146);
+	std::cout << a << std::endl;
+	b.signForm(a);
+	b.executeForm(a);
+	b.incrementGrade(2);
+	b.signForm(a);
+	b.signForm(a);
+	b.executeForm(a);
+	b.incrementGrade(10);
+	b.executeForm(a);
+	std::cout << "\n---Finished testing ShrubberyCreationtForm---"<< std::endl;
+}
 
 int main(void)
 {
