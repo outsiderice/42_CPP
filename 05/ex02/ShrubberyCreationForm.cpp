@@ -58,7 +58,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 
 	file_name = _target;
 	file_name.append("_shrubbery");
-	file.open(file_name);
+	file.open(file_name.c_str());
 	if (!file.is_open())
 	{
 		std::cerr << "Error: couldn't create new file" << std::endl;
