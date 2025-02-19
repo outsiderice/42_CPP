@@ -85,7 +85,7 @@ void	Bureaucrat::decrementGrade(int decrement)
 	return ;
 }
 
-void	Bureaucrat::signAForm(AForm &AForm)
+void	Bureaucrat::signForm(AForm &AForm)
 {
 	try
 	{
@@ -95,6 +95,19 @@ void	Bureaucrat::signAForm(AForm &AForm)
 	{
 		std::cout << _name << " couldn't sign " << AForm.getName() \
 			<< " because their bureaucrat grade is too low" << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Couldn't execute form because: " << e.what() << std::endl;
 	}
 }
 
