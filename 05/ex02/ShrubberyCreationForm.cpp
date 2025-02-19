@@ -34,16 +34,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 	return ;
 }
 
-const char	*ShrubberyCreationForm::GradeTooHighException::what() const throw()
-{
-	return ("ShrubberyCreationForm Grade too high");
-}
-
-const char	*ShrubberyCreationForm::GradeTooLowException::what() const throw()
-{
-	return ("ShrubberyCreationForm Grade too low");
-}
-
 std::string	ShrubberyCreationForm::getTarget(void) const
 {
 	return (this->_target);

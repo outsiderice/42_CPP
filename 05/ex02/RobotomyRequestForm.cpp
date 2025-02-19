@@ -34,16 +34,6 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 	return ;
 }
 
-const char	*RobotomyRequestForm::GradeTooHighException::what() const throw()
-{
-	return ("RobotomyRequestForm Grade too high");
-}
-
-const char	*RobotomyRequestForm::GradeTooLowException::what() const throw()
-{
-	return ("RobotomyRequestForm Grade too low");
-}
-
 std::string	RobotomyRequestForm::getTarget(void) const
 {
 	return (this->_target);

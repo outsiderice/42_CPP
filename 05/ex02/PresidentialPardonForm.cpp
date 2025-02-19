@@ -34,16 +34,6 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 	return ;
 }
 
-const char	*PresidentialPardonForm::GradeTooHighException::what() const throw()
-{
-	return ("PresidentialPardonForm Grade too high");
-}
-
-const char	*PresidentialPardonForm::GradeTooLowException::what() const throw()
-{
-	return ("PresidentialPardonForm Grade too low");
-}
-
 std::string	PresidentialPardonForm::getTarget(void) const
 {
 	return (this->_target);
