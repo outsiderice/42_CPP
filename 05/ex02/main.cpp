@@ -65,7 +65,10 @@ void testBureaucrat_gradechange(void)
 
 void testRobotomy()
 {
+	//145, 137
 	RobotomyRequestForm	a("John");
+	Bureaucrat			b("Wannabe robotomizer", 146);
+	b.signForm(a);
 }
 
 int main(void)
@@ -73,7 +76,7 @@ int main(void)
 	testBureaucrat_creation();
 	testBureaucrat_gradechange();
 	testRobotomy();
-	testPresidentialPardon();
-	testShrubbery();
+	//testPresidentialPardon();
+	//testShrubbery();
 	return (0);
 }

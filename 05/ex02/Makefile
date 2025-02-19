@@ -2,14 +2,14 @@ NAME = bureaucracy
 
 INC = inc/
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
 DEP = $(OBJ:%.o=%.d)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 RM = rm -rf
 DIR_DUP = mkdir -p $(@D)
