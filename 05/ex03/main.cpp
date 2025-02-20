@@ -133,9 +133,9 @@ void	testIntern()
 	AForm *a =newbie.makeForm("robotomy request", "victim");
 	AForm *b =newbie.makeForm("presidential pardon", "Luigi Mangione");
 	AForm *c =newbie.makeForm("shrubbery creation", "backyard");
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << c << std::endl;
+	std::cout << *a << std::endl;
+	std::cout << *b << std::endl;
+	std::cout << *c << std::endl;
 	delete a;
 	delete b;
 	delete c;
