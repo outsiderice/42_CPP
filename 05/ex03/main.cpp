@@ -124,6 +124,7 @@ void	testIntern()
 	try
 	{
 		AForm *a = newbie.makeForm("random crap", "whatever");
+		delete a;
 	}
 	catch(const std::exception& e)
 	{
