@@ -3,6 +3,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 #include <iostream>
 
@@ -116,6 +117,30 @@ void	testShrubbery()
 	std::cout << "\n---Finished testing ShrubberyCreationtForm---"<< std::endl;
 }
 
+void	testIntern()
+{
+	std::cout << "\n---Testing Intern functions---" << std::endl;
+	Intern	newbie;
+	try
+	{
+		AForm *a = newbie.makeForm("random crap", "whatever");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Intern couldn't make form because: "<< e.what() << '\n';
+	}
+	AForm *a =newbie.makeForm("robotomy request", "victim");
+	AForm *b =newbie.makeForm("presidential pardon", "Luigi Mangione");
+	AForm *c =newbie.makeForm("shrubbery creation", "backyard");
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+	delete a;
+	delete b;
+	delete c;
+	std::cout << "\n---Finished testing Intern functions---" << std::endl;
+}
+
 int main(void)
 {
 	testBureaucrat_creation();
@@ -123,5 +148,6 @@ int main(void)
 	testPresidentialPardon();
 	testRobotomy();
 	testShrubbery();
+	testIntern();
 	return (0);
 }
