@@ -24,9 +24,13 @@ Intern::~Intern(void)
 	return ;
 }
 
+const char	*Intern::InvalidFormName::what() const throw()
+{
+	return ("Invalid form name");
+}
+
 AForm*	Intern::makeForm(std::string name, std::string target)
 {
-	AForm		*new_form;
 	std::string	form_types[3] =
 	{
 		"presidential pardon", "robotomy request", "shrubbery creation"
@@ -38,14 +42,12 @@ AForm*	Intern::makeForm(std::string name, std::string target)
 	switch (i)
 	{
 		case 0:
-			//presidential
+			return (new PresidentialPardonForm(target));
 		case 1:
-			//robotomy
+			return (new RobotomyRequestForm(target));
 		case 2:
-			//shrubbery
-			break ;
+			return (new ShrubberyCreationForm(target));
 		default :
-			std::cout << "Couldn't make form because this form type doesn't exist." << std::endl;
+			throw Intern::InvalidFormName();
 	}
-	return (new_form);
 }
