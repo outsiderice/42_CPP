@@ -1,29 +1,29 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-int	main(void)
+int main(void)
 {
-	//Trying to instantiate a Bureaucrat with too high a grade
-	try 
+	// Trying to instantiate a Bureaucrat with too high a grade
+	try
 	{
-		Bureaucrat	a("Bill", 0);
+		Bureaucrat a("Bill", 0);
 		std::cerr << "Error: no exception thrown" << std::endl;
-	} 
+	}
 	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	//Trying to instantiate a Bureaucrat with too low a grade
-	try 
+	// Trying to instantiate a Bureaucrat with too low a grade
+	try
 	{
-		Bureaucrat	b("Bob", 151);
+		Bureaucrat b("Bob", 151);
 		std::cerr << "Error: no exception thrown" << std::endl;
-	} 
+	}
 	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	Bureaucrat	c;
+	Bureaucrat c;
 	std::cout << c << std::endl;
 	c.incrementGrade(2);
 	std::cout << c << std::endl;
@@ -31,7 +31,7 @@ int	main(void)
 	{
 		c.decrementGrade(3);
 	}
-	catch(const std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
@@ -42,11 +42,12 @@ int	main(void)
 	{
 		c.incrementGrade(150);
 	}
-	catch(const std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << c << std::endl;
-	std::cout << "------Bureacrat ex00 testing done------\n" << std::endl;
+	std::cout << "------Bureacrat ex00 testing done------\n"
+			  << std::endl;
 	return (0);
 }
