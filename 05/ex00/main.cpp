@@ -9,7 +9,7 @@ int	main(void)
 		Bureaucrat	a("Bill", 0);
 		std::cerr << "Error: no exception thrown" << std::endl;
 	} 
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
@@ -19,7 +19,7 @@ int	main(void)
 		Bureaucrat	b("Bob", 151);
 		std::cerr << "Error: no exception thrown" << std::endl;
 	} 
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
@@ -31,7 +31,7 @@ int	main(void)
 	{
 		c.decrementGrade(3);
 	}
-	catch(Bureaucrat::GradeTooLowException &e)
+	catch(const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
@@ -42,7 +42,7 @@ int	main(void)
 	{
 		c.incrementGrade(150);
 	}
-	catch(Bureaucrat::GradeTooHighException &e)
+	catch(const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
