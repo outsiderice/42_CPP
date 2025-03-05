@@ -28,8 +28,7 @@ void testBureaucrat_creation(void)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	std::cout << "------Bureaucrat creation testing done------\n"
-			  << std::endl;
+	std::cout << "------Bureaucrat creation testing done------\n" << std::endl;
 }
 
 void testBureaucrat_gradechange(void)
@@ -59,8 +58,7 @@ void testBureaucrat_gradechange(void)
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << c << std::endl;
-	std::cout << "------Bureaucrat grade change testing done------\n"
-			  << std::endl;
+	std::cout << "------Bureaucrat grade change testing done------\n" << std::endl;
 }
 
 void	testPresidentialPardon()
