@@ -14,11 +14,10 @@ private:
 	const int _sign_grade;
 	const int _exec_grade;
 
-	AForm &operator=(const AForm &obj);
-
 public:
 	AForm(std::string name, int sign_grade, int exec_grade);
 	AForm(const AForm &obj);
+	AForm &operator=(const AForm &obj);
 	~AForm(void);
 	class GradeTooHighException : public std::exception
 	{

@@ -14,11 +14,11 @@ class Form
         const int	        _sign_grade;
 		const int	        _exec_grade;
 
-        Form &operator=(const Form &obj);
     public:
         Form(void);
         Form(std::string name, int sign_grade, int exec_grade);
         Form(const Form &obj);
+        Form &operator=(const Form &obj);
         ~Form(void);
         class    GradeTooHighException : public std::exception
         {

@@ -23,6 +23,16 @@ AForm::AForm(const AForm &obj) : _name(obj._name), _signed(obj._signed), _sign_g
 	return ;
 }
 
+AForm	&AForm::operator=(const AForm &obj)
+{
+	std::cout << "Bureaucrat: copy assignment operator called. But why??" << std::endl;
+	if (this != &obj)
+	{
+		_signed = obj._signed;
+	}
+	return (*this);
+}
+
 AForm::~AForm(void)
 {
 	std::cout << "AForm: destructor called" << std::endl;
