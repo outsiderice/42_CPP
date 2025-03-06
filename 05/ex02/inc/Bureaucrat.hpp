@@ -36,6 +36,8 @@ public:
 	void decrementGrade(int decrement);
 	void signForm(AForm &AForm);
 	void executeForm(AForm const &form);
+private:
+	unsigned int	checkGrade(unsigned int grade);
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
