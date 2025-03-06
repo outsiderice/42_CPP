@@ -28,10 +28,12 @@ class Bureaucrat
 				const char *what() const throw();
 		};
 
-		std::string getName(void) const;
-		unsigned int getGrade(void) const;
-		void incrementGrade(int increment);
-		void decrementGrade(int decrement);
+		std::string		getName(void) const;
+		unsigned int	getGrade(void) const;
+		void			incrementGrade(int increment);
+		void			decrementGrade(int decrement);
+	private:
+		unsigned int	checkGrade(unsigned int grade);
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
