@@ -4,6 +4,7 @@
 class ScalarConverter
 {
     public:
+        static void convert(const char *input);
     private:
 };
 
