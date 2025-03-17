@@ -2,6 +2,11 @@
 
 void    ScalarConverter::convert(const char *input)
 {
+    //identify input type
+    //convert to char
+    //convert to int
+    //convert to float
+    //convert to double
 }
 
 //Constructors, operators and destructors
