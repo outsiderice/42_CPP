@@ -1,5 +1,6 @@
 #include "ScalarConverter.hpp"
 #include <iostream>
+#include <stdlib.h>
 
 int main(int argc, char **argv)
 {
@@ -7,8 +8,8 @@ int main(int argc, char **argv)
     {
         std::cerr << "Wrong usage: input one argument!\n";
         std::cout << "  Hint: ./convert argument" << std::endl;
+        return (EXIT_FAILURE);
     }
-    else
-        ScalarConverter::convert(argv[1]);
-    return (0);
+    ScalarConverter::convert(argv[1]);
+    return (EXIT_SUCCESS);
 }
