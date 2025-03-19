@@ -1,12 +1,31 @@
 #include "ScalarConverter.hpp"
 
+int  ScalarConverter::sort_type(std::string input)
+{
+    //look for identifying characters in input
+    //return different number for each case
+}
+
 void    ScalarConverter::convert(const char *input)
 {
-    //identify input type
-    //convert to char
-    //convert to int
-    //convert to float
-    //convert to double
+    switch (sort_type(input))
+    {
+    case 1:
+        /* convert char */
+        break ;
+    case 2:
+        /* convert int */
+        break ;
+    case 3:
+        /* convert float */
+        break ;
+    case 4:
+        /* convert double */
+        break ;
+    default:
+        break ;
+    }
+    return ;
 }
 
 //Constructors, operators and destructors

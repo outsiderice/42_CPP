@@ -1,6 +1,8 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
+#include <iostream>
+
 class ScalarConverter
 {
     public:
@@ -10,6 +12,8 @@ class ScalarConverter
         ScalarConverter(const ScalarConverter &obj);
         ScalarConverter &operator=(const ScalarConverter &obj);
         ~ScalarConverter(void);
+
+        static int  sort_type(std::string input);
 };
 
 #endif
