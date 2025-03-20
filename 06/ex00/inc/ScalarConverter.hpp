@@ -13,7 +13,11 @@ class ScalarConverter
         ScalarConverter &operator=(const ScalarConverter &obj);
         ~ScalarConverter(void);
 
-        static int  sort_type(std::string input);
+        static int  sort_type(std::string str);
+        static void convert_char(std::string str);
+        static void convert_int(std::string str);
+        static void convert_float(std::string str);
+        static void convert_double(std::string str);
 };
 
 #endif

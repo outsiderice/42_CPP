@@ -1,26 +1,33 @@
 #include "ScalarConverter.hpp"
 
-int  ScalarConverter::sort_type(std::string input)
+int  ScalarConverter::sort_type(std::string str)
 {
     //look for identifying characters in input
     //return different number for each case
+    // char length == 1 + ischar?
+        // int parse whole string so there's not:
+        // . == double or float
+        // ending f == float
+    //if (str.length() == 1 && str.cbegin()) continue here
 }
 
 void    ScalarConverter::convert(const char *input)
 {
-    switch (sort_type(input))
+    std::string str = static_cast<std::string>(input);
+
+    switch (sort_type(str))
     {
     case 1:
-        /* convert char */
+        convert_char(str);
         break ;
     case 2:
-        /* convert int */
+        convert_int(str);
         break ;
     case 3:
-        /* convert float */
+        convert_float(str);
         break ;
     case 4:
-        /* convert double */
+        convert_double(str);
         break ;
     default:
         break ;
