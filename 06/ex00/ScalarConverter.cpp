@@ -31,8 +31,24 @@ void    ScalarConverter::convert(const char *input)
 
 int  ScalarConverter::sort_type(std::string str)
 {
+    bool    dot = false;
+    bool    f = false;
     if (str.length() == 1 && isalpha(str.front()) != 0)
         return (1);
+    //check for pseudo literals here?
+    
+    std::string::iterator   it;
+    for (it = str.begin(); it != str.end(); it++)
+    {
+        if (str.at(*it) == '.')
+        {
+            if (dot == true)
+                return (0);
+            dot = true;
+            if (str.back() == 'f')
+                f = true;
+        }
+    }
         // int parse whole string so there's not:
         // . == double or float
         // ending f == float
