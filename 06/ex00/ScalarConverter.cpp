@@ -31,27 +31,22 @@ void    ScalarConverter::convert(const char *input)
 
 int  ScalarConverter::sort_type(std::string str)
 {
+    const char  *digits = "1234567890";
     bool    dot = false;
     bool    f = false;
-    if (str.length() == 1 && isalpha(str.front()) != 0)
+    if (str.length() == 1 && isalpha(str[0]) != 0)
         return (1);
     //check for pseudo literals here?
-    
-    std::string::iterator   it;
-    for (it = str.begin(); it != str.end(); it++)
+
+    std::string::size_type  ch = str.find_first_not_of(digits);
+    if (str[ch] == std::string::npos)
     {
-        if (str.at(*it) == '.')
-        {
-            if (dot == true)
-                return (0);
-            dot = true;
-            if (str.back() == 'f')
-                f = true;
-        }
+        //check smaller than int max
+        return (2);
     }
-        // int parse whole string so there's not:
-        // . == double or float
-        // ending f == float
+    std::string::iterator   it = str.end();
+    if (str.at(*it) == 'f')
+        f = true;
 }
 
 void    ScalarConverter::convert_char(std::string str)
