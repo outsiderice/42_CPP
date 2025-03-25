@@ -19,6 +19,7 @@ class ScalarConverter
         static void convert_int(std::string str);
         static void convert_float(std::string str);
         static void convert_double(std::string str);
+        static void convert_pseudo_literals(std::string str);
 };
 
 #endif
