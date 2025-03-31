@@ -47,8 +47,11 @@ int  ScalarConverter::sort_type(std::string str)
     }
 
     const char  *digits = "1234567890";
-    std::string::size_type  ch = str.find_first_not_of(digits);
-    std::string::size_type  last = str.find_last_not_of(digits);
+    std::string::size_type  start = 0;
+    if (str[start] == '-')
+        start++;
+    std::string::size_type  ch = str.find_first_not_of(digits, start);
+    std::string::size_type  last = str.find_last_not_of(digits, start);
     if (str[ch] == std::string::npos)
         return (2);
     else if (str[ch] == '.' && str[ch] == 'f')
