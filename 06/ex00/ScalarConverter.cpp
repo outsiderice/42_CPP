@@ -26,6 +26,7 @@ void    ScalarConverter::convert(const char *input)
     case 5:
         convert_pseudo_literals(str);
     default:
+        std::cerr << "Error: bad input" << std::endl;
         break ;
     }
     return ;
@@ -58,8 +59,7 @@ int  ScalarConverter::sort_type(std::string str)
         return (3);
     else if (str[ch] == '.' && ch == last)
         return (4);
-    else
-        return (0);
+    return (0);
 }
 
 void    ScalarConverter::convert_char(std::string str)
