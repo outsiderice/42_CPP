@@ -33,9 +33,6 @@ void    ScalarConverter::convert(const char *input)
 
 int  ScalarConverter::sort_type(std::string str)
 {
-    const char  *digits = "1234567890";
-    bool    dot = false;
-    bool    f = false;
     if (str.length() == 1 && isalpha(str[0]) != 0)
         return (1);
 
@@ -49,13 +46,17 @@ int  ScalarConverter::sort_type(std::string str)
             return (5);
     }
 
-
+    const char  *digits = "1234567890";
     std::string::size_type  ch = str.find_first_not_of(digits);
+    std::string::size_type  last = str.find_last_not_of(digits);
     if (str[ch] == std::string::npos)
         return (2);
-    std::string::iterator   it = str.end();
-    if (str.at(*it) == 'f')
-        f = true;
+    else if (str[ch] == '.' && str[ch] == 'f')
+        return (3);
+    else if (str[ch] == '.' && ch == last)
+        return (4);
+    else
+        return (0);
 }
 
 void    ScalarConverter::convert_char(std::string str)
