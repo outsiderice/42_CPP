@@ -52,14 +52,22 @@ int  ScalarConverter::sort_type(std::string str)
     std::string::size_type  start = 0;
     if (str[start] == '-')
         start++;
-    std::string::size_type  ch = str.find_first_not_of(digits, start);
-    std::string::size_type  last = str.find_last_not_of(digits, start);
+    std::string::size_type  ch = str.find_first_not_of(digits, start, str.length());
+    std::string::size_type  last = str.find_last_not_of(digits, start, str.length() - 1);
+    std::cout << str[ch] << std::endl;
+    std::cout << str[last] << std::endl;
     if (ch == std::string::npos)
         return (2);
-    else if (str[ch] == '.' && str[ch] == 'f')
+    else if (str[ch] == '.' && str[last] == 'f')
+    {
+        std::cout << str[ch] << std::endl;
         return (3);
-    else if (str[ch] == '.' && ch == last)
+    }
+    else if (str[ch] == '.' && last == std::string::npos)
+    {
+        std::cout << str[ch] << std::endl;
         return (4);
+    }
     return (0);
 }
 
