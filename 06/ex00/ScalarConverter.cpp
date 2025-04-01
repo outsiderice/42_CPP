@@ -25,6 +25,7 @@ void    ScalarConverter::convert(const char *input)
         break ;
     case 5:
         convert_pseudo_literals(str);
+        break ;
     default:
         std::cerr << "Error: bad input" << std::endl;
         break ;
@@ -53,7 +54,7 @@ int  ScalarConverter::sort_type(std::string str)
         start++;
     std::string::size_type  ch = str.find_first_not_of(digits, start);
     std::string::size_type  last = str.find_last_not_of(digits, start);
-    if (str[ch] == std::string::npos)
+    if (ch == std::string::npos)
         return (2);
     else if (str[ch] == '.' && str[ch] == 'f')
         return (3);
@@ -65,19 +66,28 @@ int  ScalarConverter::sort_type(std::string str)
 void    ScalarConverter::convert_char(std::string str)
 {
     //also convert to long to check for INT MAX and MIN
+    std::cout << str << " :Char" << std::endl;
 }
 
 void    ScalarConverter::convert_int(std::string str)
-{}
+{
+    std::cout << str << " :Int" << std::endl;
+}
 
 void    ScalarConverter::convert_float(std::string str)
-{}
+{
+    std::cout << str << " :Float" << std::endl;
+}
 
 void    ScalarConverter::convert_double(std::string str)
-{}
+{
+    std::cout << str << " :Double" << std::endl;
+}
 
 void    ScalarConverter::convert_pseudo_literals(std::string str)
-{}
+{
+    std::cout << str << " :Pseudo" << std::endl;
+}
 
 //Constructors, operators and destructors
 ScalarConverter::ScalarConverter(void)
