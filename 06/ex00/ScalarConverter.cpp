@@ -52,8 +52,8 @@ int  ScalarConverter::sort_type(std::string str)
     std::string::size_type  start = 0;
     if (str[start] == '-')
         start++;
-    std::string::size_type  ch = str.find_first_not_of(digits, start, str.length());
-    std::string::size_type  last = str.find_last_not_of(digits, start, str.length() - 1);
+    std::string::size_type  ch = str.find_first_not_of(digits, start);
+    std::string::size_type  last = str.find_last_not_of(digits);
     std::cout << str[ch] << std::endl;
     std::cout << str[last] << std::endl;
     if (ch == std::string::npos)
@@ -63,7 +63,7 @@ int  ScalarConverter::sort_type(std::string str)
         std::cout << str[ch] << std::endl;
         return (3);
     }
-    else if (str[ch] == '.' && last == std::string::npos)
+    else if (str[ch] == '.' && last == ch)
     {
         std::cout << str[ch] << std::endl;
         return (4);
