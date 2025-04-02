@@ -94,7 +94,7 @@ void    ScalarConverter::convert_double(std::string str)
 
 void    ScalarConverter::convert_pseudo_literals(std::string str)
 {
-    if (str.compare(1, 4, "inff") == 0 || str.find_last_of('f') == str.length())
+    if (str.compare(1, 4, "inff") == 0 || str.compare("nanf") == 0)
         str.erase(str.length() - 1);
 
     std::cout  << "char: impossible" << std::endl;
