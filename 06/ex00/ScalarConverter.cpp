@@ -95,6 +95,14 @@ void    ScalarConverter::convert_double(std::string str)
 void    ScalarConverter::convert_pseudo_literals(std::string str)
 {
     std::cout << str << " :Pseudo" << std::endl;
+    std::cout  << "char: impossible" << std::endl;
+    std::cout  << "int: impossible" << std::endl;
+    if (str.find('f') == std::string::npos || str.compare(1, 4, "inf") == 0)
+        str.append("f");
+    std::cout << str << std::endl;
+    std::cout << "float: " << str << std::endl;
+    std::cout << "double: " << str.erase(str.length() - 1) << std::endl;
+
 }
 
 //Constructors, operators and destructors
