@@ -59,26 +59,20 @@ int  ScalarConverter::sort_type(std::string str)
     if (ch == std::string::npos)
         return (2);
     else if (str[ch] == '.' && str[last] == 'f' && dot_check == ch && f_check == last)
-    {
-        std::cout << str[ch] << std::endl;
         return (3);
-    }
     else if (str[ch] == '.' && last == ch)
-    {
-        std::cout << str[ch] << std::endl;
         return (4);
-    }
     return (0);
 }
 
 void    ScalarConverter::convert_char(std::string str)
 {
-    //also convert to long to check for INT MAX and MIN
     std::cout << str << " :Char" << std::endl;
 }
 
 void    ScalarConverter::convert_int(std::string str)
 {
+        //also convert to long to check for INT MAX and MIN
     std::cout << str << " :Int" << std::endl;
 }
 
