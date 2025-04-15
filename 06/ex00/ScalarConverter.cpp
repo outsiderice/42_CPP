@@ -35,7 +35,7 @@ void    ScalarConverter::convert(const char *input)
 
 int  ScalarConverter::sort_type(std::string str)
 {
-    if (str.length() == 1 && isprint(str[0]) != 0)
+    if (str.length() == 1 && isdigit(str[0]) == 0)
         return (1);
 
     std::string pseudo[6] =
@@ -72,9 +72,19 @@ int  ScalarConverter::sort_type(std::string str)
 void    ScalarConverter::convert_char(std::string str)
 {
     std::cout << str << " :Char" << std::endl;
-    //check not num
-    //check is print
-    //static cast!
+
+    char c = static_cast<char>(str[0]);
+    if (isprint(c) == 0)
+        std::cout << "char: Non displayable" << std::endl;
+    else
+        std::cout << "char: " << c << std::endl;
+    int i = static_cast<int>(c);
+    float f = static_cast<float>(c);
+    double  d = static_cast<double>(c);
+    std::cout << "int: " << i << std::endl;
+    std::cout << "float: " << f << "f" << std::endl;
+    std::cout << "double: " << d << std::endl;
+    
 }
 
 void    ScalarConverter::convert_int(std::string str)
