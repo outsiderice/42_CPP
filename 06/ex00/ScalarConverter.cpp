@@ -9,45 +9,31 @@ void    ScalarConverter::convert(const char *input)
         std::cerr << "Error: input is empty" << std::endl;
         return ;
     }
-    switch (sort_type(str))
-    {
-    case 1:
-        convert_char(str);
-        break ;
-    case 2:
-        convert_int(str);
-        break ;
-    case 3:
-        convert_float(str);
-        break ;
-    case 4:
-        convert_double(str);
-        break ;
-    case 5:
-        convert_pseudo_literals(str);
-        break ;
-    default:
-        std::cerr << "Error: bad input" << std::endl;
-        break ;
-    }
+    sort_type(str);
     return ;
 }
 
-int  ScalarConverter::sort_type(std::string str)
+void  ScalarConverter::sort_type(std::string str)
 {
-    if (str.length() == 1 && isdigit(str[0]) == 0)
-        return (1);
-
     std::string pseudo[6] =
     {
         "-inf", "+inf", "-inff", "+inff", "nan", "nanf"
     };
+
+    if (str.length() == 1 && isdigit(str[0]) == 0)
+        convert_char(str);
     for (int i = 0; i < 6; i++)
     {
         if (str.compare(pseudo[i]) == 0)
-            return (5);
+            convert_pseudo_literals(str);
     }
+    sort_numerals(str);
+    std::cerr << "Error: bad input" << std::endl;
+    return ;
+}
 
+void  ScalarConverter::sort_numerals(std::string str)
+{
     const char  *digits = "1234567890";
     std::string::size_type  start = 0;
     if (str[start] == '-')
@@ -59,14 +45,14 @@ int  ScalarConverter::sort_type(std::string str)
     if (ch == std::string::npos)
     {
         if (str.length() > 11)
-            return (0);
-        return (2);
+            std::cerr << "Error: bad input" << std::endl;
+        convert_int(str);
     }
     else if (str[ch] == '.' && str[last] == 'f' && dot_check == ch && f_check == last)
-        return (3);
+        convert_float(str);
     else if (str[ch] == '.' && last == ch)
-        return (4);
-    return (0);
+        convert_double(str);
+    return ;
 }
 
 void    ScalarConverter::convert_char(std::string str)
@@ -84,23 +70,26 @@ void    ScalarConverter::convert_char(std::string str)
     std::cout << "int: " << i << std::endl;
     std::cout << "float: " << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
-    
+    exit(EXIT_SUCCESS);
 }
 
 void    ScalarConverter::convert_int(std::string str)
 {
         //also convert to long to check for INT MAX and MIN
     std::cout << str << " :Int" << std::endl;
+    exit(EXIT_SUCCESS);
 }
 
 void    ScalarConverter::convert_float(std::string str)
 {
     std::cout << str << " :Float" << std::endl;
+    exit(EXIT_SUCCESS);
 }
 
 void    ScalarConverter::convert_double(std::string str)
 {
     std::cout << str << " :Double" << std::endl;
+    exit(EXIT_SUCCESS);
 }
 
 void    ScalarConverter::convert_pseudo_literals(std::string str)
@@ -112,6 +101,7 @@ void    ScalarConverter::convert_pseudo_literals(std::string str)
     std::cout  << "int: impossible" << std::endl;
     std::cout << "float: " << str << "f" << std::endl;
     std::cout << "double: " << str << std::endl;
+    exit(EXIT_SUCCESS);
 }
 
 //Constructors, operators and destructors
