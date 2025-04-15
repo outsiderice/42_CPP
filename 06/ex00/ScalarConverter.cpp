@@ -67,7 +67,9 @@ void    ScalarConverter::convert_char(std::string str)
     int i = static_cast<int>(c);
     float f = static_cast<float>(c);
     double  d = static_cast<double>(c);
+    std::cout.precision(1);
     std::cout << "int: " << i << std::endl;
+    std::cout << std::fixed;
     std::cout << "float: " << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
     exit(EXIT_SUCCESS);
