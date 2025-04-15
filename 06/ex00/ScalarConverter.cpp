@@ -35,7 +35,7 @@ void    ScalarConverter::convert(const char *input)
 
 int  ScalarConverter::sort_type(std::string str)
 {
-    if (str.length() == 1 && isalpha(str[0]) != 0)
+    if (str.length() == 1 && isprint(str[0]) != 0)
         return (1);
 
     std::string pseudo[6] =
@@ -57,7 +57,11 @@ int  ScalarConverter::sort_type(std::string str)
     std::string::size_type  last = str.find_last_not_of(digits);
     std::string::size_type  f_check = str.find_first_of('f');
     if (ch == std::string::npos)
+    {
+        if (str.length() > 11)
+            return (0);
         return (2);
+    }
     else if (str[ch] == '.' && str[last] == 'f' && dot_check == ch && f_check == last)
         return (3);
     else if (str[ch] == '.' && last == ch)
@@ -68,6 +72,9 @@ int  ScalarConverter::sort_type(std::string str)
 void    ScalarConverter::convert_char(std::string str)
 {
     std::cout << str << " :Char" << std::endl;
+    //check not num
+    //check is print
+    //static cast!
 }
 
 void    ScalarConverter::convert_int(std::string str)
