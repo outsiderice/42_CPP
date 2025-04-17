@@ -29,7 +29,7 @@ void  ScalarConverter::sort_type(std::string str)
     }
     sort_numerals(str);
     std::cerr << "Error: bad input" << std::endl;
-    return ;
+	exit(EXIT_FAILURE);
 }
 
 void  ScalarConverter::sort_numerals(std::string str)
@@ -77,8 +77,25 @@ void    ScalarConverter::convert_char(std::string str)
 
 void    ScalarConverter::convert_int(std::string str)
 {
-        //also convert to long to check for INT MAX and MIN
-    std::cout << str << " :Int" << std::endl;
+	long l = strtol(str.c_str(), NULL,10);
+	if (l > INT_MAX || l < INT_MIN)
+	{
+		std::cerr << "Error: bad input" << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	int		i = l;
+	char	c = static_cast<char>(i);
+	float	f = static_cast<float>(i);
+	double	d = static_cast<double>(i);
+    if (isprint(c) == 0)
+        std::cout << "char: Non displayable" << std::endl;
+    else
+        std::cout << "char: " << c << std::endl;
+    std::cout.precision(1);
+    std::cout << "int: " << i << std::endl;
+    std::cout << std::fixed;
+    std::cout << "float: " << f << "f" << std::endl;
+    std::cout << "double: " << d << std::endl;
     exit(EXIT_SUCCESS);
 }
 
