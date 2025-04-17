@@ -101,13 +101,28 @@ void    ScalarConverter::convert_int(std::string str)
 
 void    ScalarConverter::convert_float(std::string str)
 {
-    std::cout << str << " :Float" << std::endl;
+    float	f = strtod(str.c_str(), NULL);
+	char	c = static_cast<char>(f);
+	int		i = static_cast<int>(f);
+	double	d = static_cast<float>(f);
+    if (isprint(c) == 0)
+        std::cout << "char: Non displayable" << std::endl;
+    else
+        std::cout << "char: " << c << std::endl;
+    std::cout.precision(3);
+	long		l = static_cast<long>(f);
+	if (l > INT_MAX || l < INT_MIN)
+    	std::cout << "int: overflows" << std::endl;
+	else
+    	std::cout << "int: " << i << std::endl;
+    std::cout << std::fixed;
+    std::cout << "float: " << f << "f" << std::endl;
+    std::cout << "double: " << d << std::endl;
     exit(EXIT_SUCCESS);
 }
 
 void    ScalarConverter::convert_double(std::string str)
 {
-    std::cout << str << " :Double" << std::endl;
     double	d = strtod(str.c_str(), NULL);
 	char	c = static_cast<char>(d);
 	int		i = static_cast<int>(d);
