@@ -6,13 +6,14 @@
 class	Data
 {
     public:
+		int			number;
+		std::string	name;
+
 		Data(void);
 		Data(const Data &obj);
 		Data &operator=(const Data &obj);
 		~Data(void);
-    private:
-		int			_number;
-		std::string	_name;
+		
 };
 
 #endif

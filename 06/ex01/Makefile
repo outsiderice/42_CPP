@@ -1,8 +1,8 @@
-NAME = convert
+NAME = serialize
 
 INC = inc/
 
-SRC = main.cpp
+SRC = main.cpp Serializer.cpp Data.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)

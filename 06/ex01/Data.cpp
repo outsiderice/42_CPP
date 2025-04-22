@@ -1,12 +1,12 @@
 #include "Data.hpp"
 
-Data::Data(void) : _number(13), _name("default")
+Data::Data(void) : number(13), name("default")
 {
 	std::cout << "Data: default constructor called" << std::endl;
 	return ;
 }
 
-Data::Data(const Data &obj) : _number(obj._numer), _name(obj._name)
+Data::Data(const Data &obj) : number(obj.number), name(obj.name)
 {
 	std::cout << "Data: copy constructor called" << std::endl;
 	return ;
@@ -17,8 +17,8 @@ Data	&Data::operator=(const Data &obj)
 	std::cout << "Data: copy assignment operator called" << std::endl;
 	if (this != &obj)
 	{
-		_number = obj._number;
-		_name = obj._name;
+		number = obj.number;
+		name = obj.name;
 	}
 	return (*this);
 }
