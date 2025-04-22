@@ -2,12 +2,13 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
+#include "Data.hpp"
 
 class	Serializer
 {
     public:
 		static uintptr_t serialize(Data *ptr);
-		static deserialize(uintptr_t raw);
+		static Data *deserialize(uintptr_t raw);
     private:
 		Serializer(void);
 		Serializer(const Serializer &obj);
