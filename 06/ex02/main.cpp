@@ -1,4 +1,5 @@
 #include "Base.hpp"
+#include <random>
 
 Base*    generate(void)
 {
@@ -19,13 +20,13 @@ Base*    generate(void)
 void    identify(Base* p)
 {
     A*   isA = dynamic_cast<A*>(p);
-    if (isA == nullptr)
+    if (isA == NULL)
     {
         B*   isB = dynamic_cast<B*>(p);
-        if (isB == nullptr)
+        if (isB == NULL)
         {
             C*   isC = dynamic_cast<C*>(p);
-            if (isC == nullptr)
+            if (isC == NULL)
                 std::cout << "No type detected" << std::endl;
             else
                 std::cout << "is type C" << std::endl;
