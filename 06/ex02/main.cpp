@@ -1,3 +1,5 @@
+#include "Base.hpp"
+
 Base*    generate(void)
 {
     int n = 1 + rand() % 3;
@@ -16,26 +18,63 @@ Base*    generate(void)
 
 void    identify(Base* p)
 {
-    try
+    A*   isA = dynamic_cast<A*>(p);
+    if (isA == nullptr)
     {
-        A*   isA = dynamic_cast<A*>(p);
-        if (isA != nullptr)
-            std::cout << "A" << std::endl;
         B*   isB = dynamic_cast<B*>(p);
-        if (isB != nullptr)
-            std::cout << "B" << std::endl;
-        C*   isC = dynamic_cast<C*>(p);
-        if (isC != nullptr)
-            std::cout << "C" << std::endl;
+        if (isB == nullptr)
+        {
+            C*   isC = dynamic_cast<C*>(p);
+            if (isC == nullptr)
+                std::cout << "No type detected" << std::endl;
+            else
+                std::cout << "is type C" << std::endl;
+        }
+        else
+                std::cout << "is type B" << std::endl;
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    else
+        std::cout << "is type A" << std::endl;
     return ;
 }
 
 void    identify(Base& p)
 {
+    try
+    {
+       A*   isA = dynamic_cast<A*>(&p);
+       std::cout << "is type A" << std::endl;
+       return ;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+       B*   isA = dynamic_cast<B*>(&p);
+       std::cout << "is type B" << std::endl;
+       return ;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+       C*   isA = dynamic_cast<C*>(&p);
+       std::cout << "is type C" << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        std::cerr << "No type identified" << std::endl;
+    }
     return ;
+}
+
+int main(void)
+{
+    Base* x = generate();
+    identify(x);
 }
