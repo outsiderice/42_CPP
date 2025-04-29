@@ -6,17 +6,19 @@
 
 Base*    generate(void)
 {
-    int n = 1 + rand() % 3;
+    srand(time(NULL));
+    int n = rand() % 3;
+    std::cout << n << std::endl;
     switch (n)
     {
-    case 1:
+    case 0:
         return (new A());
-    case 2:
+    case 1:
         return (new B());
-    case 3:
+    case 2:
         return (new C());
     default:
-        return;
+        return (NULL) ;
     }
 }
 
@@ -47,7 +49,7 @@ void    identify(Base& p)
     try
     {
        A*   isA = dynamic_cast<A*>(&p);
-       std::cout << "is type A" << std::endl;
+       std::cout << isA << "is type A" << std::endl;
        return ;
     }
     catch(const std::exception& e)
@@ -56,8 +58,8 @@ void    identify(Base& p)
     }
     try
     {
-       B*   isA = dynamic_cast<B*>(&p);
-       std::cout << "is type B" << std::endl;
+       B*   isB = dynamic_cast<B*>(&p);
+       std::cout << isB << "is type B" << std::endl;
        return ;
     }
     catch(const std::exception& e)
@@ -66,8 +68,8 @@ void    identify(Base& p)
     }
     try
     {
-       C*   isA = dynamic_cast<C*>(&p);
-       std::cout << "is type C" << std::endl;
+       C*   isC = dynamic_cast<C*>(&p);
+       std::cout << isC  << "is type C" << std::endl;
     }
     catch(const std::exception& e)
     {
