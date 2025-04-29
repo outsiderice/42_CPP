@@ -1,5 +1,8 @@
 #include "Base.hpp"
-#include <random>
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include <cstdlib>
 
 Base*    generate(void)
 {
