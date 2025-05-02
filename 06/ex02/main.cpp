@@ -81,4 +81,6 @@ int main(void)
 
     identify(x);
     identify(*x);
+    delete(x);
+    return (0);
 }
