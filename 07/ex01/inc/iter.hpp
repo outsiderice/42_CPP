@@ -2,9 +2,9 @@
 
 //This is a function template
 
-template <typename T> T	iter(T array, T len, T ft)
+template <typename T> void	iter(T *array, unsigned int len, void (*ft)(T&))
 {
-	int	i = 0;
+	unsigned int	i = 0;
 	while (i < len)
 	{
 		ft(array[i]);
@@ -12,7 +12,7 @@ template <typename T> T	iter(T array, T len, T ft)
 	}
 }
 
-template <typename T> T	max(T x, T y)
+template <typename T> void	print(T x)
 {
-	return (x > y) ? x : y;
+	std::cout << x << std::endl;
 }
