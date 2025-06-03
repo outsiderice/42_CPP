@@ -2,10 +2,9 @@
 
 //This is a function template
 
-template <typename T> T swap(T x, T y)
+template <typename T> void swap(T &x, T &y)
 {
-	T 	swap;
-	swap = x;
+	T 	swap = x;
 	x = y;
 	y = swap;
 }
