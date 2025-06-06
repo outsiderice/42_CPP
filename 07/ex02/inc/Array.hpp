@@ -11,6 +11,7 @@ template <typename T> class	Array
 		~Array(void);
 
 		unsigned int	size() const;
+
 		class	OutOfBoundsException : public std::exception
 		{
 			public:
@@ -18,12 +19,13 @@ template <typename T> class	Array
 		}
 
 	private:
-		T	*_arr;
+		T				*_arr;
+		unsigned int	_size;
 };
 
 //implementation
 
-Array::Array(void) : _arr(NULL)
+Array::Array(void) : _arr(NULL), _size(0)
 {
 	std::cout << "default constructor called" << std::endl;
 	return ;
@@ -31,8 +33,12 @@ Array::Array(void) : _arr(NULL)
 
 Array::Array(unsigned int n)
 {
-	_arr = new T[n];
-	std::cout << "param constructor called" << std::endl;
+	_size = n;
+	if (n > 0)
+		_arr = new T[n];
+	else
+		_arr = NULL;
+	std::cout << "parameter constructor called" << std::endl;
 	return ;
 }
 
@@ -40,8 +46,15 @@ Array::Array(const Array &obj)
 {
 	if (this != &obj)
 	{
-		
+		_size = obj._size;
+		if (_size > 0)
+			_arr = new T[_size];
+		else
+			_arr = NULL;
+		for (unsigned int i = 0; i < _size; i++)
+			_arr[i] = obj._arr[i];
 	}
+	std::cout << "copy constructor called" << std::endl;
 	return ;
 }
 
@@ -58,8 +71,5 @@ const char	*Array::OutOfBoundsException::what() const throw()
 
 unsigned int	Array::size()
 {
-	int i = 0;
-	while (T[i])
-		i++;
-	return(i);
+	return(_size);
 }
