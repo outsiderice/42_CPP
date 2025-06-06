@@ -18,7 +18,7 @@ template <typename T> class	Array
 		{
 			public:
 				const char	*what() const throw();
-		}
+		};
 
 	private:
 		T				*_arr;
@@ -27,13 +27,15 @@ template <typename T> class	Array
 
 //implementation
 
-Array::Array(void) : _arr(NULL), _size(0)
+template <typename T>
+Array<T>::Array(void) : _arr(NULL), _size(0)
 {
 	std::cout << "default constructor called" << std::endl;
 	return ;
 }
 
-Array::Array(unsigned int n)
+template <typename T>
+Array<T>::Array(unsigned int n)
 {
 	_size = n;
 	if (n > 0)
@@ -44,7 +46,8 @@ Array::Array(unsigned int n)
 	return ;
 }
 
-Array::Array(const Array &obj)
+template <typename T>
+Array<T>::Array(const Array &obj)
 {
 	if (this != &obj)
 	{
@@ -60,18 +63,21 @@ Array::Array(const Array &obj)
 	return ;
 }
 
-~Array::Array(void)
+template <typename T>
+~Array<T>::Array(void)
 {
 	std::cout << "destructor called" << std::endl;
 	delete[] _arr;
 }
 
-const char	*Array::OutOfBoundsException::what() const throw()
+template <typename T>
+const char	*Array<T>::OutOfBoundsException::what() const throw()
 {
 	return ("Out of bounds");
 }
 
-unsigned int	Array::size()
+template <typename T>
+unsigned int	Array<T>::size()
 {
 	return(_size);
 }
