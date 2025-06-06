@@ -1,4 +1,6 @@
-#include <iostream>
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
+# include <iostream>
 
 //This is a function template
 
@@ -18,3 +20,5 @@ template <typename T> T	max(T x, T y)
 {
 	return (x > y) ? x : y;
 }
+
+#endif

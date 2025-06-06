@@ -1,4 +1,6 @@
-#include <iostream>
+#ifndef ITER_HPP
+# define ITER_HPP
+# include <iostream>
 
 //This is a function template
 
@@ -16,3 +18,5 @@ template <typename T> void	print(T x)
 {
 	std::cout << x << std::endl;
 }
+
+#endif
