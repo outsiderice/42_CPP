@@ -10,10 +10,11 @@ template <typename T> class	Array
 		Array(void);
 		Array(unsigned int n);
 		Array(const Array &obj);
+		Array &operator=(const Bureaucrat &obj);
 		~Array(void);
 
 		unsigned int	size(void) const;
-
+		T&	operator[](int index);
 		class	OutOfBoundsException : public std::exception
 		{
 			public:
@@ -49,9 +50,24 @@ Array<T>::Array(unsigned int n)
 template <typename T>
 Array<T>::Array(const Array &obj)
 {
+	_size = obj._size;
+	if (_size > 0)
+		_arr = new T[_size];
+	else
+		_arr = NULL;
+	for (unsigned int i = 0; i < _size; i++)
+		_arr[i] = obj._arr[i];
+	std::cout << "assignment operator called" << std::endl;
+}
+
+template <typename T>
+Array<T>::&Array::operator=(const Array &obj)
+{
 	if (this != &obj)
 	{
-		_size = obj._size;
+		_size = obj._size;	
+		if (_arr != NULL)
+			delete[] _arr;
 		if (_size > 0)
 			_arr = new T[_size];
 		else
@@ -59,7 +75,7 @@ Array<T>::Array(const Array &obj)
 		for (unsigned int i = 0; i < _size; i++)
 			_arr[i] = obj._arr[i];
 	}
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "assignment operator called" << std::endl;
 	return ;
 }
 
@@ -68,6 +84,14 @@ Array<T>::~Array(void)
 {
 	std::cout << "destructor called" << std::endl;
 	delete[] _arr;
+}
+
+template <typename T>
+T&	Array<T>::operator[](int index)
+{
+	if (index < 0 || index > _size)
+		throw Array::OutOfBoundsExcception();
+	return (_arr[index]);
 }
 
 template <typename T>
