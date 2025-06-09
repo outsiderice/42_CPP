@@ -12,7 +12,7 @@ template <typename T> class	Array
 		Array(const Array &obj);
 		~Array(void);
 
-		unsigned int	size() const;
+		unsigned int	size(void) const;
 
 		class	OutOfBoundsException : public std::exception
 		{
@@ -64,7 +64,7 @@ Array<T>::Array(const Array &obj)
 }
 
 template <typename T>
-~Array<T>::Array(void)
+Array<T>::~Array(void)
 {
 	std::cout << "destructor called" << std::endl;
 	delete[] _arr;
@@ -77,7 +77,7 @@ const char	*Array<T>::OutOfBoundsException::what() const throw()
 }
 
 template <typename T>
-unsigned int	Array<T>::size()
+unsigned int	Array<T>::size(void) const
 {
 	return(_size);
 }
