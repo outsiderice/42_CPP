@@ -10,7 +10,7 @@ template <typename T> class	Array
 		Array(void);
 		Array(unsigned int n);
 		Array(const Array &obj);
-		Array &operator=(const Bureaucrat &obj);
+		Array &operator=(const Array &obj);
 		~Array(void);
 
 		unsigned int	size(void) const;
