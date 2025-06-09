@@ -76,7 +76,7 @@ Array<T>::&Array::operator=(const Array &obj)
 			_arr[i] = obj._arr[i];
 	}
 	std::cout << "assignment operator called" << std::endl;
-	return ;
+	return (*this);
 }
 
 template <typename T>
