@@ -61,7 +61,7 @@ Array<T>::Array(const Array &obj)
 }
 
 template <typename T>
-Array<T>::&Array::operator=(const Array &obj)
+Array&	Array<T>::operator=(const Array &obj)
 {
 	if (this != &obj)
 	{
