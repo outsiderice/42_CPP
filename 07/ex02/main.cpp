@@ -7,16 +7,16 @@ int main( void )
 	Array<char>	charArray(7);
 	try
 	{
-		std::cout << intArray._arr[2] << std::endl;
+		std::cout << intArray[2] << std::endl;
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception caught" << e.what() << std::endl;
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	for (int i = 0; i < 7; i++)
 	{
-		charArray._arr[i] = i + 42;
-		std::cout << charArray._arr[i] << std::endl;
+		charArray[i]= i + 42;
+		std::cout << charArray[i] << std::endl;
 	}
 	return (0);
 }

@@ -14,7 +14,7 @@ template <typename T> class	Array
 		~Array(void);
 
 		unsigned int	size(void) const;
-		T&	operator[](int index);
+		T&	operator[](unsigned int index);
 		class	OutOfBoundsException : public std::exception
 		{
 			public:
@@ -87,10 +87,10 @@ Array<T>::~Array(void)
 }
 
 template <typename T>
-T&	Array<T>::operator[](int index)
+T&	Array<T>::operator[](unsigned int index)
 {
-	if (index < 0 || index > _size)
-		throw Array::OutOfBoundsExcception();
+	if (index > _size)
+		throw Array::OutOfBoundsException();
 	return (_arr[index]);
 }
 
