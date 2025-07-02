@@ -89,7 +89,7 @@ Array<T>::~Array(void)
 template <typename T>
 T&	Array<T>::operator[](unsigned int index)
 {
-	if (index > _size)
+	if (index >= _size)
 		throw Array::OutOfBoundsException();
 	return (_arr[index]);
 }
