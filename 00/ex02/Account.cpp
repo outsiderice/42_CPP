@@ -1,94 +1,60 @@
 #include "Account.hpp"
 
-//[x]
-static int	Account::getNbAccounts(void)
+//	PUBLIC
+
+//		getters
+static int	Account::getNbAccounts( void )
 {
-	return (_nbAccounts);
+	return (this->_nbAccounts);
 }
 
-//[x]
-static int	Account::getTotalAmount(void)
+static int	Account::getTotalAmount( void )
 {
-	return (_totalAmount);
+	return (this->_toalAmount);
 }
 
-//[x]
-static int	Account::getNbDeposits(void)
+static int	Account::getNbDeposits( void )
 {
-	return (_nbDeposits);
+	return (this->_nbDeposits);
+}
+	
+static int	Account::getNbWithdrawals( void )
+{
+	return (this->_nbWithdrawals);
 }
 
-//[x]
-static int	Account::getNbWithdrawals(void)
+//		?display all attributes?
+static void	Account::displayAccountsInfos( void )
 {
-	return (_nbWithdrawals);
 }
 
-static void	Account::displayAccountsInfos(void)
+//		constructors & destructors
+Account::Account( int initial_deposit ) : _amount(initial_deposit)
 {
-	return ;
 }
 
-//[x] ?
-Account::Account(int initial_deposit) : _totalAmount(initial_deposit)
+Account::~Account( void )
 {
-	_nbAccounts += 1;
-	_totalNbDeposits = 1;
-	_totalNbWithdrawals = 0;
-	_nbDeposits = 1;
-	_nbWithdrawals = 0;
-    return ;
 }
 
-//[x]
-Account::~Account(void)
+//		changes to amount
+void	Account::makeDeposit( int deposit )
 {
-    return ;
 }
 
-void	Account::makeDeposit(int deposit)
-{
-	_totalAmount += deposit;
-	_totalNbDeposits += 1;
-	_amount += deposit;
-	_nbDeposits += 1;
-	return ;
-}
+bool	Account::makeWithdrawal( int withdrawal )
+{}
 
-bool	Account::makeWithdrawal(int withdrawal)
-{
-	if (withdrawal > _amount)
-		return (false);
-	_totalAmount -= withdrawal;
-	_totalNbWithdrawals += 1;
-	_amount -= withdrawal;
-	_nbWithdrawals += 1;
-	return (true);
-}
+//		displays _amount
+int		Account::checkAmount( void ) const
+{}
 
-int		Account::checkAmount(void) const
-{
-	return (_amount);
-}
+//		?displays what?
+void	Account::displayStatus( void ) const
+{}
 
-void	Account::dislpayStatus(void) const
-{
-	return ;
-}
+//	PRIVATE
 
-static void	_displayTimestamp(void)
-{
-	return ;
-}
-
-//[x] ?
-Account::Account(void)
-{
-	_nbAccounts += 1;
-	_totalAmount = 0;
-	_totalNbDeposits = 0;
-	_totalNbWithdrawals = 0;
-	_nbDeposits = 0;
-	_nbWithdrawals = 0;
-	return ;
-}
+//		displays timestamp
+static void	Account::_displayTimestamp( void )
+{}
