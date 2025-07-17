@@ -40,14 +40,25 @@ Account::~Account( void )
 //		changes to amount
 void	Account::makeDeposit( int deposit )
 {
+	this->_amount += deposit;
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
-{}
+{
+	if (_amount > _amount - withdrawal)
+	{
+		this->_amount = _amount - withdrawal;
+		return  (true);
+	}
+	else
+		return (false);
+}
 
 //		displays _amount
 int		Account::checkAmount( void ) const
-{}
+{
+	return (this->_amount);
+}
 
 //		?displays what?
 void	Account::displayStatus( void ) const
