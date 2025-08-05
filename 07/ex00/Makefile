@@ -1,7 +1,5 @@
 NAME = whatever
 
-INC = inc/
-
 SRC = main.cpp
 
 BUILD_DIR = .build
@@ -18,7 +16,7 @@ all: $(NAME)
 
 $(BUILD_DIR)/%.o: %.cpp Makefile
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) -I $(INC) -MMD -MP -c $< -o $@
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 	@echo "Created $@"
 
 $(NAME): $(OBJ)
