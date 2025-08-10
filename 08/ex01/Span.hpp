@@ -5,6 +5,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <exception>
 
 class Span
 {
@@ -19,9 +20,10 @@ class Span
 		Span&	operator=(const Span &obj);
 
 		//class functions
-		addNumber(int number);
-		shortestSpan();
-		longestSpan();
+		void	addNumber(int number);
+		int		shortestSpan();
+		int		longestSpan();
+		void	fillSpan();
 
 	private:
 		unsigned int		_N;
