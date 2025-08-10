@@ -34,18 +34,23 @@ void	Span::addNumber(int number)
 
 int	Span::shortestSpan()
 {
+	//check if 1 or less
+	
 	int	span = this.longestSpan();
-	std::pair<int, int>	minmax = std::minmax_element(_numbers.begin(), _numbers.end());
-
+	std::stable_sort(_numbers.begin(), _numbers.end());
 	for (std::vector<int>const_iterator = _numbers.begin(); it != _numbers.end(); it++)
 	{
-		
+		if (_numbers[it + 1] - _numbers[it] < span )
+		{
+			span = _numbers[it + 1] - _numbers[it];
+		}
 	}
 	return (span);
 }
 
 int	Span::longestSpan()
 {
+	//check if 1 or less
 	int	span = 0;
 	int	smallest = _numbers[0];
 	int	biggest	= _numbers[0];
