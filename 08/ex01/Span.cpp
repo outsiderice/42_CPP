@@ -55,8 +55,6 @@ int	Span::longestSpan()
 	int	smallest = *std::min_element(_numbers.begin(), _numbers.end());
 	int	biggest	= *std::max_element(_numbers.begin(), _numbers.end());
 
-		std::cout << "smallest = " << smallest << std::endl;
-		std::cout << "biggest = " << biggest << std::endl;
 	int span = biggest - smallest;
 	return (span);
 }
