@@ -19,6 +19,7 @@ int	main(void)
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << "shortest " << sp.shortestSpan() << std::endl;
+	std::cout << sp << std::endl;	
 	std::cout << "longest " <<sp.longestSpan() << std::endl;	
 	return (0);
 }

@@ -37,11 +37,12 @@ int	Span::shortestSpan()
 		throw std::logic_error("There can't be a span with less than 2 numbers");
 	int	span = this->longestSpan();
 	std::stable_sort(_numbers.begin(), _numbers.end());
-	for (std::vector<int>::iterator it = _numbers.begin(); it != _numbers.end(); it++)
+	for (unsigned int i = 0; i < _N; i++)
 	{
-		if (_numbers[*it + 1] - _numbers[*it] < span )
+		//std::cout << abs(_numbers[i + 1])
+		if ( abs(_numbers[i + 1]) - abs(_numbers[i]) < span )
 		{
-			span = _numbers[*it + 1] - _numbers[*it];
+			span = abs(_numbers[i + 1]) - abs(_numbers[i]);
 		}
 	}
 	return (span);
