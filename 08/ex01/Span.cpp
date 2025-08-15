@@ -1,9 +1,9 @@
 #include "Span.hpp"
 
-Span::Span(void) : _N(0), _numbers(0)
+Span::Span(void) : _N(0)
 {}
 
-Span::Span(int N) : _N(N), _numbers(N)
+Span::Span(int N) : _N(N)
 {}
 
 Span::Span(const Span &obj) : _N(obj._N), _numbers(obj._numbers)
@@ -15,7 +15,7 @@ Span::~Span()
 
 Span&	Span::operator=(const Span &obj)
 {
-	if (this != obj)
+	if (this != &obj)
 	{
 		_N = obj._N;
 		_numbers = obj._numbers;
@@ -25,24 +25,23 @@ Span&	Span::operator=(const Span &obj)
 
 void	Span::addNumber(int number)
 {
-	if (_numbers.size() < _N)
-		_numbers.push_back(number);
-	else
-		throw std::out_of_range;
+	if (_numbers.size() >= _N)
+		throw std::out_of_range("Out of range");
+	_numbers.push_back(number);
 	return ;
 }
 
 int	Span::shortestSpan()
 {
-	//check if 1 or less
-	
-	int	span = this.longestSpan();
+	if (_N < 2)
+		throw std::logic_error("There can't be a span with less than 2 numbers");
+	int	span = this->longestSpan();
 	std::stable_sort(_numbers.begin(), _numbers.end());
-	for (std::vector<int>const_iterator = _numbers.begin(); it != _numbers.end(); it++)
+	for (std::vector<int>::iterator it = _numbers.begin(); it != _numbers.end(); it++)
 	{
-		if (_numbers[it + 1] - _numbers[it] < span )
+		if (_numbers[*it + 1] - _numbers[*it] < span )
 		{
-			span = _numbers[it + 1] - _numbers[it];
+			span = _numbers[*it + 1] - _numbers[*it];
 		}
 	}
 	return (span);
@@ -50,22 +49,39 @@ int	Span::shortestSpan()
 
 int	Span::longestSpan()
 {
-	//check if 1 or less
-	int	span = 0;
-	int	smallest = _numbers[0];
-	int	biggest	= _numbers[0];
+	if (_N < 2)
+		throw std::logic_error("There can't be a span with less than 2 numbers");
+	int	smallest = *std::min_element(_numbers.begin(), _numbers.end());
+	int	biggest	= *std::max_element(_numbers.begin(), _numbers.end());
 
-	for (std::vector<int>const_iterator = _numbers.begin(); it != _numbers.end(); it++)
-	{
-		if (_numbers[it] < smallest)
-			smallest = numbers[it];
-		if (_numbers[it] > biggest)
-			biggest = numbers[it];
-	}
-	span = biggest - smallest;
+		std::cout << "smallest = " << smallest << std::endl;
+		std::cout << "biggest = " << biggest << std::endl;
+	int span = biggest - smallest;
 	return (span);
 }
 
-void	fillSpan()
+void	Span::fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
+	if (begin >= end)
+		throw std::out_of_range("Out of range");
+	for(; begin != end; begin++)
+		addNumber(*begin);
+	return ;
+}
+
+unsigned int		Span::getN() const
+{
+	return (this->_N);
+}
+
+int	Span::getNumber(int index) const
+{
+	return (this->_numbers[index]);
+}
+
+std::ostream&	operator<<(std::ostream &os, const Span &span)
+{
+	for (unsigned int i = 0; i < span.getN(); i++)
+		os << span.getNumber(i) << " ";
+	return (os);
 }

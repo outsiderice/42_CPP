@@ -1,6 +1,6 @@
 NAME = span
 
-SRC = main.cpp
+SRC = main.cpp Span.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
