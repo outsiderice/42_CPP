@@ -40,9 +40,9 @@ int	Span::shortestSpan()
 	for (unsigned int i = 0; i < _N; i++)
 	{
 		//std::cout << abs(_numbers[i + 1])
-		if ( abs(_numbers[i + 1]) - abs(_numbers[i]) < span )
+		if ( abs(_numbers[i + 1] - _numbers[i]) < span)
 		{
-			span = abs(_numbers[i + 1]) - abs(_numbers[i]);
+			span = abs(_numbers[i + 1] -_numbers[i]);
 		}
 	}
 	return (span);
