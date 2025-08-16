@@ -39,7 +39,6 @@ int	Span::shortestSpan()
 	std::stable_sort(_numbers.begin(), _numbers.end());
 	for (unsigned int i = 0; i < _N; i++)
 	{
-		//std::cout << abs(_numbers[i + 1])
 		if ( abs(_numbers[i + 1] - _numbers[i]) < span)
 		{
 			span = abs(_numbers[i + 1] -_numbers[i]);
@@ -63,8 +62,10 @@ void	Span::fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator
 {
 	if (begin >= end)
 		throw std::out_of_range("Out of range");
-	for(; begin != end; begin++)
+	for(; begin < end; begin++)
+	{
 		addNumber(*begin);
+	}
 	return ;
 }
 
@@ -81,6 +82,8 @@ int	Span::getNumber(int index) const
 std::ostream&	operator<<(std::ostream &os, const Span &span)
 {
 	for (unsigned int i = 0; i < span.getN(); i++)
+	{
 		os << span.getNumber(i) << " ";
+	}
 	return (os);
 }
