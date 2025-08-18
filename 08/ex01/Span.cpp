@@ -51,9 +51,16 @@ int	Span::longestSpan()
 {
 	if (_N < 2)
 		throw std::logic_error("There can't be a span with less than 2 numbers");
-	int	smallest = *std::min_element(_numbers.begin(), _numbers.end());
-	int	biggest	= *std::max_element(_numbers.begin(), _numbers.end());
+	int	smallest = _numbers[0];
+	int	biggest	= _numbers[0];
 
+	for (unsigned int i = 0; i < _N; i++)
+	{
+		if (smallest > _numbers[i])
+			smallest = _numbers[i];
+		if (biggest < _numbers[i])
+			biggest = _numbers[i];
+	}
 	int span = biggest - smallest;
 	return (span);
 }

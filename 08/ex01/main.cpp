@@ -30,6 +30,6 @@ int	main(void)
 		v[i] = std::rand();
 	}
 	big.fillSpan(v.begin(), v.end());
-	std::cout << big << std::endl;
+//	std::cout << big << std::endl;
 	return (0);
 }
