@@ -18,9 +18,9 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange &obj)
 	return (*this);
 }
 
-std::map<std::string, int>	BitcoinExchange::csvtomap(std::string filename)
+std::map<std::string, double>	BitcoinExchange::csvtomap(std::string filename)
 {
-	std::map<std::string, int>	map;
+	std::map<std::string, double>	map;
 
 	std::ifstream	feed;
 	std::string		line;
