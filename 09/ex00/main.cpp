@@ -10,7 +10,8 @@ int main(int argc, char **argv)
 		std::cerr << "Needs a file to open." << std::endl;
 		return (1);
 	}
-	(void)argv;
+	std::string	input = argv[1];
 	BitcoinExchange	bc;
+	bc.exchangeRate(input);
 	return (0);
 }
