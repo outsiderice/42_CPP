@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
+#include <stdlib.h>
 
 // pass the csv to a map, date the key second the bitcoin price
 
@@ -21,14 +22,14 @@ public:
 	BitcoinExchange &operator=(const BitcoinExchange &obj);
 
 	// getters
-	int getRate(std::string date);
+	// int getRate(std::string date);
 
-	// other methods
-	std::map<std::string, float>	csvtomap(std::string filename);
-	bool							isValidFormat();
-	bool							isValidDate();
-	bool 							isValidValue();
-	void 							printResult();
+	// // other methods
+	 std::map<std::string, float>	csvtomap(void);
+	// bool							isValidFormat();
+	// bool							isValidDate();
+	// bool 							isValidValue();
+	// void 							printResult();
 
 private:
 	std::map<std::string, float> _history;

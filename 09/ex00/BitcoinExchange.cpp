@@ -1,6 +1,6 @@
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(void) : _history(BitcoinExchange::csvtomap("data.csv"))
+BitcoinExchange::BitcoinExchange(void) : _history(BitcoinExchange::csvtomap())
 {}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj) : _history(obj._history)
@@ -18,7 +18,7 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange &obj)
 	return (*this);
 }
 
-std::map<std::string, float>	BitcoinExchange::csvtomap(std::string filename)
+std::map<std::string, float>	BitcoinExchange::csvtomap(void)
 {
 	std::map<std::string, float>	map;
 
@@ -33,9 +33,14 @@ std::map<std::string, float>	BitcoinExchange::csvtomap(std::string filename)
 	while (!feed.eof())
 	{
 		getline(feed, line);
-		date = line.substr(0, line.find(','));
-		rate = line.substr(line.find(','), line.length() - date.length());
-		map.insert(std::pair<std::string, float>(date, atof(rate.c_str())));
+		date = line.substr(0, 10);
+		rate = line.substr(line.find(',') + 1, line.length() + 1 - date.length());
+		if (atof(rate.c_str()))
+			map.insert(std::pair<std::string, float>(date, atof(rate.c_str())));
+	}
+	for (std::map<std::string, float>::iterator	it = map.begin(); it != map.end(); ++it)
+	{
+		std::cout << it->first << '\t' << it->second << std::endl;
 	}
 	feed.close();
 	return (map);

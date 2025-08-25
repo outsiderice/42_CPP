@@ -10,5 +10,7 @@ int main(int argc, char **argv)
 		std::cerr << "Needs a file to open." << std::endl;
 		return (1);
 	}
+	(void)argv;
+	BitcoinExchange	bc;
 	return (0);
 }
