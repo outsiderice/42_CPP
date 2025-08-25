@@ -24,13 +24,14 @@ public:
 	int getRate(std::string date);
 
 	// other methods
-	std::map<std::string, double>	csvtomap(std::string filename);
+	std::map<std::string, float>	csvtomap(std::string filename);
+	bool							isValidFormat();
 	bool							isValidDate();
 	bool 							isValidValue();
 	void 							printResult();
 
 private:
-	std::map<std::string, double> _history;
+	std::map<std::string, float> _history;
 };
 
 #endif
