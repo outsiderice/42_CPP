@@ -4,6 +4,7 @@
 
 #include <map>
 #include <iostream>
+//#include <iomanip>
 #include <fstream>
 #include <stdexcept>
 #include <stdlib.h>
@@ -25,14 +26,14 @@ public:
 	// int getRate(std::string date);
 
 	// // other methods
-	 std::map<std::string, float>	csvtomap(void);
+	 std::map<std::string, double>	csvtomap(void);
 	// bool							isValidFormat();
 	// bool							isValidDate();
 	// bool 							isValidValue();
 	// void 							printResult();
 
 private:
-	std::map<std::string, float> _history;
+	std::map<std::string, double> _history;
 };
 
 #endif

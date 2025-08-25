@@ -18,9 +18,9 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange &obj)
 	return (*this);
 }
 
-std::map<std::string, float>	BitcoinExchange::csvtomap(void)
+std::map<std::string, double>	BitcoinExchange::csvtomap(void)
 {
-	std::map<std::string, float>	map;
+	std::map<std::string, double>	map;
 
 	std::ifstream	feed;
 	std::string		line;
@@ -33,14 +33,10 @@ std::map<std::string, float>	BitcoinExchange::csvtomap(void)
 	while (!feed.eof())
 	{
 		getline(feed, line);
-		date = line.substr(0, 10);
-		rate = line.substr(line.find(',') + 1, line.length() + 1 - date.length());
+		date = line.substr(0, line.find(','));
+		rate = line.substr(line.find(',') + 1, line.length() - (date.length() + 1));
 		if (atof(rate.c_str()))
-			map.insert(std::pair<std::string, float>(date, atof(rate.c_str())));
-	}
-	for (std::map<std::string, float>::iterator	it = map.begin(); it != map.end(); ++it)
-	{
-		std::cout << it->first << '\t' << it->second << std::endl;
+			map.insert(std::pair<std::string, double>(date, atof(rate.c_str())));
 	}
 	feed.close();
 	return (map);
