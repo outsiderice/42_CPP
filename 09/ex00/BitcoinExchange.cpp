@@ -52,16 +52,16 @@ void	BitcoinExchange::exchangeRate(std::string input)
 	feed.open(input.c_str());
 	if (!feed.is_open())
 		throw std::runtime_error("Error: could not open file.");
-		while (!feed.eof())
+	while (!feed.eof())
+	{
+		if (isValidFormat(line) == true)
 		{
-			if (isValidFormat(line) == true)
-			{
-				date = line.substr(0, line.find('|') - 1);
-				value = line.substr(line.find('|') + 2, line.length() - (date.length() + 3));
-				if (isValidDate(date) == true && isValidValue(value) == true)
-					printResult(date, calculateTotal(value));
-			}
+			date = line.substr(0, line.find('|') - 1);
+			value = line.substr(line.find('|') + 2, line.length() - (date.length() + 3));
+			if (isValidDate(date) == true && isValidValue(value) == true)
+				printResult(date, calculateTotal(value));
 		}
+	}
 }
 
 bool	BitcoinExchange::isValidFormat(std::string str)
@@ -73,4 +73,26 @@ bool	BitcoinExchange::isValidFormat(std::string str)
 		return (false);
 	}
 	return (true);
+}
+
+bool	BitcoinExchange::isValidDate(std::string date)
+{
+	(void) date;
+	return (false);
+}
+
+bool	BitcoinExchange::isValidValue(std::string value)
+{
+	(void) value;
+	return (false);
+}
+
+std::string	BitcoinExchange::calculateTotal(std::string value)
+{
+	return(value);
+}
+
+void	BitcoinExchange::printResult(std::string str1, std::string str2)
+{
+	std::cout << str1 << " => " << str2 << std::endl;
 }

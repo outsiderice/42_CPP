@@ -26,8 +26,8 @@ public:
 	// int getRate(std::string date);
 
 	//methods
-	 std::map<std::string, double>	csvtomap(void);
-	 void							exchangeRate(std::string input);
+	std::map<std::string, double>	csvtomap(void);
+	void							exchangeRate(std::string input);
  	bool							isValidFormat(std::string str);
 	bool							isValidDate(std::string date);
 	bool 							isValidValue(std::string value);
