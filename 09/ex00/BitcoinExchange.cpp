@@ -29,7 +29,7 @@ std::map<std::string, double>	BitcoinExchange::csvtomap(void)
 
 	feed.open("data.csv");
 	if (!feed.is_open())
-		throw std::runtime_error("Error could not open database.");
+		throw std::runtime_error("Error: could not open database.");
 	while (!feed.eof())
 	{
 		getline(feed, line);
@@ -51,7 +51,7 @@ void	BitcoinExchange::exchangeRate(std::string input)
 
 	feed.open(input.c_str());
 	if (!feed.is_open())
-		throw std::runtime_error("Error could not open file.");
+		throw std::runtime_error("Error: could not open file.");
 		while (!feed.eof())
 		{
 			if (isValidFormat(line) == true)
@@ -62,4 +62,15 @@ void	BitcoinExchange::exchangeRate(std::string input)
 					printResult(date, calculateTotal(value));
 			}
 		}
+}
+
+bool	BitcoinExchange::isValidFormat(std::string str)
+{
+	std::string	valid_chars = "1234567890- |.";
+	if (!str.find(" | ") || str.find_first_not_of(valid_chars))
+	{
+		printResult("Error: bad input", str);
+		return (false);
+	}
+	return (true);
 }
