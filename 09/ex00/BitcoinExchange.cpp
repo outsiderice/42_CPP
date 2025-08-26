@@ -60,7 +60,7 @@ void	BitcoinExchange::exchangeRate(std::string input)
 			date = line.substr(0, line.find('|') - 1);
 			value = line.substr(line.find('|') + 2, line.length() - (date.length() + 3));
 			if (isValidDate(date) == true && isValidValue(value) == true)
-				printResult(date, calculateTotal(value));
+				printResult(date, calculateTotal(date, value));
 		}
 	}
 }
@@ -98,7 +98,7 @@ bool	BitcoinExchange::isValidValue(std::string value)
 	return (false);
 }
 
-std::string	BitcoinExchange::calculateTotal(std::string value)
+std::string	BitcoinExchange::calculateTotal(std::string date, std::string value)
 {
 	return(value);
 }

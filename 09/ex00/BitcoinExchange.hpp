@@ -31,7 +31,7 @@ public:
  	bool							isValidFormat(std::string str);
 	bool							isValidDate(std::string date);
 	bool 							isValidValue(std::string value);
-	std::string						calculateTotal(std::string value);
+	std::string						calculateTotal(std::string date, std::string value);
 	void 							printResult(std::string str1, std::string str2);
 
 private:
