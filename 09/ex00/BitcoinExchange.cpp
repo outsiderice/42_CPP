@@ -83,8 +83,13 @@ bool	BitcoinExchange::isValidFormat(std::string str)
 
 bool	BitcoinExchange::isValidDate(std::string date)
 {
-	(void) date;
-	return (false);
+	std::string	year, month, day;
+	std::string	digits = "1234567890";
+	std::size_t	pos = date.find('-');
+	
+	year = date.substr(0, pos);
+	month = date.substr(pos, date.find_first_not_of(digits, pos));
+	day = date.substr(date.find_last_of('-'));
 }
 
 bool	BitcoinExchange::isValidValue(std::string value)
