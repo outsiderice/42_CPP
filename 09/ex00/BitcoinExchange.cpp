@@ -90,6 +90,34 @@ bool	BitcoinExchange::isValidDate(std::string date)
 	year = date.substr(0, pos);
 	month = date.substr(pos, date.find_first_not_of(digits, pos));
 	day = date.substr(date.find_last_of('-'));
+
+	if (month.length() != 2 || day.length() != 2)
+	{
+		printResult("Error: invalid date", date);
+		return (false);
+	}
+	if (year == "2009" && month == "01" && day == "01")
+	{
+		printResult("Error: invalid date", date);
+		return (false);
+	}
+
+	int	m = atoi(month.c_str());
+	int	d = atoi(day.c_str());
+	if (m > 12 || m == 0 || d == 0)
+	{
+		printResult("Error: invalid date", date);
+		return (false);
+	}
+	if (m == 2 && atoi(year.c_str()) % 4 == 0 && d <= 29)
+		return (true);
+	int	max_day[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	if (d > max_day[m])
+	{
+		printResult("Error: invalid date", date);
+		return (false);
+	}
+	return (true);
 }
 
 bool	BitcoinExchange::isValidValue(std::string value)
