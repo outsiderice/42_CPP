@@ -78,6 +78,11 @@ bool	BitcoinExchange::isValidFormat(std::string str)
 		printResult("Error: bad input", str);
 		return (false);
 	}
+	if (str.find('.') != str.find_last_of('.'))
+	{
+		printResult("Error: bad input", str);
+		return (false);
+	}
 	return (true);
 }
 
@@ -93,12 +98,12 @@ bool	BitcoinExchange::isValidDate(std::string date)
 
 	if (month.length() != 2 || day.length() != 2)
 	{
-		printResult("Error: invalid date", date);
+		printResult("Error: invalid date format", date);
 		return (false);
 	}
 	if (year == "2009" && month == "01" && day == "01")
 	{
-		printResult("Error: invalid date", date);
+		printResult("Error: invalid date, before Bitcoin", date);
 		return (false);
 	}
 
@@ -122,13 +127,22 @@ bool	BitcoinExchange::isValidDate(std::string date)
 
 bool	BitcoinExchange::isValidValue(std::string value)
 {
-	(void) value;
-	return (false);
+	if (value.find('-'))
+	{
+		printResult("Error: not a positive number", value);
+		return (false);
+	}
+	if (atof(value.c_str()) > 1000)
+	{
+		printResult("Error: to large a number", value);
+		return (false);
+	}
+	return (true);
 }
 
 std::string	BitcoinExchange::calculateTotal(std::string date, std::string value)
 {
-	return(value);
+	//how to find it now
 }
 
 void	BitcoinExchange::printResult(std::string str1, std::string str2)
