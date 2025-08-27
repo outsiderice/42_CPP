@@ -134,7 +134,7 @@ bool	BitcoinExchange::isValidValue(std::string value)
 	}
 	if (atof(value.c_str()) > 1000)
 	{
-		printResult("Error: to large a number", value);
+		printResult("Error: too large a number", value);
 		return (false);
 	}
 	return (true);
