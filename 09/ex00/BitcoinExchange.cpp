@@ -101,7 +101,7 @@ bool	BitcoinExchange::isValidDate(std::string date)
 		printResult("Error: invalid date format", date);
 		return (false);
 	}
-	if (year == "2009" && month == "01" && day == "01")
+	if ((year == "2009" && month == "01" && day == "01") || atoi(year.c_str()) < 2009)
 	{
 		printResult("Error: invalid date, before Bitcoin", date);
 		return (false);
