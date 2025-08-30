@@ -142,7 +142,17 @@ bool	BitcoinExchange::isValidValue(std::string value)
 
 std::string	BitcoinExchange::calculateTotal(std::string date, std::string value)
 {
-	//how to find it now
+	double				rate;
+	double				total;
+	std::stringstream	ss;
+
+	if (_history.find(date) != _history.end())
+	{
+		rate = _history.at(date);
+		total = atof(value.c_str()) * rate;
+		ss << value << " = " << total;
+		return (ss.str());
+	}
 }
 
 void	BitcoinExchange::printResult(std::string str1, std::string str2)

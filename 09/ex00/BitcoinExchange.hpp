@@ -6,6 +6,7 @@
 #include <iostream>
 //#include <iomanip> //for precision
 #include <fstream>
+#include <sstream>
 #include <stdexcept>
 #include <stdlib.h>
 
