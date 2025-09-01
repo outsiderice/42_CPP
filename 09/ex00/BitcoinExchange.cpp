@@ -154,6 +154,7 @@ std::string	BitcoinExchange::calculateTotal(std::string date, std::string value)
 		it--;
 		rate = it->second;
 		total = atof(value.c_str()) * rate;
+		ss.precision(7);
 		ss << value << " = " << total;
 		return (ss.str());
 	}
