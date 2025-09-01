@@ -122,7 +122,7 @@ bool	BitcoinExchange::isValidDate(std::string date)
 
 bool	BitcoinExchange::isValidValue(std::string value)
 {
-	if (value.find('-'))
+	if (value.find('-') != std::string::npos)
 	{
 		printResult("Error: not a positive number", value);
 		return (false);
