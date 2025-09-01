@@ -89,14 +89,14 @@ bool	BitcoinExchange::isValidFormat(std::string str)
 bool	BitcoinExchange::isValidDate(std::string date)
 {
 	std::string	year, month, day;
-	std::string	digits = "1234567890";
 	std::size_t	pos = date.find('-');
 	
-	month = date.substr(pos, date.find_first_not_of(digits, pos));
-	day = date.substr(date.find_last_of('-'));
-
+	year = date.substr(0, pos);
+	day = date.substr(date.find_last_of('-') + 1);
+	month = date.substr(pos + 1, date.length() - (year.length() + day.length() + 2));
 	if (month.length() != 2 || day.length() != 2)
 	{
+		std::cout << year << "\n" << month << "\n" << day << std::endl;
 		printResult("Error: invalid date format", date);
 		return (false);
 	}
@@ -107,15 +107,18 @@ bool	BitcoinExchange::isValidDate(std::string date)
 	}
 	if (month > "12" || month == "00" || day == "00")
 	{
-		printResult("Error: invalid date", date);
+		printResult("Error: invalid date, day or month", date);
 		return (false);
 	}
 	if (month == "02" && atoi(year.c_str()) % 4 == 0 && day <= "29")
+	{
+		std::cout << "leap year!" << std::endl;
 		return (true);
+	}
 	std::string	max_day[12] = {"31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"};
 	if (day > max_day[atoi(month.c_str())])
 	{
-		printResult("Error: invalid date", date);
+		printResult("Error: invalid date, months don't have that many days", date);
 		return (false);
 	}
 	return (true);
