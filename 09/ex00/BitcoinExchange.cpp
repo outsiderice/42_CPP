@@ -92,7 +92,6 @@ bool	BitcoinExchange::isValidDate(std::string date)
 	std::string	digits = "1234567890";
 	std::size_t	pos = date.find('-');
 	
-	year = date.substr(0, pos);
 	month = date.substr(pos, date.find_first_not_of(digits, pos));
 	day = date.substr(date.find_last_of('-'));
 
@@ -101,23 +100,20 @@ bool	BitcoinExchange::isValidDate(std::string date)
 		printResult("Error: invalid date format", date);
 		return (false);
 	}
-	if ((year == "2009" && month == "01" && day == "01") || atoi(year.c_str()) < 2009)
+	if (date < "2009-01-02")
 	{
 		printResult("Error: invalid date, before Bitcoin", date);
 		return (false);
 	}
-
-	int	m = atoi(month.c_str());
-	int	d = atoi(day.c_str());
-	if (m > 12 || m == 0 || d == 0)
+	if (month > "12" || month == "00" || day == "00")
 	{
 		printResult("Error: invalid date", date);
 		return (false);
 	}
-	if (m == 2 && atoi(year.c_str()) % 4 == 0 && d <= 29)
+	if (month == "02" && atoi(year.c_str()) % 4 == 0 && day <= "29")
 		return (true);
-	int	max_day[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	if (d > max_day[m])
+	std::string	max_day[12] = {"31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"};
+	if (day > max_day[atoi(month.c_str())])
 	{
 		printResult("Error: invalid date", date);
 		return (false);
@@ -142,10 +138,10 @@ bool	BitcoinExchange::isValidValue(std::string value)
 
 std::string	BitcoinExchange::calculateTotal(std::string date, std::string value)
 {
-	double				rate;
-	double				total;
-	std::stringstream	ss;
-
+	std::map<std::string, double>::iterator	it = _history.lower_bound(date);
+	std::stringstream						ss;
+	double									rate;
+	double									total;
 	if (_history.find(date) != _history.end())
 	{
 		rate = _history.at(date);
@@ -153,6 +149,7 @@ std::string	BitcoinExchange::calculateTotal(std::string date, std::string value)
 		ss << value << " = " << total;
 		return (ss.str());
 	}
+
 }
 
 void	BitcoinExchange::printResult(std::string str1, std::string str2)
