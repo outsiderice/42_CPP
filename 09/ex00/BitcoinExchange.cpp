@@ -142,14 +142,22 @@ std::string	BitcoinExchange::calculateTotal(std::string date, std::string value)
 	std::stringstream						ss;
 	double									rate;
 	double									total;
-	if (_history.find(date) != _history.end())
+
+	if (it != _history.end() && it->first == date)
 	{
-		rate = _history.at(date);
+		rate = it->second;
 		total = atof(value.c_str()) * rate;
 		ss << value << " = " << total;
 		return (ss.str());
 	}
-
+	else
+	{
+		it--;
+		rate = it->second;
+		total = atof(value.c_str()) * rate;
+		ss << value << " = " << total;
+		return (ss.str());
+	}
 }
 
 void	BitcoinExchange::printResult(std::string str1, std::string str2)
