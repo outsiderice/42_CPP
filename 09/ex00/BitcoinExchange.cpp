@@ -96,7 +96,6 @@ bool	BitcoinExchange::isValidDate(std::string date)
 	month = date.substr(pos + 1, date.length() - (year.length() + day.length() + 2));
 	if (month.length() != 2 || day.length() != 2)
 	{
-		std::cout << year << "\n" << month << "\n" << day << std::endl;
 		printResult("Error: invalid date format", date);
 		return (false);
 	}
@@ -107,16 +106,13 @@ bool	BitcoinExchange::isValidDate(std::string date)
 	}
 	if (month > "12" || month == "00" || day == "00")
 	{
-		printResult("Error: invalid date, day or month", date);
+		printResult("Error: invalid date, wrong day or month", date);
 		return (false);
 	}
 	if (month == "02" && atoi(year.c_str()) % 4 == 0 && day <= "29")
-	{
-		std::cout << "leap year!" << std::endl;
 		return (true);
-	}
 	std::string	max_day[12] = {"31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"};
-	if (day > max_day[atoi(month.c_str())])
+	if (day > max_day[atoi(month.c_str()) - 1])
 	{
 		printResult("Error: invalid date, months don't have that many days", date);
 		return (false);
