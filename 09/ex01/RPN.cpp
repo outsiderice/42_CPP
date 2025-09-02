@@ -1,6 +1,6 @@
 #include "RPN.hpp"
 
-RPN::RPN() : _allowed("1234567890+-/*")
+RPN::RPN() : _allowed("1234567890+-/* ")
 {}
 
 RPN::RPN(const RPN &obj) : _allowed(obj._allowed), _operands(obj._operands)
@@ -23,7 +23,7 @@ void	RPN::calculate(std::string input)
 {
 	if (input.find_first_not_of(_allowed) != std::string::npos)
 	{
-		std::cerr << "Error" << std::endl;
+		std::cerr << "Error: unallowed characters detected" << std::endl;
 		return ;
 	}
 	std::string			str;
@@ -34,7 +34,7 @@ void	RPN::calculate(std::string input)
 	{
 		if (str.length() != 1)
 		{
-			std::cerr << "Error" << std::endl;
+			std::cerr << "Error: input numbers should be less than 10, " << std::endl;
 			return ;
 		}
 		if (isdigit(str[0]) == true)
@@ -43,7 +43,7 @@ void	RPN::calculate(std::string input)
 		{
 			if (_operands.size() < 2)
 			{
-				std::cerr << "Error" << std::endl;
+				std::cerr << "Error: not enough operands to operate on" << std::endl;
 				return ;
 			}
 			operate(str);
@@ -51,10 +51,10 @@ void	RPN::calculate(std::string input)
 	}
 	if (_operands.size() != 1)
 	{
-		std::cerr << "Error" << std::endl;
+		std::cerr << "Error: not enough operators to operate all operands" << std::endl;
 		return ;
 	}
-	//print
+	std::cout << _operands.top() << std::endl;
 	return ;
 }
 
