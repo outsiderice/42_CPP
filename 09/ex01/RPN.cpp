@@ -23,7 +23,7 @@ void	RPN::calculate(std::string input)
 {
 	if (input.find_first_not_of(_allowed) != std::string::npos)
 	{
-		std::cerr << "Error: unallowed characters detected" << std::endl;
+		std::cerr << "Error: forbidden characters detected" << std::endl;
 		return ;
 	}
 	std::string			str;
@@ -60,9 +60,9 @@ void	RPN::calculate(std::string input)
 
 void	RPN::operate(std::string sign)
 {
-	int	op1 = _operands.top();
-	_operands.pop();
 	int	op2 = _operands.top();
+	_operands.pop();
+	int	op1 = _operands.top();
 	_operands.pop();
 	if (sign == "+")
 	{
