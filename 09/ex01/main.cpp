@@ -8,7 +8,7 @@ int main(int argc, char **argv)
 		std::cout << "Nothing to do, input operations e.g:\n ./RPN \"2 2 +\"" << std::endl;
 		return (0);
 	}
-	RPN calculator(argv[1]);
-	calculator.calculate();
+	RPN calculator();
+	calculator.calculate(argv[1]);
 	return (0);
 }

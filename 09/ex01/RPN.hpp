@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <stack>
+#include <sstream>
 
 class RPN
 {
@@ -15,9 +16,10 @@ public:
 
 	RPN &operator=(const RPN &obj);
 
-	void calculate();
+	void	calculate(std::string input);
 
 private:
+	std::string		_allowed;
 	std::stack<int> _operands;
 };
 
