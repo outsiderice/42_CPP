@@ -54,6 +54,34 @@ void	RPN::calculate(std::string input)
 		std::cerr << "Error" << std::endl;
 		return ;
 	}
-	//print result
+	//print
 	return ;
+}
+
+void	RPN::operate(std::string sign)
+{
+	int	op1 = _operands.top();
+	_operands.pop();
+	int	op2 = _operands.top();
+	_operands.pop();
+	if (sign == "+")
+	{
+		_operands.push(op1 + op2);
+		return ;
+	}
+	if (sign == "-")
+	{
+		_operands.push(op1 - op2);
+		return ;
+	}
+	if (sign == "/")
+	{
+		_operands.push(op1 / op2);
+		return ;
+	}
+	if (sign == "*")
+	{
+		_operands.push(op1 * op2);
+		return ;
+	}
 }
