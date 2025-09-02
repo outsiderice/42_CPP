@@ -37,7 +37,23 @@ void	RPN::calculate(std::string input)
 			std::cerr << "Error" << std::endl;
 			return ;
 		}
-		//if is number push to stack
-		//if is operator check stack has two numbers and operate , else return error
+		if (isdigit(str[0]) == true)
+			_operands.push(str[0] - '0');
+		else
+		{
+			if (_operands.size() < 2)
+			{
+				std::cerr << "Error" << std::endl;
+				return ;
+			}
+			operate(str);
+		}
 	}
+	if (_operands.size() != 1)
+	{
+		std::cerr << "Error" << std::endl;
+		return ;
+	}
+	//print result
+	return ;
 }

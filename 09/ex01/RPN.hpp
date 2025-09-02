@@ -17,6 +17,7 @@ public:
 	RPN &operator=(const RPN &obj);
 
 	void	calculate(std::string input);
+	void	operate(std::string sign);
 
 private:
 	std::string		_allowed;
