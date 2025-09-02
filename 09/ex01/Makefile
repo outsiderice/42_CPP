@@ -1,6 +1,6 @@
 NAME = RPN
 
-SRC = main.cpp RPN.cpp
+SRC = main.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
