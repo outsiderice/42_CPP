@@ -76,6 +76,8 @@ void	RPN::operate(std::string sign)
 	}
 	if (sign == "/")
 	{
+		if (op2 == 0)
+			throw std::runtime_error("Error: Division by 0");
 		_operands.push(op1 / op2);
 		return ;
 	}

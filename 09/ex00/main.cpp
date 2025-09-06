@@ -11,7 +11,14 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	std::string	input = argv[1];
-	BitcoinExchange	bc;
-	bc.exchangeRate(input);
+	try
+	{
+		BitcoinExchange	bc;
+		bc.exchangeRate(input);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception caught: " << e.what() << '\n';
+	}
 	return (0);
 }

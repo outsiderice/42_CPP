@@ -9,6 +9,13 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	RPN calculator;
-	calculator.calculate(argv[1]);
+	try
+	{
+		calculator.calculate(argv[1]);
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
 	return (0);
 }
