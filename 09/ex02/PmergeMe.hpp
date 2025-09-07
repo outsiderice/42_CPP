@@ -3,7 +3,7 @@
 #define PMERGEME_HPP
 
 #include <vector>
-#include <deque>
+#include <list>
 #include <iostream>
 #include <time.h>
 
@@ -22,7 +22,7 @@ private:
 	std::string	_allowed;
 
 	double	_withVector(char **argv);
-	double	_withDeque(char **argv);
+	double	_withList(char **argv);
 	bool	_parseInput(char **argv);
 	void	_sortIntoPairs();
 	// insert in jacobsthal sequence
