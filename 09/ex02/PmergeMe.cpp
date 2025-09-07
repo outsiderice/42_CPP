@@ -18,12 +18,20 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &obj)
 
 void PmergeMe::sort(char **argv)
 {
-	_withVector(argv);
-	_withDeque(argv);
+	double	vector_time = _withVector(argv);
+	double	deque_time = _withDeque(argv);
 	//print before
 	//print after
+
 	//print vector time in microseconds
+	std::cout << "Time to process a range of ";
+	std::cout << 0 << " elements with std::vector : ";
+	std::cout << vector_time << " us" << std::endl;
+	
 	//print deque time in microseconds
+	std::cout << "Time to process a range of ";
+	std::cout << 0 << " elements with std::deque : ";
+	std::cout << vector_time << " us" << std::endl;
 }
 
 //return time?
