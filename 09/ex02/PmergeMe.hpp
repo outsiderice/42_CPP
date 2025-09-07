@@ -5,6 +5,7 @@
 #include <vector>
 #include <deque>
 #include <iostream>
+#include <time.h>
 
 class PmergeMe
 {
@@ -20,8 +21,8 @@ public:
 private:
 	std::string	_allowed;
 
-	void	_withVector(char **argv);
-	void	_withDeque(char **argv);
+	double	_withVector(char **argv);
+	double	_withDeque(char **argv);
 	bool	_parseInput(char **argv);
 	void	_sortIntoPairs();
 	// insert in jacobsthal sequence

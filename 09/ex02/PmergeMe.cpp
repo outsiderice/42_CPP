@@ -22,20 +22,28 @@ void PmergeMe::sort(char **argv)
 	_withDeque(argv);
 	//print before
 	//print after
-	//print vector time
-	//print deque time
+	//print vector time in microseconds
+	//print deque time in microseconds
 }
 
-void	PmergeMe::_withVector(char **arg)
+//return time?
+double	PmergeMe::_withVector(char **arg)
 {
-	//start clock
+	clock_t	start = clock();
 	//parse input
 	//sort into pairs
+	//algohell
+	//end clock
+	clock_t	end = clock();
+	return (static_cast<double>(end - start) / CLOCKS_PER_SEC);
 }
 
-void	PmergeMe::_withDeque(char **argv)
+double	PmergeMe::_withDeque(char **argv)
 {
-	//start clock
+	clock_t	start = clock();
 	//parse input
 	//sort into pairs
+	//algohell
+	clock_t	end = clock();
+	return (static_cast<double>(end - start) / CLOCKS_PER_SEC);
 }
