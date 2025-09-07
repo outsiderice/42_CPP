@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <deque>
+#include <iostream>
 
 class PmergeMe
 {
@@ -14,8 +15,15 @@ public:
 
 	PmergeMe &operator=(const PmergeMe &obj);
 
+	void	sort(char **argv);
+
 private:
-	// pairup (sorted) recursively until it can't make up a pair
+	std::string	_allowed;
+
+	void	_withVector(char **argv);
+	void	_withDeque(char **argv);
+	bool	_parseInput(char **argv);
+	void	_sortIntoPairs();
 	// insert in jacobsthal sequence
 	// insert in reverse order when no more jacobsthal numbers
 };
