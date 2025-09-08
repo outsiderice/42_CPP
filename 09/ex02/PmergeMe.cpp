@@ -52,6 +52,13 @@ double	PmergeMe::_withList(char **argv)
 std::vector<int>	PmergeMe::_parseToVector(char **argv)
 {
 	int	i = 1;
+	std::vector<int>	numbers;
+
+	while (argv[i])
+	{
+		if (!atoi(argv[i]))
+			throw std::exception("Not a positive number");
+	}
 }
 
 std::list<int>	PmergeMe::_parseToList(char **argv)

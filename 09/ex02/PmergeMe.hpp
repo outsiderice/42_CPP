@@ -6,6 +6,8 @@
 #include <list>
 #include <iostream>
 #include <time.h>
+#include <exception>
+
 #include "ab.hpp"
 
 class PmergeMe
