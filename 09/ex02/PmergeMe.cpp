@@ -32,8 +32,8 @@ void PmergeMe::sort(char **argv)
 double	PmergeMe::_withVector(char **argv)
 {
 	clock_t	start = clock();
-	_parseInput(argv);
-	//sort into pairs
+	std::vector<int>	originalSequence = _parseToVector(argv);
+	std::vector<ab>		main = _vectorMain(originalSequence);
 	//algohell
 	clock_t	end = clock();
 	return (static_cast<double>(end - start) / CLOCKS_PER_SEC);
@@ -42,9 +42,19 @@ double	PmergeMe::_withVector(char **argv)
 double	PmergeMe::_withList(char **argv)
 {
 	clock_t	start = clock();
-	_parseInput(argv);
-	//sort into pairs
+	std::list<int>	originalSequence = _parseToList(argv);
+	std::list<ab>	main = _listMain(originalSequence); //return ordered larger numbers?
 	//algohell
 	clock_t	end = clock();
 	return (static_cast<double>(end - start) / CLOCKS_PER_SEC);
+}
+
+std::vector<int>	PmergeMe::_parseToVector(char **argv)
+{
+	int	i = 1;
+}
+
+std::list<int>	PmergeMe::_parseToList(char **argv)
+{
+	int	i = 1;
 }
