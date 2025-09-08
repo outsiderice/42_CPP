@@ -1,6 +1,6 @@
 NAME = PmergeMe
 
-SRC = main.cpp PmergeMe.cpp
+SRC = main.cpp PmergeMe.cpp ab.cpp
 
 BUILD_DIR = .build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)

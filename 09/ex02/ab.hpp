@@ -8,10 +8,12 @@ class ab
 {
     public:
     ab();
+    ab(int a, int b);
     ab(const ab &obj);
     ~ab();
 
     ab &operator=(const ab &obj);
+
     private:
         int _a;
         int _b;
