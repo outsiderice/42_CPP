@@ -26,10 +26,15 @@ private:
 
 	double				_withVector(char **argv);
 	double				_withList(char **argv);
+
 	std::vector<int>	_parseToVector(char **argv);
 	std::list<int>		_parseToList(char **argv);
-	std::vector<ab>		_vectorMain(std::vector<int> numbers);
-	std::list<ab>		_listMain(std::list<int> numbers);
+
+	std::vector<ab>		_pairedUpVector(std::vector<int> numbers);
+	std::list<ab>		_pairedUpList(std::list<int> numbers);
+
+	std::vector<ab>		_vectorMain(std::vector<ab> main);
+	std::list<ab>		_listMain(std::list<ab> main);
 	// insert in jacobsthal sequence
 	// insert in reverse order when no more jacobsthal numbers
 };

@@ -40,7 +40,9 @@ double	PmergeMe::_withVector(char **argv)
 {
 	clock_t	start = clock();
 	std::vector<int>	originalSequence = _parseToVector(argv);
-	std::vector<ab>		main = _vectorMain(originalSequence);
+	std::vector<ab>		main = _pairedUpVector(originalSequence);
+
+	main = _vectorMain(main);
 	//algohell
 	clock_t	end = clock();
 	return (static_cast<double>(end - start) / CLOCKS_PER_SEC);
@@ -50,7 +52,9 @@ double	PmergeMe::_withList(char **argv)
 {
 	clock_t	start = clock();
 	std::list<int>	originalSequence = _parseToList(argv);
-	std::list<ab>	main = _listMain(originalSequence); //return ordered larger numbers?
+	std::list<ab>	main = _pairedUpList(originalSequence);
+
+	main = _listMain(main);
 	//algohell
 	clock_t	end = clock();
 	return (static_cast<double>(end - start) / CLOCKS_PER_SEC);
@@ -86,11 +90,10 @@ std::list<int>	PmergeMe::_parseToList(char **argv)
 	return (numbers);
 }
 
-std::vector<ab>	PmergeMe::_vectorMain(std::vector<int> numbers)
+std::vector<ab>	PmergeMe::_pairedUpVector(std::vector<int> numbers)
 {
 	std::vector<ab>	main;
 
-	//put numbers into ab pairs in main
 	for (int i = 0; i < numbers.size(); i++)
 	{
 		if (++i < numbers.size())
@@ -98,4 +101,16 @@ std::vector<ab>	PmergeMe::_vectorMain(std::vector<int> numbers)
 		else
 			main.push_back(ab(numbers[i - 1], 0));
 	}
+	return (main);
+}
+
+std::list<ab>	PmergeMe::_pairedUpList(std::list<int> numbers)
+{
+	std::list<ab>	main;
+	return (main);
+}
+
+std::vector<ab>	PmergeMe::_vectorMain(std::vector<ab> main)
+{
+		
 }
