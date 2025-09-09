@@ -16,8 +16,11 @@ ab::ab(int a, int b)
 		_a = b;
 		_b = a;
 	}
-	if (_a <= 0 || b <= 0)
+	if (b <= 0)
+	{
 		_isPair = false;
+		_b = _a;
+	}
 	else
 		_isPair = true;
 }

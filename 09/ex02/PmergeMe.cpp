@@ -112,5 +112,12 @@ std::list<ab>	PmergeMe::_pairedUpList(std::list<int> numbers)
 
 std::vector<ab>	PmergeMe::_vectorMain(std::vector<ab> main)
 {
-		
+	if (main.size() == 1)
+		return (main);
+	std::vector<ab>	recurse;
+	for (int i = 0; i < main.size(); i++)
+	{
+		if (++i < main.size() && main[i].isPair() == true)
+			recurse.push_back(ab(main[i - 1].getA(), main[i].getB()));
+	}
 }
