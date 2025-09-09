@@ -40,9 +40,9 @@ double	PmergeMe::_withVector(char **argv)
 {
 	clock_t	start = clock();
 	std::vector<int>	originalSequence = _parseToVector(argv);
-	std::vector<ab>		main = _pairedUpVector(originalSequence);
+	std::vector<ab>		pairs = _pairedUpVector(originalSequence);
 
-	main = _vectorMain(main);
+	std::vector<int>	main = _vectorMain(pairs);
 	//algohell
 	clock_t	end = clock();
 	return (static_cast<double>(end - start) / CLOCKS_PER_SEC);
@@ -52,9 +52,9 @@ double	PmergeMe::_withList(char **argv)
 {
 	clock_t	start = clock();
 	std::list<int>	originalSequence = _parseToList(argv);
-	std::list<ab>	main = _pairedUpList(originalSequence);
+	std::list<ab>	pairs = _pairedUpList(originalSequence);
 
-	main = _listMain(main);
+	std::list<int> main = _listMain(pairs);
 	//algohell
 	clock_t	end = clock();
 	return (static_cast<double>(end - start) / CLOCKS_PER_SEC);
@@ -110,14 +110,27 @@ std::list<ab>	PmergeMe::_pairedUpList(std::list<int> numbers)
 	return (main);
 }
 
-std::vector<ab>	PmergeMe::_vectorMain(std::vector<ab> main)
+std::vector<int>	PmergeMe::_getAs(std::vector<ab> pairs)
 {
-	if (main.size() == 1)
-		return (main);
-	std::vector<ab>	recurse;
-	for (int i = 0; i < main.size(); i++)
+	std::vector<int>	numbers;
+	int	i = 0;
+	while (i < pairs.size() && pairs[i].isPair() == true)
+		numbers.push_back(pairs[i].getA());
+	return (numbers);
+}
+
+std::vector<int>	PmergeMe::_vectorMain(std::vector<ab> pairs)
+{
+	std::vector<int>	main;
+	if (pairs.size() == 1)
 	{
-		if (++i < main.size() && main[i].isPair() == true)
-			recurse.push_back(ab(main[i - 1].getA(), main[i].getB()));
+		main.push_back(pairs[0].getA());
+		main.push_back(pairs[0].getB());
+		return (main);
 	}
+	std::vector<int> 	temp = _getAs(pairs);
+	std::vector<ab>		top_pairs = _pairedUpVector(temp);
+	main = _vectorMain(top_pairs);
+	//insert leftover
+	return (main);
 }

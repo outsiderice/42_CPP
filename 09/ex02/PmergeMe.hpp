@@ -25,16 +25,15 @@ private:
 	std::string	_allowed;
 
 	double				_withVector(char **argv);
-	double				_withList(char **argv);
-
 	std::vector<int>	_parseToVector(char **argv);
-	std::list<int>		_parseToList(char **argv);
-
 	std::vector<ab>		_pairedUpVector(std::vector<int> numbers);
-	std::list<ab>		_pairedUpList(std::list<int> numbers);
+	std::vector<int>	_getAs(std::vector<ab> pairs);
+	std::vector<int>	_vectorMain(std::vector<ab> pairs);
 
-	std::vector<ab>		_vectorMain(std::vector<ab> main);
-	std::list<ab>		_listMain(std::list<ab> main);
+	double				_withList(char **argv);
+	std::list<int>		_parseToList(char **argv);
+	std::list<ab>		_pairedUpList(std::list<int> numbers);
+	std::list<int>		_listMain(std::list<ab> pairs);
 	// insert in jacobsthal sequence
 	// insert in reverse order when no more jacobsthal numbers
 };
