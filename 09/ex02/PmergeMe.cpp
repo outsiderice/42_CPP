@@ -18,11 +18,18 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &obj)
 
 void PmergeMe::sort(char **argv)
 {
-	double	vector_time = _withVector(argv);
-	double	deque_time = _withList(argv);
+	try
+	{
+		double	vector_time = _withVector(argv);
+		double	deque_time = _withList(argv);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
 	//print before
 	//print after
-
+	
 	std::cout << "Time to process a range of " << 0 ;
 	std::cout << " elements with std::vector : "  << vector_time << " us" << std::endl;
 	std::cout << "Time to process a range of " << 0 ;
@@ -56,12 +63,25 @@ std::vector<int>	PmergeMe::_parseToVector(char **argv)
 
 	while (argv[i])
 	{
-		if (!atoi(argv[i]))
-			throw std::exception("Not a positive number");
+		if (atoi(argv[i]) <= 0)
+			throw std::invalid_argument("Not a positive number");
+		numbers.push_back(atoi(argv[i]));
+		i++;
 	}
+	return (numbers);
 }
 
 std::list<int>	PmergeMe::_parseToList(char **argv)
 {
 	int	i = 1;
+	std::list<int>	numbers;
+
+	while (argv[i])
+	{
+		if (atoi(argv[i]) <= 0)
+			throw std::invalid_argument("Not a positive number");
+		numbers.push_back(atoi(argv[i]));
+		i++;
+	}
+	return (numbers);
 }
