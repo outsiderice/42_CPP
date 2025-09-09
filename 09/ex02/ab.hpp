@@ -6,17 +6,22 @@
 
 class ab
 {
-    public:
-    ab();
-    ab(int a, int b);
-    ab(const ab &obj);
-    ~ab();
+public:
+	ab();
+	ab(int a, int b);
+	ab(const ab &obj);
+	~ab();
 
-    ab &operator=(const ab &obj);
+	ab &operator=(const ab &obj);
 
-    private:
-        int _a;
-        int _b;
+	int		getA() const;
+	int		getB() const;
+	bool	isPair() const;
+
+private:
+	int _a;
+	int _b;
+	bool _isPair;
 };
 
 #endif

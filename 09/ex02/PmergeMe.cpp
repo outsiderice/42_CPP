@@ -22,18 +22,18 @@ void PmergeMe::sort(char **argv)
 	{
 		double	vector_time = _withVector(argv);
 		double	deque_time = _withList(argv);
+
+		//print before
+		//print after
+		std::cout << "Time to process a range of " << 0 ;
+		std::cout << " elements with std::vector : "  << vector_time << " us" << std::endl;
+		std::cout << "Time to process a range of " << 0 ;
+		std::cout << " elements with std::list : "  << vector_time << " us" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	//print before
-	//print after
-	
-	std::cout << "Time to process a range of " << 0 ;
-	std::cout << " elements with std::vector : "  << vector_time << " us" << std::endl;
-	std::cout << "Time to process a range of " << 0 ;
-	std::cout << " elements with std::list : "  << vector_time << " us" << std::endl;
 }
 
 double	PmergeMe::_withVector(char **argv)
@@ -84,4 +84,18 @@ std::list<int>	PmergeMe::_parseToList(char **argv)
 		i++;
 	}
 	return (numbers);
+}
+
+std::vector<ab>	PmergeMe::_vectorMain(std::vector<int> numbers)
+{
+	std::vector<ab>	main;
+
+	//put numbers into ab pairs in main
+	for (int i = 0; i < numbers.size(); i++)
+	{
+		if (++i < numbers.size())
+			main.push_back(ab(numbers[i - 1], numbers[i]));
+		else
+			main.push_back(ab(numbers[i - 1], 0));
+	}
 }
