@@ -113,7 +113,8 @@ std::list<ab>	PmergeMe::_pairedUpList(std::list<int> numbers)
 std::vector<int>	PmergeMe::_getAs(std::vector<ab> pairs)
 {
 	std::vector<int>	numbers;
-	int	i = 0;
+	int					i = 0;
+	
 	while (i < pairs.size() && pairs[i].isPair() == true)
 		numbers.push_back(pairs[i].getA());
 	return (numbers);
@@ -128,9 +129,17 @@ std::vector<int>	PmergeMe::_vectorMain(std::vector<ab> pairs)
 		main.push_back(pairs[0].getB());
 		return (main);
 	}
-	std::vector<int> 	temp = _getAs(pairs);
-	std::vector<ab>		top_pairs = _pairedUpVector(temp);
+	std::vector<int> 	top_nums = _getAs(pairs);
+	std::vector<ab>		top_pairs = _pairedUpVector(top_nums);
 	main = _vectorMain(top_pairs);
-	//insert leftover
+
+	int	leftoverA = -1;
+	if (top_nums.size() % 2 == 1)
+		leftoverA = top_nums.back();
+	if (leftoverA != -1)
+	{
+		std::vector<int>::iterator pos = std::lower_bound(main.begin(), main.end(), leftoverA);
+		main.insert(pos, leftoverA);
+	}
 	return (main);
 }
