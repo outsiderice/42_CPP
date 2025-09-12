@@ -22,20 +22,21 @@ public:
 	void	sort(char **argv);
 
 private:
-	std::string	_allowed;
+	double	_vector_time;
+	double	_list_time;
 
-	double				_withVector(char **argv);
+	std::vector<int>	_withVector(char **argv);
 	std::vector<int>	_parseToVector(char **argv);
 	std::vector<ab>		_pairedUpVector(std::vector<int> numbers);
+	std::vector<int>	_sortVector(std::vector<ab> pairs);
 	std::vector<int>	_getAs(std::vector<ab> pairs);
-	std::vector<int>	_vectorMain(std::vector<ab> pairs);
+	std::vector<int>	_insertBs(std::vector<ab> pend, std::vector<int> main);
+	std::vector<size_t>	_jacobsthalNumbers(size_t pend_size);
 
-	double				_withList(char **argv);
+	std::list<int>		_withList(char **argv);
 	std::list<int>		_parseToList(char **argv);
 	std::list<ab>		_pairedUpList(std::list<int> numbers);
-	std::list<int>		_listMain(std::list<ab> pairs);
-	// insert in jacobsthal sequence
-	// insert in reverse order when no more jacobsthal numbers
+	std::list<int>		_sortList(std::list<ab> pairs);
 };
 
 #endif

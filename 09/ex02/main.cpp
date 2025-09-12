@@ -9,7 +9,6 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	PmergeMe a;
-
-	// sort
+	a.sort(argv);
 	return (0);
 }
