@@ -100,8 +100,28 @@ std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
 		main.insert(pos, leftoverA);
 	}
 	main = _insertBs(pairs, main);
-	std::vector<size_t>	order_of_insertion = _jacobsthalNumbers(pairs.size());
 	return (main);
+}
+
+std::vector<int>	PmergeMe::_insertBs(std::vector<ab> pend, std::vector<int> main)
+{
+	std::vector<size_t>	order_of_insertion = _jacobsthalNumbers(pend.size());
+}
+
+std::vector<size_t>	_jacobsthalNumbers(size_t pend_size)
+{
+	std::vector<size_t>	J;
+	J.push_back(0);
+	J.push_back(1);
+	int	j = 0;
+	while (true)
+	{
+		j = J[J.size() - 1] + (2 * J[J.size() - 2]);
+		J.push_back(j);
+		if (J.size() > pend_size)
+			break ;
+	}
+	return (J);
 }
 
 std::vector<int>	PmergeMe::_getAs(std::vector<ab> pairs)
