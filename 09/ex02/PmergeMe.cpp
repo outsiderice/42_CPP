@@ -121,6 +121,11 @@ std::vector<size_t>	_jacobsthalNumbers(size_t pend_size)
 		if (J.size() > pend_size)
 			break ;
 	}
+	if (J.size() > 2)
+	{
+		J.erase(J.begin());
+		J.erase(J.begin());
+	}
 	return (J);
 }
 
