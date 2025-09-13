@@ -135,12 +135,22 @@ std::vector<int>	PmergeMe::_insertBs(std::vector<ab> pend, std::vector<int> main
 	insertion_order.push_back(0);
 	size_t	smaller_index = 1;
 	size_t	larger_index;
-	for (size_t k = 0; k < J.size(); ++k)
+	for (size_t k = 0; k < J.size(); k++)
 	{
 		larger_index = J[k];
-		for (size_t i = larger_index; i > smaller_index; --i)
+		for (size_t i = larger_index; i > smaller_index; i--)
 			insertion_order.push_back(i - 1);
 		smaller_index = larger_index;
+	}
+	for (size_t i = pend.size(); i > larger_index; i--)
+		insertion_order.push_back(i - 1);
+	for (size_t index = 0; index < insertion_order.size(); index++)
+	{
+		size_t	i = insertion_order[index];
+		int		b = pend[i].getB();
+		size_t	pos = _binarysearch(main, b, 0, i);
+
+		main.insert(main.begin() + pos, b);	
 	}
 	return (main);
 }
