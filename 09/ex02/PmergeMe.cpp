@@ -96,18 +96,40 @@ std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
 		leftoverA = top_nums.back();
 	if (leftoverA != -1)
 	{
-		std::vector<int>::iterator pos = std::lower_bound(main.begin(), main.end(), leftoverA);
-		main.insert(pos, leftoverA);
+		size_t pos = _binarysearch(main, leftoverA, 0, main.size());
+		main.insert(main.begin() + pos, leftoverA);
 	}
 	main = _insertBs(pairs, main);
 	return (main);
 }
 
+std::vector<int>	PmergeMe::_getAs(std::vector<ab> pairs)
+{
+	std::vector<int>	numbers;
+	int					i = 0;
+
+	while (i < pairs.size() && pairs[i].isPair() == true)
+		numbers.push_back(pairs[i].getA());
+	return (numbers);
+}
+
+size_t	PmergeMe::_binarysearch(std::vector<int> &v, int num, size_t start, size_t end)
+{
+	size_t	middle = end / 2;
+	while (start < end)
+	{
+		if (num < v[middle])
+			end = middle;
+		else
+			start = middle + 1;
+		middle = start + (end - start) / 2;
+	}
+	return (start);
+}
+
 std::vector<int>	PmergeMe::_insertBs(std::vector<ab> pend, std::vector<int> main)
 {
 	std::vector<size_t>	J = _jacobsthalNumbers(pend.size());
-	std::vector<size_t>	insertion_order;
-
 }
 
 std::vector<size_t>	_jacobsthalNumbers(size_t pend_size)
@@ -131,15 +153,6 @@ std::vector<size_t>	_jacobsthalNumbers(size_t pend_size)
 	return (J);
 }
 
-std::vector<int>	PmergeMe::_getAs(std::vector<ab> pairs)
-{
-	std::vector<int>	numbers;
-	int					i = 0;
-
-	while (i < pairs.size() && pairs[i].isPair() == true)
-		numbers.push_back(pairs[i].getA());
-	return (numbers);
-}
 
 //LIST FUNCTIONS
 

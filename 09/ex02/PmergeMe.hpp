@@ -30,8 +30,10 @@ private:
 	std::vector<ab>		_pairedUpVector(std::vector<int> numbers);
 	std::vector<int>	_sortVector(std::vector<ab> pairs);
 	std::vector<int>	_getAs(std::vector<ab> pairs);
+	size_t				_binarysearch(std::vector<int> &main, int num, size_t start, size_t end);
 	std::vector<int>	_insertBs(std::vector<ab> pend, std::vector<int> main);
 	std::vector<size_t>	_jacobsthalNumbers(size_t pend_size);
+	
 
 	std::list<int>		_withList(char **argv);
 	std::list<int>		_parseToList(char **argv);
