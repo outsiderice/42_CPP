@@ -36,7 +36,7 @@ void PmergeMe::sort(char **argv)
 	}
 }
 
-//VECTOR FUNCTIONS
+/*------------------------------------VECTOR FUNCTIONS------------------------------------*/
 
 std::vector<int>	PmergeMe::_withVector(char **argv)
 {
@@ -66,16 +66,16 @@ std::vector<int>	PmergeMe::_parseToVector(char **argv)
 
 std::vector<ab>	PmergeMe::_pairedUpVector(std::vector<int> numbers)
 {
-	std::vector<ab>	main;
+	std::vector<ab>	pairs;
 
 	for (int i = 0; i < numbers.size(); i++)
 	{
 		if (++i < numbers.size())
-			main.push_back(ab(numbers[i - 1], numbers[i]));
+			pairs.push_back(ab(numbers[i - 1], numbers[i]));
 		else
-			main.push_back(ab(numbers[i - 1], 0));
+			pairs.push_back(ab(numbers[i - 1], 0));
 	}
-	return (main);
+	return (pairs);
 }
 
 std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
@@ -130,6 +130,19 @@ size_t	PmergeMe::_binarysearch(std::vector<int> &v, int num, size_t start, size_
 std::vector<int>	PmergeMe::_insertBs(std::vector<ab> pend, std::vector<int> main)
 {
 	std::vector<size_t>	J = _jacobsthalNumbers(pend.size());
+	std::vector<int>	insertion_order;
+
+	insertion_order.push_back(0);
+	size_t	smaller_index = 1;
+	size_t	larger_index;
+	for (size_t k = 0; k < J.size(); ++k)
+	{
+		larger_index = J[k];
+		for (size_t i = larger_index; i > smaller_index; --i)
+			insertion_order.push_back(i - 1);
+		smaller_index = larger_index;
+	}
+	return (main);
 }
 
 std::vector<size_t>	_jacobsthalNumbers(size_t pend_size)
@@ -153,8 +166,7 @@ std::vector<size_t>	_jacobsthalNumbers(size_t pend_size)
 	return (J);
 }
 
-
-//LIST FUNCTIONS
+/*------------------------------------LIST FUNCTIONS------------------------------------*/
 
 std::list<int>	PmergeMe::_withList(char **argv)
 {
