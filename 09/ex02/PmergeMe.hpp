@@ -35,10 +35,14 @@ private:
 	std::vector<size_t>	_jacobsthalNumbers(size_t pend_size);
 	
 
-	std::list<int>		_withList(char **argv);
-	std::list<int>		_parseToList(char **argv);
-	std::list<ab>		_pairedUpList(std::list<int> numbers);
-	std::list<int>		_sortList(std::list<ab> pairs);
+	std::list<int>				_withList(char **argv);
+	std::list<int>				_parseToList(char **argv);
+	std::list<ab>				_pairedUpList(std::list<int> numbers);
+	std::list<int>				_sortList(std::list<ab> pairs);
+	std::list<int>				_getAs(std::list<ab> pairs);
+	std::list<int>::iterator	_binarysearch(std::list<int> &l, int num);
+	std::list<int>				_insertBs(std::list<ab> pend, std::list<int> main);
+	std::list<size_t>			_listJacobsthalNumbers(size_t pend_size);
 };
 
 #endif

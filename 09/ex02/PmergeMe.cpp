@@ -221,3 +221,82 @@ std::list<ab>	PmergeMe::_pairedUpList(std::list<int> numbers)
 	}
 	return (pairs);
 }
+
+std::list<int>		PmergeMe::_sortList(std::list<ab> pairs)
+{
+	std::list<int>	main;
+	if (pairs.size() == 1)
+	{
+		main.push_back(pairs.front().getB());
+		main.push_back(pairs.front().getA());
+		return (main);
+	}
+	std::list<int>	top_nums = _getAs(pairs);
+	std::list<ab>	top_pairs = _pairedUpList(top_nums);
+	main = _sortList(top_pairs);
+
+	int	leftoverA = -1;
+	if (top_nums.size() % 2 == 1)
+		leftoverA = top_nums.back();
+	if (leftoverA != -1)
+	{
+		std::list<int>::iterator	pos = _binarysearch(main, leftoverA);
+		main.insert(pos, leftoverA);
+	}
+	main = _insertBs(pairs, main);
+	return (main);
+}
+
+std::list<int>	PmergeMe::_getAs(std::list<ab> pairs)
+{
+	std::list<int>			numbers;
+	std::list<ab>::iterator	it = pairs.begin();
+
+	while (it != pairs.end() && it->isPair() == true)
+		numbers.push_back(it->getA());
+	return (numbers);
+}
+
+std::list<int>::iterator	PmergeMe::_binarysearch(std::list<int> &l, int num)
+{
+	std::list<int>::iterator start = l.begin();
+	while (start != l.end())
+	{
+		if (*start >= num)
+			break ;
+		start++;
+	}
+	return (start);
+}
+
+std::list<int>	PmergeMe::_insertBs(std::list<ab> pend, std::list<int> main)
+{
+	std::list<size_t>	J = _listJacobsthalNumbers(pend.size());
+
+}
+
+std::list<size_t>	PmergeMe::_listJacobsthalNumbers(size_t pend_size)
+{
+	std::list<size_t>	J;
+	J.push_back(0);
+	J.push_back(1);
+
+	size_t	j = 0;
+	while (true)
+	{
+		std::list<size_t>::reverse_iterator rit = J.rbegin();
+		size_t	current = *rit;
+		++rit;
+		size_t	prev = *rit;
+		j = current + (2 * prev);
+		J .push_back(j);
+		if (J.size() > pend_size)
+			break ;
+	}
+	if (J.size() > 2)
+	{
+		J.pop_front();
+		J.pop_front();
+	}
+	return (J);
+}
