@@ -125,6 +125,7 @@ std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
 	{
 		size_t pos = _binarySearchVector(main, leftoverA, 0, main.size());
 		main.insert(main.begin() + pos, leftoverA);
+		std::cout << "inserting leftoverA: " << leftoverA << std::endl;
 	}
 	main = _insertBsToVector(pairs, main);
 	return (main);
@@ -187,7 +188,8 @@ std::vector<int>	PmergeMe::_insertBsToVector(std::vector<ab> pend, std::vector<i
 			b = pend[i].getB();
 		else
 			b = pend[i].getA();
-		size_t	pos = _binarySearchVector(main, b, 0, i);
+		std::cout << "inserting b: " << b << std::endl;
+		size_t	pos = _binarySearchVector(main, b, 0, main.size());
 
 		main.insert(main.begin() + pos, b);	
 	}
@@ -290,6 +292,7 @@ std::list<int>		PmergeMe::_sortList(std::list<ab> pairs)
 	if (leftoverA != -1)
 	{
 		std::list<int>::iterator	pos = _binarySearchList(main, leftoverA);
+		std::cout << "inserting leftoverA: " << leftoverA << std::endl;
 		main.insert(pos, leftoverA);
 	}
 	main = _insertBsToList(pairs, main);
@@ -354,6 +357,7 @@ std::list<int>	PmergeMe::_insertBsToList(std::list<ab> pend, std::list<int> main
 			b = pend_it->getB();
 		else
 			b = pend_it->getA();
+		std::cout << "inserting b: " << b << std::endl;
 		std::list<int>::iterator	pos = _binarySearchList(main, b);
 		main.insert(pos, b);
 	}
