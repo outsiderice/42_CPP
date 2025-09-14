@@ -182,7 +182,11 @@ std::vector<int>	PmergeMe::_insertBsToVector(std::vector<ab> pend, std::vector<i
 	for (size_t index = 0; index < insertion_order.size(); index++)
 	{
 		size_t	i = insertion_order[index];
-		int		b = pend[i].getB();
+		int	b = 0;
+		if (pend[i].isPair() == true)
+			b = pend[i].getB();
+		else
+			b = pend[i].getA();
 		size_t	pos = _binarySearchVector(main, b, 0, i);
 
 		main.insert(main.begin() + pos, b);	
@@ -345,8 +349,11 @@ std::list<int>	PmergeMe::_insertBsToList(std::list<ab> pend, std::list<int> main
 		size_t	i = *index;
 		std::list<ab>::iterator	pend_it = pend.begin();
 		std::advance(pend_it, i);
-		int	b = pend_it->getB();
-
+		int	b = 0;
+		if (pend_it->isPair() == true)
+			b = pend_it->getB();
+		else
+			b = pend_it->getA();
 		std::list<int>::iterator	pos = _binarySearchList(main, b);
 		main.insert(pos, b);
 	}
