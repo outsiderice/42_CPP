@@ -95,6 +95,11 @@ std::vector<ab>	PmergeMe::_pairedUpVector(std::vector<int> numbers)
 			pairs.push_back(pair);
 		}
 	}
+	for (size_t i = 0; i < pairs.size(); i++)
+	{
+		std::cout << pairs[i].getA() << "<- pair A" << std::endl;
+		std::cout << pairs[i].getB() << "<- pair B" << std::endl;
+	}
 	return (pairs);
 }
 
@@ -116,6 +121,8 @@ std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
 	}
 	std::vector<int> 	top_nums = _getAs(pairs);
 	std::vector<ab>		top_pairs = _pairedUpVector(top_nums);
+
+
 	main = _sortVector(top_pairs);
 
 	int	leftoverA = -1;
@@ -137,11 +144,16 @@ std::vector<int>	PmergeMe::_getAs(std::vector<ab> pairs)
 	std::vector<int>	numbers;
 	size_t				i = 0;
 
-	while (i < pairs.size() && pairs[i].isPair() == true)
+	while (i < pairs.size())
 	{
-		numbers.push_back(pairs[i].getA());
+		if (pairs[i].isPair() == true)
+			numbers.push_back(pairs[i].getA());
 		i++;
 	}
+	std::cout << "top nums are:" << std::endl;
+	for (size_t i = 0; i < numbers.size(); i++)
+		std::cout << numbers[i] << ", ";
+	std::cout << std::endl;
 	return (numbers);
 }
 
@@ -265,7 +277,7 @@ std::list<ab>	PmergeMe::_pairedUpList(std::list<int> numbers)
 			it++;
 		}
 		else
-			pairs.push_back(ab(first, 0));
+			pairs.push_back(ab(first, -1));
 	}
 	return (pairs);
 }

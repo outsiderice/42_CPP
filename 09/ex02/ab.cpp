@@ -16,10 +16,6 @@ ab::ab(int a, int b)
 		_a = b;
 		_b = a;
 	}
-	if (b == -1)
-		_isPair = false;
-	else
-		_isPair = true;
 }
 
 ab::ab(const ab &obj) : _a(obj._a), _b(obj._b)
@@ -50,5 +46,7 @@ int	ab::getB() const
 
 bool	ab::isPair() const
 {
-	return (_isPair);
+	if (_b == -1)
+		return (false);
+	return (true);
 }

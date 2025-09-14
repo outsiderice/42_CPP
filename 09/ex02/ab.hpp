@@ -21,7 +21,6 @@ public:
 private:
 	int _a;
 	int _b;
-	bool _isPair;
 };
 
 #endif
