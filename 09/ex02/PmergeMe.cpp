@@ -85,9 +85,15 @@ std::vector<ab>	PmergeMe::_pairedUpVector(std::vector<int> numbers)
 	for (size_t i = 0; i < numbers.size(); i++)
 	{
 		if (++i < numbers.size())
-			pairs.push_back(ab(numbers[i - 1], numbers[i]));
+		{
+			ab	pair = ab(numbers[i - 1], numbers[i]);
+			pairs.push_back(pair);
+		}
 		else
-			pairs.push_back(ab(numbers[i - 1], 0));
+		{
+			ab	pair = ab(numbers[i - 1], -1);
+			pairs.push_back(pair);
+		}
 	}
 	return (pairs);
 }
@@ -117,10 +123,10 @@ std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
 		leftoverA = top_nums.back();
 	if (leftoverA != -1)
 	{
-		size_t pos = _binarysearch(main, leftoverA, 0, main.size());
+		size_t pos = _binarySearchVector(main, leftoverA, 0, main.size());
 		main.insert(main.begin() + pos, leftoverA);
 	}
-	main = _insertBs(pairs, main);
+	main = _insertBsToVector(pairs, main);
 	return (main);
 }
 
@@ -138,22 +144,24 @@ std::vector<int>	PmergeMe::_getAs(std::vector<ab> pairs)
 	return (numbers);
 }
 
-size_t	PmergeMe::_binarysearch(std::vector<int> &v, int num, size_t start, size_t end)
+size_t	PmergeMe::_binarySearchVector(std::vector<int> &v, int num, size_t start, size_t end)
 {
 	std::cout << "in _binarysearch Vector" << std::endl;
-	size_t	middle = end / 2;
+	if (start > v.size()) start = v.size();
+    if (end > v.size()) end = v.size();
 	while (start < end)
 	{
+		size_t	middle = start + (end - start) / 2;
 		if (num < v[middle])
 			end = middle;
 		else
 			start = middle + 1;
-		middle = start + (end - start) / 2;
+		
 	}
 	return (start);
 }
 
-std::vector<int>	PmergeMe::_insertBs(std::vector<ab> pend, std::vector<int> main)
+std::vector<int>	PmergeMe::_insertBsToVector(std::vector<ab> pend, std::vector<int> main)
 {
 	std::cout << "in _insertBs" << std::endl;
 	std::vector<size_t>	J = _jacobsthalNumbers(pend.size());
@@ -175,7 +183,7 @@ std::vector<int>	PmergeMe::_insertBs(std::vector<ab> pend, std::vector<int> main
 	{
 		size_t	i = insertion_order[index];
 		int		b = pend[i].getB();
-		size_t	pos = _binarysearch(main, b, 0, i);
+		size_t	pos = _binarySearchVector(main, b, 0, i);
 
 		main.insert(main.begin() + pos, b);	
 	}
@@ -277,10 +285,10 @@ std::list<int>		PmergeMe::_sortList(std::list<ab> pairs)
 		leftoverA = top_nums.back();
 	if (leftoverA != -1)
 	{
-		std::list<int>::iterator	pos = _binarysearch(main, leftoverA);
+		std::list<int>::iterator	pos = _binarySearchList(main, leftoverA);
 		main.insert(pos, leftoverA);
 	}
-	main = _insertBs(pairs, main);
+	main = _insertBsToList(pairs, main);
 	return (main);
 }
 
@@ -298,7 +306,7 @@ std::list<int>	PmergeMe::_getAs(std::list<ab> pairs)
 	return (numbers);
 }
 
-std::list<int>::iterator	PmergeMe::_binarysearch(std::list<int> &l, int num)
+std::list<int>::iterator	PmergeMe::_binarySearchList(std::list<int> &l, int num)
 {
 	std::cout << "in binarysearch list" << std::endl;
 	std::list<int>::iterator start = l.begin();
@@ -311,7 +319,7 @@ std::list<int>::iterator	PmergeMe::_binarysearch(std::list<int> &l, int num)
 	return (start);
 }
 
-std::list<int>	PmergeMe::_insertBs(std::list<ab> pend, std::list<int> main)
+std::list<int>	PmergeMe::_insertBsToList(std::list<ab> pend, std::list<int> main)
 {
 	std::cout << "in _nsertbs list" << std::endl;
 	std::list<size_t>	J = _listJacobsthalNumbers(pend.size());
@@ -339,7 +347,7 @@ std::list<int>	PmergeMe::_insertBs(std::list<ab> pend, std::list<int> main)
 		std::advance(pend_it, i);
 		int	b = pend_it->getB();
 
-		std::list<int>::iterator	pos = _binarysearch(main, b);
+		std::list<int>::iterator	pos = _binarySearchList(main, b);
 		main.insert(pos, b);
 	}
 	return (main);

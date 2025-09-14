@@ -31,8 +31,8 @@ private:
 	std::vector<ab>		_pairedUpVector(std::vector<int> numbers);
 	std::vector<int>	_sortVector(std::vector<ab> pairs);
 	std::vector<int>	_getAs(std::vector<ab> pairs);
-	size_t				_binarysearch(std::vector<int> &main, int num, size_t start, size_t end);
-	std::vector<int>	_insertBs(std::vector<ab> pend, std::vector<int> main);
+	size_t				_binarySearchVector(std::vector<int> &main, int num, size_t start, size_t end);
+	std::vector<int>	_insertBsToVector(std::vector<ab> pend, std::vector<int> main);
 	std::vector<size_t>	_jacobsthalNumbers(size_t pend_size);
 	
 
@@ -41,8 +41,8 @@ private:
 	std::list<ab>				_pairedUpList(std::list<int> numbers);
 	std::list<int>				_sortList(std::list<ab> pairs);
 	std::list<int>				_getAs(std::list<ab> pairs);
-	std::list<int>::iterator	_binarysearch(std::list<int> &l, int num);
-	std::list<int>				_insertBs(std::list<ab> pend, std::list<int> main);
+	std::list<int>::iterator	_binarySearchList(std::list<int> &l, int num);
+	std::list<int>				_insertBsToList(std::list<ab> pend, std::list<int> main);
 	std::list<size_t>			_listJacobsthalNumbers(size_t pend_size);
 };
 
