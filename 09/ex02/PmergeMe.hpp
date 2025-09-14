@@ -20,13 +20,15 @@ public:
 
 	PmergeMe &operator=(const PmergeMe &obj);
 
-	void	sort(char **argv);
+	void	sort(int argc, char **argv);
 
 private:
-	double	_vector_time;
-	double	_list_time;
+	double				_vector_time;
+	double				_list_time;
+	std::vector<size_t>	JVector;
+	std::list<size_t>	JList;
 
-	std::vector<int>	_withVector(char **argv);
+	std::vector<int>	_withVector(int argc, char **argv);
 	std::vector<int>	_parseToVector(char **argv);
 	std::vector<ab>		_pairedUpVector(const std::vector<int> &numbers);
 	std::vector<int>	_sortVector(const std::vector<ab> &pairs, int level);
@@ -36,7 +38,7 @@ private:
 	std::vector<size_t>	_jacobsthalNumbers(size_t pend_size) const;
 	
 
-	std::list<int>				_withList(char **argv);
+	std::list<int>				_withList(int argc, char **argv);
 	std::list<int>				_parseToList(char **argv);
 	std::list<ab>				_pairedUpList(const std::list<int> &numbers);
 	std::list<int>				_sortList(const std::list<ab> &pairs, int level);

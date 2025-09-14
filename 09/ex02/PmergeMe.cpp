@@ -19,11 +19,11 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &obj)
 	return (*this);
 }
 
-void PmergeMe::sort(char **argv)
+void PmergeMe::sort(int argc, char **argv)
 {
 	try
 	{
-		std::vector<int>	ordered_vector = _withVector(argv);
+		std::vector<int>	ordered_vector = _withVector(argc, argv);
 		//std::list<int>	ordered_list = _withList(argv);
 
 		std::cout << "Before: ";
@@ -54,11 +54,12 @@ void PmergeMe::sort(char **argv)
 
 /*------------------------------------VECTOR FUNCTIONS------------------------------------*/
 
-std::vector<int>	PmergeMe::_withVector(char **argv)
+std::vector<int>	PmergeMe::_withVector(int argc, char **argv)
 {
 	//std::cout << "in _withVector" << std::endl;
 	clock_t	start = clock();
 	std::vector<int>	original_sequence = _parseToVector(argv);
+	JVector = _jacobsthalNumbers((argc - 1) / 2);
 	std::vector<ab>		pairs = _pairedUpVector(original_sequence);
 	std::vector<int>	ordered_sequence = _sortVector(pairs, 0);
 	clock_t	end = clock();
@@ -183,21 +184,22 @@ void	PmergeMe::_insertBsToVector(const std::vector<ab> &pend, std::vector<int> &
 	//std::cout << "in _insertBs" << std::endl;
 	if (pend.empty())
 		return ;
-	std::vector<size_t>	J = _jacobsthalNumbers(pend.size());
 	std::vector<int>	insertion_order;
 
 	insertion_order.push_back(0);
 	size_t	smaller_index = 1;
 	size_t	larger_index = 0;
-	for (size_t k = 0; k < J.size(); k++)
+	for (size_t k = 0; k < JVector.size(); k++)
 	{
-		larger_index = J[k];
+		larger_index = JVector[k];
 		for (size_t i = larger_index; i > smaller_index; i--)
 			insertion_order.push_back(i - 1);
 		smaller_index = larger_index;
 	}
 	for (size_t i = pend.size(); i > larger_index; i--)
 		insertion_order.push_back(i - 1);
+	
+	main.reserve(main.size() + pend.size());
 	for (size_t index = 0; index < insertion_order.size(); index++)
 	{
 		size_t	i = insertion_order[index];
@@ -240,10 +242,11 @@ std::vector<size_t>	PmergeMe::_jacobsthalNumbers(size_t pend_size) const
 
 /*------------------------------------LIST FUNCTIONS------------------------------------*/
 
-std::list<int>	PmergeMe::_withList(char **argv)
+std::list<int>	PmergeMe::_withList(int argc, char **argv)
 {
 	//std::cout << "in _withList" << std::endl;
 	clock_t	start = clock();
+	JList = _listJacobsthalNumbers((argc - 1) / 2);
 	std::list<int>	original_sequence = _parseToList(argv);
 	std::list<ab>	pairs = _pairedUpList(original_sequence);
 	std::list<int>	ordered_sequence = _sortList(pairs, 0);
@@ -359,14 +362,13 @@ void	PmergeMe::_insertBsToList(const std::list<ab> &pend, std::list<int> &main)
 	//std::cout << "in _nsertbs list" << std::endl;
 	if (pend.empty())
 		return ;
-	std::list<size_t>	J = _listJacobsthalNumbers(pend.size());
 	std::list<size_t>	insertion_order;
 	insertion_order.push_back(0);
 
 	size_t	smaller_index = 1;
 	size_t	larger_index = 0;
-	std::list<size_t>::iterator	it = J.begin();
-	for (; it != J.end(); it++)
+	std::list<size_t>::iterator	it = JList.begin();
+	for (; it != JList.end(); it++)
 	{
 		larger_index = *it;
 		for (size_t i = larger_index; i > smaller_index; i--)
