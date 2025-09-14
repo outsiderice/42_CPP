@@ -6,6 +6,7 @@ PmergeMe::PmergeMe()
 
 PmergeMe::PmergeMe(const PmergeMe &obj)
 {
+	(void)obj;
 }
 
 PmergeMe::~PmergeMe()
@@ -14,6 +15,8 @@ PmergeMe::~PmergeMe()
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &obj)
 {
+	(void)obj;
+	return (*this);
 }
 
 void PmergeMe::sort(char **argv)
@@ -26,7 +29,7 @@ void PmergeMe::sort(char **argv)
 		for (int i = 1; argv[i]; i++)
 			std::cout << argv[i] << " ";
 		std::cout << "\nVector result: ";
-		for (int i = 0; i < ordered_vector.size(); i++)
+		for (size_t i = 0; i < ordered_vector.size(); i++)
 			std::cout << ordered_vector[i] << " ";
 		std::cout << "\nList result: ";
 		std::list<int>::iterator	it = ordered_list.begin();
@@ -76,7 +79,7 @@ std::vector<ab>	PmergeMe::_pairedUpVector(std::vector<int> numbers)
 {
 	std::vector<ab>	pairs;
 
-	for (int i = 0; i < numbers.size(); i++)
+	for (size_t i = 0; i < numbers.size(); i++)
 	{
 		if (++i < numbers.size())
 			pairs.push_back(ab(numbers[i - 1], numbers[i]));
@@ -114,7 +117,7 @@ std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
 std::vector<int>	PmergeMe::_getAs(std::vector<ab> pairs)
 {
 	std::vector<int>	numbers;
-	int					i = 0;
+	size_t				i = 0;
 
 	while (i < pairs.size() && pairs[i].isPair() == true)
 		numbers.push_back(pairs[i].getA());

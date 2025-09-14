@@ -7,6 +7,7 @@
 #include <iostream>
 #include <time.h>
 #include <exception>
+#include <stdlib.h>
 
 #include "ab.hpp"
 
