@@ -111,7 +111,10 @@ std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
 	std::cout << "pairs size in this iteration " << pairs.size() << std::endl;
 	if (pairs.empty())
 		return (main);
-	if (pairs.size() <= 1)
+	size_t				pairs_size = pairs.size();
+	if (pairs[pairs.size() - 1].isPair() == false)
+		pairs_size--;
+	if (pairs_size <= 1)
 	{
 		std::cout << "inserting " << pairs[0].getB() << std::endl;
 		main.push_back(pairs[0].getB());
@@ -288,7 +291,10 @@ std::list<int>		PmergeMe::_sortList(std::list<ab> pairs)
 	std::list<int>	main;
 	if (pairs.empty())
 		return (main);
-	if (pairs.size() <= 1)
+	size_t	pairs_size = pairs.size();
+	if (pairs.back().isPair() == false)
+		pairs_size--;
+	if (pairs_size <= 1)
 	{
 		main.push_back(pairs.front().getB());
 		main.push_back(pairs.front().getA());
@@ -361,7 +367,7 @@ std::list<int>	PmergeMe::_insertBsToList(std::list<ab> pend, std::list<int> main
 	std::list<size_t>::iterator	index = insertion_order.begin();
 	for (; index != insertion_order.end(); index++)
 	{
-		size_t	i = *index;
+		size_t	i = *index;	
 		std::list<ab>::iterator	pend_it = pend.begin();
 		std::advance(pend_it, i);
 		int	b = 0;
