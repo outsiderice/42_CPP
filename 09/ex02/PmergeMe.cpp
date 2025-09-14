@@ -26,12 +26,15 @@ void PmergeMe::sort(char **argv)
 		std::vector<int>	ordered_vector = _withVector(argv);
 		std::list<int>	ordered_list = _withList(argv);
 
+		std::cout << "Before: ";
 		for (int i = 1; argv[i]; i++)
 			std::cout << argv[i] << " ";
-		std::cout << "\nVector result: ";
+		std::cout << std::endl;
+		std::cout << "After: ";
+		std::cout << "\n	Vector result: ";
 		for (size_t i = 0; i < ordered_vector.size(); i++)
 			std::cout << ordered_vector[i] << " ";
-		std::cout << "\nList result: ";
+		std::cout << "\n	List result: ";
 		std::list<int>::iterator	it = ordered_list.begin();
 		for (; it != ordered_list.end(); it++)
 			std::cout << *it << " ";
@@ -94,11 +97,6 @@ std::vector<ab>	PmergeMe::_pairedUpVector(std::vector<int> numbers)
 			ab	pair = ab(numbers[i - 1], -1);
 			pairs.push_back(pair);
 		}
-	}
-	for (size_t i = 0; i < pairs.size(); i++)
-	{
-		std::cout << pairs[i].getA() << "<- pair A" << std::endl;
-		std::cout << pairs[i].getB() << "<- pair B" << std::endl;
 	}
 	return (pairs);
 }
