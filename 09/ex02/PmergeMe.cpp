@@ -55,7 +55,7 @@ std::vector<int>	PmergeMe::_withVector(char **argv)
 	clock_t	start = clock();
 	std::vector<int>	original_sequence = _parseToVector(argv);
 	std::vector<ab>		pairs = _pairedUpVector(original_sequence);
-	std::vector<int>	ordered_sequence = _sortVector(pairs);
+	std::vector<int>	ordered_sequence = _sortVector(pairs, 0);
 	clock_t	end = clock();
 	_vector_time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	return (ordered_sequence);
@@ -103,7 +103,7 @@ std::vector<ab>	PmergeMe::_pairedUpVector(std::vector<int> numbers)
 	return (pairs);
 }
 
-std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
+std::vector<int>	PmergeMe::_sortVector(const std::vector<ab> &pairs, int level)
 {
 	std::cout << "in _sortVector" << std::endl;
 	std::vector<int>	main;
@@ -120,13 +120,18 @@ std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
 		main.push_back(pairs[0].getB());
 		std::cout << "inserting " << pairs[0].getA() << std::endl;
 		main.push_back(pairs[0].getA());
+		if (level == 0 && pairs.back().isPair() == false)
+		{
+			size_t	insert = _binarySearchVector(main, pairs.back().getA(), 0, main.size());
+			main.insert(main.begin() + insert, pairs.back().getA());
+		}
 		return (main);
 	}
 	std::vector<int> 	top_nums = _getAs(pairs);
 	std::vector<ab>		top_pairs = _pairedUpVector(top_nums);
 
 
-	main = _sortVector(top_pairs);
+	main = _sortVector(top_pairs, ++level);
 
 	int	leftoverA = -1;
 	if (top_nums.size() % 2 == 1)
@@ -177,9 +182,11 @@ size_t	PmergeMe::_binarySearchVector(std::vector<int> &v, int num, size_t start,
 	return (start);
 }
 
-std::vector<int>	PmergeMe::_insertBsToVector(std::vector<ab> pend, std::vector<int> main)
+std::vector<int>	PmergeMe::_insertBsToVector(const std::vector<ab> &pend, std::vector<int> main)
 {
 	std::cout << "in _insertBs" << std::endl;
+	if (pend.empty())
+		return (main);
 	std::vector<size_t>	J = _jacobsthalNumbers(pend.size());
 	std::vector<int>	insertion_order;
 
@@ -198,6 +205,8 @@ std::vector<int>	PmergeMe::_insertBsToVector(std::vector<ab> pend, std::vector<i
 	for (size_t index = 0; index < insertion_order.size(); index++)
 	{
 		size_t	i = insertion_order[index];
+		if (i >= pend.size())
+			break ;
 		int	b = 0;
 		if (pend[i].isPair() == true)
 			b = pend[i].getB();
@@ -241,7 +250,7 @@ std::list<int>	PmergeMe::_withList(char **argv)
 	clock_t	start = clock();
 	std::list<int>	original_sequence = _parseToList(argv);
 	std::list<ab>	pairs = _pairedUpList(original_sequence);
-	std::list<int>	ordered_sequence = _sortList(pairs);
+	std::list<int>	ordered_sequence = _sortList(pairs, 0);
 	clock_t	end = clock();
 	_list_time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	return (ordered_sequence);
@@ -285,7 +294,7 @@ std::list<ab>	PmergeMe::_pairedUpList(std::list<int> numbers)
 	return (pairs);
 }
 
-std::list<int>		PmergeMe::_sortList(std::list<ab> pairs)
+std::list<int>		PmergeMe::_sortList(const std::list<ab> &pairs, int level)
 {
 	std::cout << "in _orList" << std::endl;
 	std::list<int>	main;
@@ -298,11 +307,16 @@ std::list<int>		PmergeMe::_sortList(std::list<ab> pairs)
 	{
 		main.push_back(pairs.front().getB());
 		main.push_back(pairs.front().getA());
+		if (level == 0 && pairs.back().isPair() == false)
+		{
+			std::list<int>::iterator	it = _binarySearchList(main, pairs.back().getA());
+			main.insert(it, pairs.back().getA());
+		}
 		return (main);
 	}
 	std::list<int>	top_nums = _getAs(pairs);
 	std::list<ab>	top_pairs = _pairedUpList(top_nums);
-	main = _sortList(top_pairs);
+	main = _sortList(top_pairs, ++level);
 
 	int	leftoverA = -1;
 	if (top_nums.size() % 2 == 1)
@@ -344,7 +358,7 @@ std::list<int>::iterator	PmergeMe::_binarySearchList(std::list<int> &l, int num)
 	return (start);
 }
 
-std::list<int>	PmergeMe::_insertBsToList(std::list<ab> pend, std::list<int> main)
+std::list<int>	PmergeMe::_insertBsToList(const std::list<ab> &pend, std::list<int> main)
 {
 	std::cout << "in _nsertbs list" << std::endl;
 	std::list<size_t>	J = _listJacobsthalNumbers(pend.size());
@@ -367,8 +381,10 @@ std::list<int>	PmergeMe::_insertBsToList(std::list<ab> pend, std::list<int> main
 	std::list<size_t>::iterator	index = insertion_order.begin();
 	for (; index != insertion_order.end(); index++)
 	{
-		size_t	i = *index;	
-		std::list<ab>::iterator	pend_it = pend.begin();
+		size_t	i = *index;
+		if (i >= pend.size())
+			break ;
+		std::list<ab>::const_iterator	pend_it = pend.begin();
 		std::advance(pend_it, i);
 		int	b = 0;
 		if (pend_it->isPair() == true)
