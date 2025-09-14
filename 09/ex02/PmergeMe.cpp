@@ -155,7 +155,7 @@ std::vector<int>	PmergeMe::_insertBs(std::vector<ab> pend, std::vector<int> main
 	return (main);
 }
 
-std::vector<size_t>	_jacobsthalNumbers(size_t pend_size)
+std::vector<size_t>	PmergeMe::_jacobsthalNumbers(size_t pend_size)
 {
 	std::vector<size_t>	J;
 	J.push_back(0);
@@ -206,6 +206,18 @@ std::list<int>	PmergeMe::_parseToList(char **argv)
 
 std::list<ab>	PmergeMe::_pairedUpList(std::list<int> numbers)
 {
-	std::list<ab>	main;
-	return (main);
+	std::list<ab>	pairs;
+	std::list<int>::iterator	it = numbers.begin();
+	for (; it != numbers.end();it++)
+	{
+		int	first = *it;
+		if (++it != numbers.end())
+		{
+			int	second = *it;
+			pairs.push_back(ab(first, second));
+		}
+		else
+			pairs.push_back(ab(first, 0));
+	}
+	return (pairs);
 }
