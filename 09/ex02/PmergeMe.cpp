@@ -97,11 +97,14 @@ std::vector<int>	PmergeMe::_sortVector(std::vector<ab> pairs)
 	std::cout << "in _sortVector" << std::endl;
 	std::vector<int>	main;
 
+	std::cout << "pairs size in this iteration " << pairs.size() << std::endl;
 	if (pairs.empty())
 		return (main);
 	if (pairs.size() <= 1)
 	{
+		std::cout << "inserting " << pairs[0].getB() << std::endl;
 		main.push_back(pairs[0].getB());
+		std::cout << "inserting " << pairs[0].getA() << std::endl;
 		main.push_back(pairs[0].getA());
 		return (main);
 	}
@@ -128,7 +131,10 @@ std::vector<int>	PmergeMe::_getAs(std::vector<ab> pairs)
 	size_t				i = 0;
 
 	while (i < pairs.size() && pairs[i].isPair() == true)
+	{
 		numbers.push_back(pairs[i].getA());
+		i++;
+	}
 	return (numbers);
 }
 
@@ -285,7 +291,10 @@ std::list<int>	PmergeMe::_getAs(std::list<ab> pairs)
 	std::list<ab>::iterator	it = pairs.begin();
 
 	while (it != pairs.end() && it->isPair() == true)
+	{
 		numbers.push_back(it->getA());
+		it++;
+	}
 	return (numbers);
 }
 
