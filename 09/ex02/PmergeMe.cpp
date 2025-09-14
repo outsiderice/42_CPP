@@ -134,7 +134,7 @@ std::vector<int>	PmergeMe::_insertBs(std::vector<ab> pend, std::vector<int> main
 
 	insertion_order.push_back(0);
 	size_t	smaller_index = 1;
-	size_t	larger_index;
+	size_t	larger_index = 0;
 	for (size_t k = 0; k < J.size(); k++)
 	{
 		larger_index = J[k];
@@ -272,7 +272,34 @@ std::list<int>::iterator	PmergeMe::_binarysearch(std::list<int> &l, int num)
 std::list<int>	PmergeMe::_insertBs(std::list<ab> pend, std::list<int> main)
 {
 	std::list<size_t>	J = _listJacobsthalNumbers(pend.size());
+	std::list<size_t>	insertion_order;
+	insertion_order.push_back(0);
 
+	size_t	smaller_index = 1;
+	size_t	larger_index = 0;
+	std::list<size_t>::iterator	it = J.begin();
+	for (; it != J.end(); it++)
+	{
+		larger_index = *it;
+		for (size_t i = larger_index; i > smaller_index; i--)
+			insertion_order.push_back(i - 1);
+		smaller_index = larger_index;
+	}
+	for (size_t i = pend.size(); i > larger_index; i--)
+		insertion_order.push_back(i - 1);
+
+	std::list<size_t>::iterator	index = insertion_order.begin();
+	for (; index != insertion_order.end(); index++)
+	{
+		size_t	i = *index;
+		std::list<ab>::iterator	pend_it = pend.begin();
+		std::advance(pend_it, i);
+		int	b = pend_it->getB();
+
+		std::list<int>::iterator	pos = _binarysearch(main, b);
+		main.insert(pos, b);
+	}
+	return (main);
 }
 
 std::list<size_t>	PmergeMe::_listJacobsthalNumbers(size_t pend_size)
