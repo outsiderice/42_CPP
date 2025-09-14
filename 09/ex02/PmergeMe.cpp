@@ -24,7 +24,7 @@ void PmergeMe::sort(char **argv)
 	try
 	{
 		std::vector<int>	ordered_vector = _withVector(argv);
-		std::list<int>	ordered_list = _withList(argv);
+		//std::list<int>	ordered_list = _withList(argv);
 
 		std::cout << "Before: ";
 		for (int i = 1; argv[i]; i++)
@@ -35,14 +35,16 @@ void PmergeMe::sort(char **argv)
 		for (size_t i = 0; i < ordered_vector.size(); i++)
 			std::cout << ordered_vector[i] << " ";
 		std::cout << "\n	List result: ";
+		/*
 		std::list<int>::iterator	it = ordered_list.begin();
 		for (; it != ordered_list.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;
+		*/
 		std::cout << "Time to process a range of " << ordered_vector.size() ;
 		std::cout << " elements with std::vector : "  << _vector_time << " us" << std::endl;
-		std::cout << "Time to process a range of " << ordered_list.size() ;
-		std::cout << " elements with std::list : "  << _list_time << " us" << std::endl;
+		//std::cout << "Time to process a range of " << ordered_list.size() ;
+		//std::cout << " elements with std::list : "  << _list_time << " us" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
