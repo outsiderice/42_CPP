@@ -156,10 +156,6 @@ std::vector<int>	PmergeMe::_getAs(const std::vector<ab> &pairs)
 			numbers.push_back(pairs[i].getA());
 		i++;
 	}
-	//std::cout << "top nums are:" << std::endl;
-	for (size_t i = 0; i < numbers.size(); i++)
-		std::cout << numbers[i] << ", ";
-	std::cout << std::endl;
 	return (numbers);
 }
 
