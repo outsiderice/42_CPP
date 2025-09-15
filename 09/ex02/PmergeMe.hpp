@@ -31,7 +31,7 @@ private:
 	std::vector<int>	_withVector(int argc, char **argv);
 	std::vector<int>	_parseToVector(char **argv);
 	std::vector<ab>		_pairedUpVector(const std::vector<int> &numbers);
-	std::vector<int>	_sortVector(const std::vector<ab> &pairs, int level);
+	std::vector<int>	_sortVector(const std::vector<ab> &pairs);
 	std::vector<int>	_getAs(const std::vector<ab> &pairs);
 	size_t				_binarySearchVector(const std::vector<int> &v, int num, size_t start, size_t end) const;
 	void				_insertBsToVector(const std::vector<ab> &pend, std::vector<int> &main);

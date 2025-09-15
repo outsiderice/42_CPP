@@ -61,7 +61,7 @@ std::vector<int>	PmergeMe::_withVector(int argc, char **argv)
 	std::vector<int>	original_sequence = _parseToVector(argv);
 	JVector = _jacobsthalNumbers((argc - 1) / 2);
 	std::vector<ab>		pairs = _pairedUpVector(original_sequence);
-	std::vector<int>	ordered_sequence = _sortVector(pairs, 0);
+	std::vector<int>	ordered_sequence = _sortVector(pairs);
 	clock_t	end = clock();
 	_vector_time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	return (ordered_sequence);
@@ -104,46 +104,60 @@ std::vector<ab>	PmergeMe::_pairedUpVector(const std::vector<int> &numbers)
 	return (pairs);
 }
 
-std::vector<int>	PmergeMe::_sortVector(const std::vector<ab> &pairs, int level)
+std::vector<int>	PmergeMe::_sortVector(const std::vector<ab> &pairs)
 {
-	//std::cout << "in _sortVector" << std::endl;
-	std::vector<int>	main;
+	std::vector<int>					main;
+	std::vector<std::vector<ab> >		stack;
 
-	//std::cout << "pairs size in this iteration " << pairs.size() << std::endl;
-	if (pairs.empty())
-		return (main);
-	size_t				pairs_size = pairs.size();
-	if (pairs[pairs.size() - 1].isPair() == false)
-		pairs_size--;
-	if (pairs_size <= 1)
-	{
-		//std::cout << "inserting " << pairs[0].getB() << std::endl;
-		main.push_back(pairs[0].getB());
-		//std::cout << "inserting " << pairs[0].getA() << std::endl;
-		main.push_back(pairs[0].getA());
-		if (level == 0 && pairs.back().isPair() == false)
+	stack.push_back(pairs);
+	//problem = the top number of the pairs are unordered.
+	//accumulator = main where I sort the ordered top numbers? or a pair vector where i reduce the number of pairs?
+	/*
+		while (top_numbers are < 1)
 		{
-			size_t	insert = _binarySearchVector(main, pairs.back().getA(), 0, main.size());
-			main.insert(main.begin() + insert, pairs.back().getA());
+			accumulator = 
 		}
-		return (main);
-	}
-	std::vector<int> 	top_nums = _getAs(pairs);
-	std::vector<ab>		top_pairs = _pairedUpVector(top_nums);
-
-
-	main = _sortVector(top_pairs, ++level);
-
-	int	leftoverA = -1;
-	if (top_nums.size() % 2 == 1)
-		leftoverA = top_nums.back();
-	if (leftoverA != -1)
+		main = push b1 a1 a2;
+		insert bs
+	*/
+	while (stack.back().size() > 1)
 	{
-		size_t pos = _binarySearchVector(main, leftoverA, 0, main.size());
-		main.insert(main.begin() + pos, leftoverA);
-		//std::cout << "inserting leftoverA: " << leftoverA << std::endl;
+		const std::vector<ab>	&cur = stack.back();
+		std::vector<int>		top_nums = _getAs(cur);
+		std::vector<ab>			top_pairs = _pairedUpVector(top_nums);
+		stack.push_back(top_pairs);
 	}
-	_insertBsToVector(pairs, main);
+	const std::vector<ab>	&bottom = stack.back();
+	
+
+	if (!bottom.empty())
+	{
+		if (bottom[0].isPair() == true)
+		{
+			main.push_back(bottom[0].getB());
+			main.push_back(bottom[0].getA());
+		}
+		else
+		{
+			main.push_back(bottom[0].getA());
+		}
+	}
+	stack.pop_back();
+
+	while (!stack.empty())
+	{
+		const std::vector<ab>	&cur = stack.back();
+		
+		std::vector<int>	top_nums = _getAs(cur);
+		if (top_nums.size() % 2 == 1)
+		{
+			int 	leftoverA = top_nums.back();
+			size_t	pos = _binarySearchVector(main, leftoverA, 0, main.size());
+			main.insert(main.begin() + pos, leftoverA);
+		}
+		_insertBsToVector(cur, main);
+		stack.pop_back();
+	}
 	return (main);
 }
 
@@ -186,6 +200,9 @@ void	PmergeMe::_insertBsToVector(const std::vector<ab> &pend, std::vector<int> &
 		return ;
 	std::vector<int>	insertion_order;
 
+	for(size_t i = JVector.size(); i > pend.size(); i--)
+		JVector.pop_back();
+
 	insertion_order.push_back(0);
 	size_t	smaller_index = 1;
 	size_t	larger_index = 0;
@@ -193,7 +210,9 @@ void	PmergeMe::_insertBsToVector(const std::vector<ab> &pend, std::vector<int> &
 	{
 		larger_index = JVector[k];
 		for (size_t i = larger_index; i > smaller_index; i--)
+		{
 			insertion_order.push_back(i - 1);
+		}
 		smaller_index = larger_index;
 	}
 	for (size_t i = pend.size(); i > larger_index; i--)
@@ -246,8 +265,8 @@ std::list<int>	PmergeMe::_withList(int argc, char **argv)
 {
 	//std::cout << "in _withList" << std::endl;
 	clock_t	start = clock();
-	JList = _listJacobsthalNumbers((argc - 1) / 2);
 	std::list<int>	original_sequence = _parseToList(argv);
+	JList = _listJacobsthalNumbers((argc - 1) / 2);
 	std::list<ab>	pairs = _pairedUpList(original_sequence);
 	std::list<int>	ordered_sequence = _sortList(pairs, 0);
 	clock_t	end = clock();
