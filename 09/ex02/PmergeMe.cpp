@@ -24,7 +24,7 @@ void PmergeMe::sort(int argc, char **argv)
 	try
 	{
 		std::vector<int>	ordered_vector = _withVector(argc, argv);
-		//std::list<int>	ordered_list = _withList(argv);
+		std::list<int>	ordered_list = _withList(argc, argv);
 
 		std::cout << "Before: ";
 		for (int i = 1; argv[i]; i++)
@@ -35,16 +35,16 @@ void PmergeMe::sort(int argc, char **argv)
 		for (size_t i = 0; i < ordered_vector.size(); i++)
 			std::cout << ordered_vector[i] << " ";
 		std::cout << "\n	List result: ";
-		/*
+		
 		std::list<int>::iterator	it = ordered_list.begin();
 		for (; it != ordered_list.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;
-		*/
+		
 		std::cout << "Time to process a range of " << ordered_vector.size() ;
 		std::cout << " elements with std::vector : "  << _vector_time << " us" << std::endl;
-		//std::cout << "Time to process a range of " << ordered_list.size() ;
-		//std::cout << " elements with std::list : "  << _list_time << " us" << std::endl;
+		std::cout << "Time to process a range of " << ordered_list.size() ;
+		std::cout << " elements with std::list : "  << _list_time << " us" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -268,7 +268,7 @@ std::list<int>	PmergeMe::_withList(int argc, char **argv)
 	std::list<int>	original_sequence = _parseToList(argv);
 	JList = _listJacobsthalNumbers((argc - 1) / 2);
 	std::list<ab>	pairs = _pairedUpList(original_sequence);
-	std::list<int>	ordered_sequence = _sortList(pairs, 0);
+	std::list<int>	ordered_sequence = _sortList(pairs);
 	clock_t	end = clock();
 	_list_time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	return (ordered_sequence);
@@ -312,40 +312,47 @@ std::list<ab>	PmergeMe::_pairedUpList(const std::list<int> &numbers)
 	return (pairs);
 }
 
-std::list<int>		PmergeMe::_sortList(const std::list<ab> &pairs, int level)
+std::list<int>		PmergeMe::_sortList(const std::list<ab> &pairs)
 {
-	//std::cout << "in _orList" << std::endl;
-	std::list<int>	main;
-	if (pairs.empty())
-		return (main);
-	size_t	pairs_size = pairs.size();
-	if (pairs.back().isPair() == false)
-		pairs_size--;
-	if (pairs_size <= 1)
-	{
-		main.push_back(pairs.front().getB());
-		main.push_back(pairs.front().getA());
-		if (level == 0 && pairs.back().isPair() == false)
-		{
-			std::list<int>::iterator	it = _binarySearchList(main, pairs.back().getA());
-			main.insert(it, pairs.back().getA());
-		}
-		return (main);
-	}
-	std::list<int>	top_nums = _getAs(pairs);
-	std::list<ab>	top_pairs = _pairedUpList(top_nums);
-	main = _sortList(top_pairs, ++level);
+	std::list<int>				main;
+	std::list<std::list<ab> >	stack;
+	stack.push_back(pairs);
 
-	int	leftoverA = -1;
-	if (top_nums.size() % 2 == 1)
-		leftoverA = top_nums.back();
-	if (leftoverA != -1)
+	while (stack.back().size() > 1)
 	{
-		std::list<int>::iterator	pos = _binarySearchList(main, leftoverA);
-		//std::cout << "inserting leftoverA: " << leftoverA << std::endl;
-		main.insert(pos, leftoverA);
+		const std::list<ab>	&cur = stack.back();
+		std::list<int>		top_nums = _getAs(cur);
+		std::list<ab>		top_pairs = _pairedUpList(top_nums);
+		stack.push_back(top_pairs);
 	}
-	_insertBsToList(pairs, main);
+	const std::list<ab>	&bottom = stack.back();
+
+	if (!bottom.empty())
+	{
+		if (bottom.front().isPair() == true)
+		{
+			main.push_back(bottom.front().getB());
+			main.push_back(bottom.front().getA());
+		}
+		else
+			main.push_back(bottom.front().getA());
+	}
+	stack.pop_back();
+
+	while (!stack.empty())
+	{
+		const std::list<ab>	&cur = stack.back();
+
+		std::list<int>	top_nums = _getAs(cur);
+		if (top_nums.size() % 2 == 1)
+		{
+			int	leftoverA = top_nums.back();
+			std::list<int>::iterator	pos = _binarySearchList(main, leftoverA);
+			main.insert(pos, leftoverA);
+		}
+		_insertBsToList(cur, main);
+		stack.pop_back();
+	}
 	return (main);
 }
 
@@ -381,6 +388,10 @@ void	PmergeMe::_insertBsToList(const std::list<ab> &pend, std::list<int> &main)
 	//std::cout << "in _nsertbs list" << std::endl;
 	if (pend.empty())
 		return ;
+
+	for(size_t i = JList.size(); i > pend.size(); i--)
+		JList.pop_back();
+
 	std::list<size_t>	insertion_order;
 	insertion_order.push_back(0);
 

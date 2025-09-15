@@ -41,7 +41,7 @@ private:
 	std::list<int>				_withList(int argc, char **argv);
 	std::list<int>				_parseToList(char **argv);
 	std::list<ab>				_pairedUpList(const std::list<int> &numbers);
-	std::list<int>				_sortList(const std::list<ab> &pairs, int level);
+	std::list<int>				_sortList(const std::list<ab> &pairs);
 	std::list<int>				_getAs(const std::list<ab> &pairs);
 	std::list<int>::iterator	_binarySearchList(std::list<int> &l, int num);
 	void						_insertBsToList(const std::list<ab> &pend, std::list<int> &main);
