@@ -37,7 +37,7 @@ void	RPN::calculate(std::string input)
 			std::cerr << "Error: input numbers should be less than 10, " << std::endl;
 			return ;
 		}
-		if (isdigit(str[0]) == true)
+		if (isdigit(str[0]))
 			_operands.push(str[0] - '0');
 		else
 		{
